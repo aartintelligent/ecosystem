@@ -1,13 +1,5 @@
 ARG PHP_VERSION='8.2'
 
-FROM aartintelligent/ops-yarn:latest AS symfony-ops-yarn
-
-COPY src /src
-
-RUN set -eux; \
-yarn install; \
-yarn build
-
 FROM aartintelligent/ops-composer:${PHP_VERSION} AS symfony-ops-composer
 
 ARG COMPOSER_AUTH=""
@@ -30,6 +22,14 @@ composer install \
 --no-dev; \
 composer dump-autoload \
 --optimize
+
+FROM aartintelligent/ops-yarn:latest AS symfony-ops-yarn
+
+COPY src /src
+
+RUN set -eux; \
+yarn install; \
+yarn build
 
 FROM aartintelligent/app-php:${PHP_VERSION}
 
