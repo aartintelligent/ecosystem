@@ -1,5 +1,13 @@
 ARG PHP_VERSION='8.2'
 
+FROM aartintelligent/ops-yarn:latest AS symfony-ops-yarn
+
+COPY src /src
+
+RUN set -eux; \
+yarn install; \
+yarn build
+
 FROM aartintelligent/ops-composer:${PHP_VERSION} AS symfony-ops-composer
 
 ARG COMPOSER_AUTH=""
@@ -41,6 +49,8 @@ rm -rf /var/www/*
 COPY --chown=rootless:rootless src /var/www
 
 COPY --chown=rootless:rootless --from=symfony-ops-composer /src/vendor /var/www/vendor
+
+COPY --chown=rootless:rootless --from=symfony-ops-yarn /src/public/build /var/www/public/build
 
 COPY --chown=rootless:rootless system /
 

@@ -6,5 +6,7 @@
 /README.md
 /src/phpunit.xml.dist
 /src/public/bundles
+/src/public/build
+/src/node_modules
 /src/var
 /src/vendor
