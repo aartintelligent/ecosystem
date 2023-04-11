@@ -27,6 +27,10 @@ docker run -it --rm -u $(id -u):$(id -g) -v $(pwd):/src aartintelligent/ops-comp
 ```
 
 ```shell
+docker run -it --rm -u $(id -u):$(id -g) -v $(pwd):/src aartintelligent/ops-composer:8.1 -v
+```
+
+```shell
 docker push aartintelligent/ops-composer:8.1
 ```
 
