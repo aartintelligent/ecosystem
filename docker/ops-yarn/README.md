@@ -15,9 +15,5 @@ docker run -it --rm -u $(id -u):$(id -g) -v $(pwd):/src aartintelligent/ops-yarn
 ```
 
 ```shell
-docker push aartintelligent/ops-yarn:1.22
-```
-
-```shell
 docker push aartintelligent/ops-yarn:latest
 ```
