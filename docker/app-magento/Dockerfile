@@ -68,7 +68,17 @@ RABBITMQ_PORT="5672" \
 RABBITMQ_USER="rootless" \
 RABBITMQ_PASSWORD="nopassword" \
 RABBITMQ_VIRTUALHOST="/" \
-PHP_OPCACHE__PRELOAD="/var/www/app/preload.php"
+PHP_MEMORY_LIMIT="4G" \
+PHP_SENDMAIL_PATH="/usr/sbin/sendmail -t -i" \
+PHP_OPCACHE__ENABLE="1" \
+PHP_OPCACHE__ENABLE_CLI="1" \
+PHP_OPCACHE__PRELOAD="/var/www/app/preload.php" \
+PHP_OPCACHE__JIT="function" \
+FPM_PM__TYPE="static" \
+FPM_PM__MAX_CHILDREN="5" \
+FPM_PM__MAX_REQUESTS="2048" \
+NGINX_WORKER_PROCESSES="5" \
+NGINX_WORKER_CONNECTIONS="2048"
 
 RUN set -eux; \
 rm -rf /var/www/*
