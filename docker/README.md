@@ -60,14 +60,6 @@
 
 ---
 
-### Ops Phing
-
-@todo description
-
-[Documentation](ops-phing)
-
----
-
 ### Ops PHP
 
 @todo description
