@@ -6,6 +6,7 @@
 /Dockerfile
 /README.md
 /src/generated
+/src/phpserver
 /src/node_modules
 /src/pub/static
 /src/var
