@@ -4,8 +4,8 @@
     {
       "type": 3,
       "title": "App Magento",
-      "description": "",
-      "note": "",
+      "description": "Diversify your customer base. We’ll tailor their commerce experience.",
+      "note": "Adobe Commerce uses AI and advanced data sharing capabilities to create end-to-end personalized B2C and B2B commerce experiences from a single platform that is flexible, extensible, and scalable.",
       "categories": [
         "php",
         "ecommerce",
@@ -23,7 +23,6 @@
       "title": "App Symfony",
       "description": "Symfony is a set of reusable PHP components ... and a PHP framework for web projects",
       "note": "The standard foundation on which the best PHP applications are built. Choose any of the 50 stand-alone components available for your own applications. ",
-
       "categories": [
         "php",
         "framework",
