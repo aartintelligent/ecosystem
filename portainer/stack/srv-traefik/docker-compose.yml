@@ -9,7 +9,7 @@ services:
       - --providers.docker.exposedbydefault=false
       - --entrypoints.http.address=:80
       - --entrypoints.https.address=:443
-      - --certificatesresolvers.le.acme.email=fake@${DOMAIN?Variable not set}
+      - --certificatesresolvers.le.acme.email={EMAIL?Variable not set}
       - --certificatesresolvers.le.acme.storage=/certificates/acme.json
       - --certificatesresolvers.le.acme.tlschallenge=true
       - --log
