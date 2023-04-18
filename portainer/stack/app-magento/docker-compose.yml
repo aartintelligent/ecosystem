@@ -1,0 +1,152 @@
+version: "3.8"
+
+services:
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.mailhog-http.rule=Host(`mailhog.${DOMAIN?Variable not set}`)
+      - traefik.http.routers.mailhog-http.entrypoints=http
+      - traefik.http.routers.mailhog-http.middlewares=https-redirect
+      - traefik.http.routers.mailhog-https.rule=Host(`mailhog.${DOMAIN?Variable not set}`)
+      - traefik.http.routers.mailhog-https.entrypoints=https
+      - traefik.http.routers.mailhog-https.tls=true
+      - traefik.http.routers.mailhog-https.tls.certresolver=le
+      - traefik.http.services.mailhog.loadbalancer.server.port=8025
+    networks:
+      - traefik-public
+
+  mysql:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: nopassword
+      MYSQL_DATABASE: magento
+    volumes:
+      - mysql-data:/var/lib/mysql:rw,delegated
+    networks:
+      - traefik-public
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.phpmyadmin-http.rule=Host(`phpmyadmin.${DOMAIN?Variable not set}`)
+      - traefik.http.routers.phpmyadmin-http.entrypoints=http
+      - traefik.http.routers.phpmyadmin-http.middlewares=https-redirect
+      - traefik.http.routers.phpmyadmin-https.rule=Host(`phpmyadmin.${DOMAIN?Variable not set}`)
+      - traefik.http.routers.phpmyadmin-https.entrypoints=https
+      - traefik.http.routers.phpmyadmin-https.tls=true
+      - traefik.http.routers.phpmyadmin-https.tls.certresolver=le
+      - traefik.http.services.phpmyadmin.loadbalancer.server.port=80
+    links:
+      - mysql
+    depends_on:
+      - mysql
+    networks:
+      - traefik-public
+
+  redis-cache:
+    image: redis:7.0
+    volumes:
+      - redis-cache-data:/data:rw,delegated
+    networks:
+      - traefik-public
+
+  redis-session:
+    image: redis:7.0
+    volumes:
+      - redis-session-data:/data:rw,delegated
+    networks:
+      - traefik-public
+
+  opensearch:
+    image: opensearchproject/opensearch:2.6.0
+#    command: >
+#      bash -c '
+#        bin/opensearch-plugin install analysis-phonetic;
+#        bin/opensearch-plugin install analysis-icu;
+#        exec /usr/share/opensearch/opensearch-docker-entrypoint.sh opensearch;
+#      '
+    environment:
+      - discovery.type=single-node
+    volumes:
+      - opensearch-data:/usr/share/opensearch/data:rw,delegated
+    networks:
+      - traefik-public
+
+  opensearch-dashboards:
+    image: opensearchproject/opensearch-dashboards:2.6.0
+    environment:
+      OPENSEARCH_HOSTS: '["https://opensearch:9200"]'
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.opensearch-dashboards-http.rule=Host(`opensearch-dashboards.${DOMAIN?Variable not set}`)
+      - traefik.http.routers.opensearch-dashboards-http.entrypoints=http
+      - traefik.http.routers.opensearch-dashboards-http.middlewares=https-redirect
+      - traefik.http.routers.opensearch-dashboards-https.rule=Host(`opensearch-dashboards.${DOMAIN?Variable not set}`)
+      - traefik.http.routers.opensearch-dashboards-https.entrypoints=https
+      - traefik.http.routers.opensearch-dashboards-https.tls=true
+      - traefik.http.routers.opensearch-dashboards-https.tls.certresolver=le
+      - traefik.http.services.opensearch-dashboards.loadbalancer.server.port=5601
+    networks:
+      - traefik-public
+
+  rabbitmq:
+    image: rabbitmq:3.11-management
+    environment:
+      RABBITMQ_DEFAULT_USER: root
+      RABBITMQ_DEFAULT_PASS: nopassword
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.rabbitmq-http.rule=Host(`rabbitmq.${DOMAIN?Variable not set}`)
+      - traefik.http.routers.rabbitmq-http.entrypoints=http
+      - traefik.http.routers.rabbitmq-http.middlewares=https-redirect
+      - traefik.http.routers.rabbitmq-https.rule=Host(`rabbitmq.${DOMAIN?Variable not set}`)
+      - traefik.http.routers.rabbitmq-https.entrypoints=https
+      - traefik.http.routers.rabbitmq-https.tls=true
+      - traefik.http.routers.rabbitmq-https.tls.certresolver=le
+      - traefik.http.services.rabbitmq.loadbalancer.server.port=15672
+    networks:
+      - traefik-public
+
+  magento:
+    image: aartintelligent/app-magento:2.4
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.magento-http.rule=Host(`magento.${DOMAIN?Variable not set}`)
+      - traefik.http.routers.magento-http.entrypoints=http
+      - traefik.http.routers.magento-http.middlewares=https-redirect
+      - traefik.http.routers.magento-https.rule=Host(`magento.${DOMAIN?Variable not set}`)
+      - traefik.http.routers.magento-https.entrypoints=https
+      - traefik.http.routers.magento-https.tls=true
+      - traefik.http.routers.magento-https.tls.certresolver=le
+      - traefik.http.services.magento.loadbalancer.server.port=8080
+    links:
+      - mailhog
+      - mysql
+      - redis-cache
+      - redis-session
+      - opensearch
+    depends_on:
+      - mailhog
+      - mysql
+      - redis-cache
+      - redis-session
+      - opensearch
+    networks:
+      - traefik-public
+
+networks:
+  traefik-public:
+    external: true
+
+volumes:
+  mysql-data:
+  redis-cache-data:
+  redis-session-data:
+  opensearch-data:
