@@ -16,7 +16,7 @@
       "logo": "https://raw.githubusercontent.com/aartintelligent/ecosystem/master/portainer/stack/app-magento/icon.svg",
       "repository": {
         "url": "https://github.com/aartintelligent/ecosystem",
-        "stackfile": "portainer/stacks/app-magento/docker-compose.yml"
+        "stackfile": "portainer/stack/app-magento/docker-compose.yml"
       }
     },
     {
@@ -33,7 +33,7 @@
       "logo": "https://raw.githubusercontent.com/aartintelligent/ecosystem/master/portainer/stack/app-symfony/icon.svg",
       "repository": {
         "url": "https://github.com/aartintelligent/ecosystem",
-        "stackfile": "portainer/stacks/app-symfony/docker-compose.yml"
+        "stackfile": "portainer/stack/app-symfony/docker-compose.yml"
       }
     }
   ]
