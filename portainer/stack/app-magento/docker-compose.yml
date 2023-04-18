@@ -21,8 +21,8 @@ services:
     image: mysql:8.0
     command: --default-authentication-plugin=mysql_native_password
     environment:
-      MYSQL_ROOT_PASSWORD: nopassword
-      MYSQL_DATABASE: magento
+      MYSQL_ROOT_PASSWORD: ${PASSWORD:-nopassword}
+      MYSQL_DATABASE: ${DATABASE:-magento}
     volumes:
       - mysql-data:/var/lib/mysql:rw,delegated
     networks:
@@ -83,7 +83,7 @@ services:
     image: rabbitmq:3.11-management
     environment:
       RABBITMQ_DEFAULT_USER: root
-      RABBITMQ_DEFAULT_PASS: nopassword
+      RABBITMQ_DEFAULT_PASS: ${PASSWORD:-nopassword}
     labels:
       - traefik.enable=true
       - traefik.http.routers.rabbitmq-http.rule=Host(`rabbitmq.${DOMAIN:-local}`)
@@ -99,11 +99,6 @@ services:
 
   magento:
     image: aartintelligent/app-magento:2.4
-    environment:
-      PHP_MEMORY_LIMIT: "4G"
-      PHP_SENDMAIL_PATH: "/usr/sbin/sendmail-local --smtp-addr=mailhog:1025"
-      PHP_OPCACHE__ENABLE: "0"
-      PHP_OPCACHE__ENABLE_CLI: "0"
     labels:
       - traefik.enable=true
       - traefik.http.routers.magento-http.rule=Host(`magento.${DOMAIN:-local}`)
