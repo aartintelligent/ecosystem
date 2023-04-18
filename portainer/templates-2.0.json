@@ -80,31 +80,6 @@
               "value": "6.2"
             }
           ]
-        },
-        {
-          "name": "DATABASE_NAME",
-          "label": "Database name",
-          "default": "magento"
-        },
-        {
-          "name": "DATABASE_PASSWORD",
-          "label": "Database password",
-          "default": "nopassword"
-        },
-        {
-          "name": "RABBITMQ_USERNAME",
-          "label": "Rabbitmq username",
-          "default": "root"
-        },
-        {
-          "name": "RABBITMQ_PASSWORD",
-          "label": "Rabbitmq password",
-          "default": "nopassword"
-        }
-      ],
-      "volumes": [
-        {
-          "container": "/var/www"
         }
       ]
     }
