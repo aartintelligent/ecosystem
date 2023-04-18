@@ -12,7 +12,7 @@
         "magento"
       ],
       "platform": "linux",
-      "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/portainer.png",
+      "logo": "https://raw.githubusercontent.com/aartintelligent/ecosystem/master/portainer/stack/app-magento/icon.svg",
       "repository": {
         "url": "https://github.com/aartintelligent/ecosystem",
         "stackfile": "portainer/stacks/app-magento/docker-compose.yml"
@@ -29,7 +29,7 @@
         "symfony"
       ],
       "platform": "linux",
-      "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/portainer.png",
+      "logo": "https://raw.githubusercontent.com/aartintelligent/ecosystem/master/portainer/stack/app-symfony/icon.svg",
       "repository": {
         "url": "https://github.com/aartintelligent/ecosystem",
         "stackfile": "portainer/stacks/app-symfony/docker-compose.yml"
