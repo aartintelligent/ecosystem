@@ -23,10 +23,10 @@ services:
       ELASTICSEARCH_HOSTS: '["https://elasticsearch:9200"]'
     labels:
       - traefik.enable=true
-      - traefik.http.routers.kibana-http.rule=Host(`kibana.${DOMAIN?Variable not set}`)
+      - traefik.http.routers.kibana-http.rule=Host(`kibana.${DOMAIN:=local}`)
       - traefik.http.routers.kibana-http.entrypoints=http
       - traefik.http.routers.kibana-http.middlewares=https-redirect
-      - traefik.http.routers.kibana-https.rule=Host(`kibana.${DOMAIN?Variable not set}`)
+      - traefik.http.routers.kibana-https.rule=Host(`kibana.${DOMAIN:=local}`)
       - traefik.http.routers.kibana-https.entrypoints=https
       - traefik.http.routers.kibana-https.tls=true
       - traefik.http.routers.kibana-https.tls.certresolver=le

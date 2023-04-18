@@ -19,10 +19,10 @@ services:
       PMA_PORT: 3306
     labels:
       - traefik.enable=true
-      - traefik.http.routers.phpmyadmin-http.rule=Host(`phpmyadmin.${DOMAIN?Variable not set}`)
+      - traefik.http.routers.phpmyadmin-http.rule=Host(`phpmyadmin.${DOMAIN:=local}`)
       - traefik.http.routers.phpmyadmin-http.entrypoints=http
       - traefik.http.routers.phpmyadmin-http.middlewares=https-redirect
-      - traefik.http.routers.phpmyadmin-https.rule=Host(`phpmyadmin.${DOMAIN?Variable not set}`)
+      - traefik.http.routers.phpmyadmin-https.rule=Host(`phpmyadmin.${DOMAIN:=local}`)
       - traefik.http.routers.phpmyadmin-https.entrypoints=https
       - traefik.http.routers.phpmyadmin-https.tls=true
       - traefik.http.routers.phpmyadmin-https.tls.certresolver=le
