@@ -22,26 +22,6 @@
         {
           "name": "DOMAIN",
           "label": "Local domain"
-        },
-        {
-          "name": "MAGENTO_VERSION",
-          "label": "Symfony version",
-          "select": [
-            {
-              "text": "Latest",
-              "value": "latest",
-              "default": true
-            },
-            {
-              "text": "2.4",
-              "value": "2.4"
-            }
-          ]
-        }
-      ],
-      "volumes": [
-        {
-          "container": "/var/www"
         }
       ]
     },
@@ -65,21 +45,6 @@
         {
           "name": "DOMAIN",
           "label": "Local domain"
-        },
-        {
-          "name": "SYMFONY_VERSION",
-          "label": "Symfony version",
-          "select": [
-            {
-              "text": "Latest",
-              "value": "latest",
-              "default": true
-            },
-            {
-              "text": "6.2",
-              "value": "6.2"
-            }
-          ]
         }
       ]
     }
