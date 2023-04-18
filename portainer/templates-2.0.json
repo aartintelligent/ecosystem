@@ -17,7 +17,28 @@
       "repository": {
         "url": "https://github.com/aartintelligent/ecosystem",
         "stackfile": "portainer/stack/app-magento/docker-compose.yml"
-      }
+      },
+      "env": [
+        {
+          "name": "DOMAIN",
+          "label": "Local domain"
+        },
+        {
+          "name": "MAGENTO_VERSION",
+          "label": "Symfony version",
+          "select": [
+            {
+              "text": "Latest",
+              "value": "latest",
+              "default": true
+            },
+            {
+              "text": "2.4",
+              "value": "2.4"
+            }
+          ]
+        }
+      ]
     },
     {
       "type": 3,
