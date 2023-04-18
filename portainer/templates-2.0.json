@@ -105,12 +105,15 @@
           "label": "Database password"
         },
         {
-          "name": "DATABASE",
-          "label": "DB name"
-        },
-        {
           "name": "RABBITMQ_VERSION",
-          "label": "Rabbitmq version"
+          "label": "Mysql version",
+          "select": [
+            {
+              "text": "3.11",
+              "value": "3.11",
+              "default": true
+            }
+          ]
         },
         {
           "name": "RABBITMQ_USERNAME",
