@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+
+  portainer:
+    image: portainer/portainer:${PORTAINER_VERSION:-latest}
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.portainer-http.rule=Host(`portainer.${DOMAIN:-local}`)
+      - traefik.http.routers.portainer-http.entrypoints=http
+      - traefik.http.routers.portainer-http.middlewares=https-redirect
+      - traefik.http.routers.portainer-https.rule=Host(`portainer.${DOMAIN:-local}`)
+      - traefik.http.routers.portainer-https.entrypoints=https
+      - traefik.http.routers.portainer-https.tls=true
+      - traefik.http.routers.portainer-https.tls.certresolver=le
+      - traefik.http.services.portainer.loadbalancer.server.port=9000
+    volumes:
+      - portainer-data:/data
+    networks:
+      - traefik-public
+
+networks:
+  traefik-public:
+    external: true
+
+volumes:
+  portainer-data:

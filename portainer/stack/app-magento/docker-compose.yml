@@ -98,7 +98,7 @@ services:
       - traefik-public
 
   magento:
-    image: aartintelligent/app-magento:2.4
+    image: aartintelligent/app-magento:${MAGENTO_VERSION:-2.4}
     labels:
       - traefik.enable=true
       - traefik.http.routers.magento-http.rule=Host(`magento.${DOMAIN:-local}`)

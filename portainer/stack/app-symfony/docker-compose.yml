@@ -69,7 +69,7 @@ services:
       - traefik-public
 
   symfony:
-    image: aartintelligent/app-symfony:6.2
+    image: aartintelligent/app-symfony:${SYMFONY_VERSION:-6.2}
     labels:
       - traefik.enable=true
       - traefik.http.routers.symfony-http.rule=Host(`symfony.${DOMAIN:-local}`)
