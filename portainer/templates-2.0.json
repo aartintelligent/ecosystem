@@ -95,6 +95,30 @@
               "value": "5.7"
             }
           ]
+        },
+        {
+          "name": "DATABASE_NAME",
+          "label": "Database name"
+        },
+        {
+          "name": "DATABASE_PASSWORD",
+          "label": "Database password"
+        },
+        {
+          "name": "DATABASE",
+          "label": "DB name"
+        },
+        {
+          "name": "RABBITMQ_VERSION",
+          "label": "Rabbitmq version"
+        },
+        {
+          "name": "RABBITMQ_USERNAME",
+          "label": "Rabbitmq username"
+        },
+        {
+          "name": "RABBITMQ_PASSWORD",
+          "label": "Rabbitmq password"
         }
       ],
       "volumes": [

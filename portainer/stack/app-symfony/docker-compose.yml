@@ -21,8 +21,8 @@ services:
     image: mysql:${MYSQL_VERSION:-8.0}
     command: --default-authentication-plugin=mysql_native_password
     environment:
-      MYSQL_ROOT_PASSWORD: ${PASSWORD:-nopassword}
-      MYSQL_DATABASE: ${DATABASE:-symfony}
+      MYSQL_ROOT_PASSWORD: ${DATABASE_PASSWORD:-nopassword}
+      MYSQL_DATABASE: ${DATABASE_NAME:-symfony}
     volumes:
       - mysql-data:/var/lib/mysql:rw,delegated
     networks:
@@ -53,8 +53,8 @@ services:
   rabbitmq:
     image: rabbitmq:${RABBITMQ_VERSION:-3.11}-management
     environment:
-      RABBITMQ_DEFAULT_USER: ${USERNAME:-root}
-      RABBITMQ_DEFAULT_PASS: ${PASSWORD:-nopassword}
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USERNAME:-root}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:-nopassword}
     labels:
       - traefik.enable=true
       - traefik.http.routers.rabbitmq-http.rule=Host(`rabbitmq.${DOMAIN:-local}`)
