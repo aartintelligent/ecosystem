@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+
+  elasticsearch:
+    image: elasticsearch:7.17.9
+    command: >
+      bash -c '
+        bin/elasticsearch-plugin install analysis-phonetic;
+        bin/elasticsearch-plugin install analysis-icu;
+        exec /usr/local/bin/docker-entrypoint.sh elasticsearch;
+      '
+    environment:
+      - discovery.type=single-node
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data:rw,delegated
+    networks:
+      - traefik-public
+
+  kibana:
+    image: kibana:7.17.9
+    environment:
+      ELASTICSEARCH_HOSTS: '["https://elasticsearch:9200"]'
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.kibana-http.rule=Host(`kibana.${DOMAIN?Variable not set}`)
+      - traefik.http.routers.kibana-http.entrypoints=http
+      - traefik.http.routers.kibana-http.middlewares=https-redirect
+      - traefik.http.routers.kibana-https.rule=Host(`kibana.${DOMAIN?Variable not set}`)
+      - traefik.http.routers.kibana-https.entrypoints=https
+      - traefik.http.routers.kibana-https.tls=true
+      - traefik.http.routers.kibana-https.tls.certresolver=le
+      - traefik.http.services.kibana.loadbalancer.server.port=5601
+    networks:
+      - traefik-public
+
+networks:
+  traefik-public:
+    external: true
+
+volumes:
+  elasticsearch-data:
