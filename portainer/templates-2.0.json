@@ -30,7 +30,7 @@
         "symfony"
       ],
       "platform": "linux",
-      "logo": "https://raw.githubusercontent.com/aartintelligent/ecosystem/master/portainer/stack/app-symfony/icon.svg",
+      "logo": "https://symfony.com/logos/symfony_white_03.svg",
       "repository": {
         "url": "https://github.com/aartintelligent/ecosystem",
         "stackfile": "portainer/stacks/app-symfony/docker-compose.yml"
