@@ -70,6 +70,13 @@
             }
           ]
         }
+      ],
+      "volumes": [
+        {
+          "container": "/var/www",
+          "bind": "/var/www",
+          "readonly": true
+        }
       ]
     }
   ]
