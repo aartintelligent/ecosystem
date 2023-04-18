@@ -3,7 +3,7 @@ version: "3.8"
 services:
 
   opensearch:
-    image: opensearchproject/opensearch:${VERSION:=2.6.0}
+    image: opensearchproject/opensearch:${VERSION:-2.6.0}
     command: >
       bash -c '
         bin/opensearch-plugin install analysis-phonetic;
@@ -14,10 +14,10 @@ services:
       - discovery.type=single-node
     labels:
       - traefik.enable=true
-      - traefik.http.routers.opensearch-http.rule=Host(`opensearch.${DOMAIN:=local}`)
+      - traefik.http.routers.opensearch-http.rule=Host(`opensearch.${DOMAIN:-local}`)
       - traefik.http.routers.opensearch-http.entrypoints=http
       - traefik.http.routers.opensearch-http.middlewares=https-redirect
-      - traefik.http.routers.opensearch-https.rule=Host(`opensearch.${DOMAIN:=local}`)
+      - traefik.http.routers.opensearch-https.rule=Host(`opensearch.${DOMAIN:-local}`)
       - traefik.http.routers.opensearch-https.entrypoints=https
       - traefik.http.routers.opensearch-https.tls=true
       - traefik.http.routers.opensearch-https.tls.certresolver=le
@@ -28,15 +28,15 @@ services:
       - traefik-public
 
   opensearch-dashboards:
-    image: opensearchproject/opensearch-dashboards:${VERSION:=2.6.0}
+    image: opensearchproject/opensearch-dashboards:${VERSION:-2.6.0}
     environment:
       OPENSEARCH_HOSTS: '["https://opensearch:9200"]'
     labels:
       - traefik.enable=true
-      - traefik.http.routers.opensearch-dashboards-http.rule=Host(`opensearch-dashboards.${DOMAIN:=local}`)
+      - traefik.http.routers.opensearch-dashboards-http.rule=Host(`opensearch-dashboards.${DOMAIN:-local}`)
       - traefik.http.routers.opensearch-dashboards-http.entrypoints=http
       - traefik.http.routers.opensearch-dashboards-http.middlewares=https-redirect
-      - traefik.http.routers.opensearch-dashboards-https.rule=Host(`opensearch-dashboards.${DOMAIN:=local}`)
+      - traefik.http.routers.opensearch-dashboards-https.rule=Host(`opensearch-dashboards.${DOMAIN:-local}`)
       - traefik.http.routers.opensearch-dashboards-https.entrypoints=https
       - traefik.http.routers.opensearch-dashboards-https.tls=true
       - traefik.http.routers.opensearch-dashboards-https.tls.certresolver=le

@@ -3,16 +3,16 @@ version: "3.8"
 services:
 
   rabbitmq:
-    image: rabbitmq:${VERSION:=3.11}-management
+    image: rabbitmq:${VERSION:-3.11}-management
     environment:
-      RABBITMQ_DEFAULT_USER: ${USERNAME:=root}
-      RABBITMQ_DEFAULT_PASS: ${PASSWORD:=nopassword}
+      RABBITMQ_DEFAULT_USER: ${USERNAME:-root}
+      RABBITMQ_DEFAULT_PASS: ${PASSWORD:-nopassword}
     labels:
       - traefik.enable=true
-      - traefik.http.routers.rabbitmq-http.rule=Host(`rabbitmq.${DOMAIN:=local}`)
+      - traefik.http.routers.rabbitmq-http.rule=Host(`rabbitmq.${DOMAIN:-local}`)
       - traefik.http.routers.rabbitmq-http.entrypoints=http
       - traefik.http.routers.rabbitmq-http.middlewares=https-redirect
-      - traefik.http.routers.rabbitmq-https.rule=Host(`rabbitmq.${DOMAIN:=local}`)
+      - traefik.http.routers.rabbitmq-https.rule=Host(`rabbitmq.${DOMAIN:-local}`)
       - traefik.http.routers.rabbitmq-https.entrypoints=https
       - traefik.http.routers.rabbitmq-https.tls=true
       - traefik.http.routers.rabbitmq-https.tls.certresolver=le

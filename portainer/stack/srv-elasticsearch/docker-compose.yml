@@ -3,7 +3,7 @@ version: "3.8"
 services:
 
   elasticsearch:
-    image: elasticsearch:${VERSION:=7.17.9}
+    image: elasticsearch:${VERSION:-7.17.9}
     command: >
       bash -c '
         bin/elasticsearch-plugin install analysis-phonetic;
@@ -18,15 +18,15 @@ services:
       - traefik-public
 
   kibana:
-    image: kibana:${VERSION:=7.17.9}
+    image: kibana:${VERSION:-7.17.9}
     environment:
       ELASTICSEARCH_HOSTS: '["https://elasticsearch:9200"]'
     labels:
       - traefik.enable=true
-      - traefik.http.routers.kibana-http.rule=Host(`kibana.${DOMAIN:=local}`)
+      - traefik.http.routers.kibana-http.rule=Host(`kibana.${DOMAIN:-local}`)
       - traefik.http.routers.kibana-http.entrypoints=http
       - traefik.http.routers.kibana-http.middlewares=https-redirect
-      - traefik.http.routers.kibana-https.rule=Host(`kibana.${DOMAIN:=local}`)
+      - traefik.http.routers.kibana-https.rule=Host(`kibana.${DOMAIN:-local}`)
       - traefik.http.routers.kibana-https.entrypoints=https
       - traefik.http.routers.kibana-https.tls=true
       - traefik.http.routers.kibana-https.tls.certresolver=le

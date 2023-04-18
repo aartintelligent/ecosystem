@@ -3,7 +3,7 @@ version: "3.8"
 services:
 
   redis:
-    image: redis:${VERSION:=7.0}
+    image: redis:${VERSION:-7.0}
     volumes:
       - redis-data:/data:rw,delegated
     networks:
