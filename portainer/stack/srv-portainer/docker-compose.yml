@@ -3,7 +3,7 @@ version: "3.8"
 services:
 
   portainer:
-    image: portainer/portainer:${PORTAINER_VERSION:-latest}
+    image: portainer/portainer-ce:${PORTAINER_VERSION:-latest}
     labels:
       - traefik.enable=true
       - traefik.http.routers.portainer-http.rule=Host(`portainer.${DOMAIN:-local}`)
@@ -16,6 +16,7 @@ services:
       - traefik.http.services.portainer.loadbalancer.server.port=9000
     volumes:
       - portainer-data:/data
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     networks:
       - traefik-public
 
