@@ -2,7 +2,7 @@
   "version": "2",
   "templates": [
     {
-      "type": 2,
+      "type": 3,
       "title": "App Magento",
       "description": "",
       "note": "",
@@ -19,7 +19,7 @@
       }
     },
     {
-      "type": 2,
+      "type": 3,
       "title": "App Symfony",
       "description": "",
       "note": "",
