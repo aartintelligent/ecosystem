@@ -48,7 +48,7 @@ FROM aartintelligent/app-php:${PHP_VERSION}
 USER root
 
 ENV \
-MAGE_MODE="production" \
+MAGE_MODE="developer" \
 MAGE_RUN_TYPE="website" \
 MAGE_RUN_CODE="base" \
 CRYPT_KEY="030bf837c0fd8baa0b1d20d7ea96f1a9" \
@@ -70,8 +70,8 @@ RABBITMQ_PASSWORD="nopassword" \
 RABBITMQ_VIRTUALHOST="/" \
 PHP_MEMORY_LIMIT="4G" \
 PHP_SENDMAIL_PATH="/usr/sbin/sendmail -t -i" \
-PHP_OPCACHE__ENABLE="1" \
-PHP_OPCACHE__ENABLE_CLI="1" \
+PHP_OPCACHE__ENABLE="0" \
+PHP_OPCACHE__ENABLE_CLI="0" \
 PHP_OPCACHE__PRELOAD="/var/www/app/preload.php" \
 PHP_OPCACHE__JIT="function" \
 FPM_PM__TYPE="static" \
