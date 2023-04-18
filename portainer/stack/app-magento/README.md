@@ -4,7 +4,7 @@
 
 ```shell
 bin/magento setup:install \
---base-url=https://magento.weldom.local \
+--base-url=https://magento.local \
 --db-host=mysql \
 --db-name=magento \
 --db-user=root \
