@@ -20,7 +20,7 @@ bin/magento setup:install \
 --use-rewrites=1 \
 --search-engine=opensearch \
 --opensearch-host=https://opensearch \
---opensearch-port=9200 \
+--opensearch-port=9300 \
 --opensearch-index-prefix=magento2 \
 --opensearch-timeout=15
 ```
