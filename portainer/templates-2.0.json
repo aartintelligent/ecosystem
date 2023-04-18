@@ -34,7 +34,43 @@
       "repository": {
         "url": "https://github.com/aartintelligent/ecosystem",
         "stackfile": "portainer/stack/app-symfony/docker-compose.yml"
-      }
+      },
+      "env": [
+        {
+          "name": "DOMAIN",
+          "label": "Local domain"
+        },
+        {
+          "name": "SYMFONY_VERSION",
+          "label": "Symfony version",
+          "select": [
+            {
+              "text": "Latest",
+              "value": "latest",
+              "default": true
+            },
+            {
+              "text": "6.2",
+              "value": "6.2"
+            }
+          ]
+        },
+        {
+          "name": "MYSQL_VERSION",
+          "label": "Mysql version",
+          "select": [
+            {
+              "text": "8.0",
+              "value": "8.0",
+              "default": true
+            },
+            {
+              "text": "5.7",
+              "value": "5.7"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
