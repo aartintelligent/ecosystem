@@ -38,6 +38,13 @@
             }
           ]
         }
+      ],
+      "volumes": [
+        {
+          "container": "/var/www",
+          "bind": "/var/www",
+          "readonly": true
+        }
       ]
     },
     {
@@ -90,6 +97,13 @@
               "value": "5.7"
             }
           ]
+        }
+      ],
+      "volumes": [
+        {
+          "container": "/var/www",
+          "bind": "/var/www",
+          "readonly": true
         }
       ]
     }
