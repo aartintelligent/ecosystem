@@ -53,7 +53,7 @@ services:
   rabbitmq:
     image: rabbitmq:3.11-management
     environment:
-      RABBITMQ_DEFAULT_USER: root
+      RABBITMQ_DEFAULT_USER: ${USERNAME:-root}
       RABBITMQ_DEFAULT_PASS: ${PASSWORD:-nopassword}
     labels:
       - traefik.enable=true
