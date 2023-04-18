@@ -98,11 +98,15 @@
         },
         {
           "name": "DATABASE_NAME",
-          "label": "Database name"
+          "label": "Database name",
+          "default": "magento",
+          "preset": true
         },
         {
           "name": "DATABASE_PASSWORD",
-          "label": "Database password"
+          "label": "Database password",
+          "default": "nopassword",
+          "preset": true
         },
         {
           "name": "RABBITMQ_VERSION",
@@ -117,11 +121,15 @@
         },
         {
           "name": "RABBITMQ_USERNAME",
-          "label": "Rabbitmq username"
+          "label": "Rabbitmq username",
+          "default": "root",
+          "preset": true
         },
         {
           "name": "RABBITMQ_PASSWORD",
-          "label": "Rabbitmq password"
+          "label": "Rabbitmq password",
+          "default": "nopassword",
+          "preset": true
         }
       ],
       "volumes": [
