@@ -41,9 +41,7 @@
       ],
       "volumes": [
         {
-          "container": "/var/www",
-          "bind": "/var/www",
-          "readonly": true
+          "container": "/var/www"
         }
       ]
     },
@@ -101,9 +99,7 @@
       ],
       "volumes": [
         {
-          "container": "/var/www",
-          "bind": "/var/www",
-          "readonly": true
+          "container": "/var/www"
         }
       ]
     }
