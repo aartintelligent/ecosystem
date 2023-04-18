@@ -3,7 +3,7 @@ version: "3.8"
 services:
 
   elasticsearch:
-    image: elasticsearch:7.17.9
+    image: elasticsearch:${VERSION:=7.17.9}
     command: >
       bash -c '
         bin/elasticsearch-plugin install analysis-phonetic;
@@ -18,7 +18,7 @@ services:
       - traefik-public
 
   kibana:
-    image: kibana:7.17.9
+    image: kibana:${VERSION:=7.17.9}
     environment:
       ELASTICSEARCH_HOSTS: '["https://elasticsearch:9200"]'
     labels:

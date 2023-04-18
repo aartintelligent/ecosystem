@@ -3,7 +3,7 @@ version: "3.8"
 services:
 
   opensearch:
-    image: opensearchproject/opensearch:2.6.0
+    image: opensearchproject/opensearch:${VERSION:=2.6.0}
     command: >
       bash -c '
         bin/opensearch-plugin install analysis-phonetic;
@@ -28,7 +28,7 @@ services:
       - traefik-public
 
   opensearch-dashboards:
-    image: opensearchproject/opensearch-dashboards:2.6.0
+    image: opensearchproject/opensearch-dashboards:${VERSION:=2.6.0}
     environment:
       OPENSEARCH_HOSTS: '["https://opensearch:9200"]'
     labels:

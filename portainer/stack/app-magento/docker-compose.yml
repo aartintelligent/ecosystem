@@ -120,12 +120,14 @@ services:
       - redis-cache
       - redis-session
       - elasticsearch
+      - rabbitmq
     depends_on:
       - mailhog
       - mysql
       - redis-cache
       - redis-session
       - elasticsearch
+      - rabbitmq
     networks:
       - traefik-public
 
