@@ -4,7 +4,7 @@
 
 ```shell
 bin/magento setup:install \
---base-url=https://magento.local \
+--base-url=https://magento.weldom.local \
 --db-host=mysql \
 --db-name=magento \
 --db-user=root \
@@ -18,9 +18,9 @@ bin/magento setup:install \
 --currency=USD \
 --timezone=America/Chicago \
 --use-rewrites=1 \
---search-engine=opensearch \
---opensearch-host=https://opensearch \
---opensearch-port=9200 \
---opensearch-index-prefix=magento2 \
---opensearch-timeout=15
+--search-engine=elasticsearch7 \
+--elasticsearch-host=elasticsearch \
+--elasticsearch-port=9200 \
+--elasticsearch-index-prefix=magento2 \
+--elasticsearch-timeout=15
 ```
