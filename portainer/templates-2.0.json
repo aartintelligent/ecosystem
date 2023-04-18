@@ -82,21 +82,6 @@
           ]
         },
         {
-          "name": "MYSQL_VERSION",
-          "label": "Mysql version",
-          "select": [
-            {
-              "text": "8.0",
-              "value": "8.0",
-              "default": true
-            },
-            {
-              "text": "5.7",
-              "value": "5.7"
-            }
-          ]
-        },
-        {
           "name": "DATABASE_NAME",
           "label": "Database name",
           "default": "magento",
@@ -107,17 +92,6 @@
           "label": "Database password",
           "default": "nopassword",
           "preset": true
-        },
-        {
-          "name": "RABBITMQ_VERSION",
-          "label": "Mysql version",
-          "select": [
-            {
-              "text": "3.11",
-              "value": "3.11",
-              "default": true
-            }
-          ]
         },
         {
           "name": "RABBITMQ_USERNAME",
