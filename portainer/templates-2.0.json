@@ -4,7 +4,7 @@
     {
       "type": 3,
       "title": "App Nginx",
-      "description": "Open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more.",
+      "description": "AArtIntelligent app nginx",
       "categories": [
         "server",
         "proxying",
@@ -27,7 +27,7 @@
     {
       "type": 3,
       "title": "App PHP",
-      "description": "Open source software for web serving PHP application",
+      "description": "AArtIntelligent app php",
       "categories": [
         "php"
       ],
@@ -47,7 +47,7 @@
     {
       "type": 3,
       "title": "App Magento",
-      "description": "Diversify your customer base. We’ll tailor their commerce experience.",
+      "description": "AArtIntelligent app magento",
       "categories": [
         "php",
         "ecommerce",
@@ -70,7 +70,7 @@
     {
       "type": 3,
       "title": "App Symfony",
-      "description": "Symfony is a set of reusable PHP components ... and a PHP framework for web projects",
+      "description": "AArtIntelligent app symfony",
       "categories": [
         "php",
         "framework",
