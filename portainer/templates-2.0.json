@@ -29,6 +29,7 @@
       "title": "App PHP",
       "description": "AArtIntelligent stack PHP",
       "categories": [
+        "server",
         "php"
       ],
       "platform": "linux",
