@@ -22,6 +22,10 @@
         {
           "name": "DOMAIN",
           "label": "Local domain"
+        },
+        {
+          "name": "TRAEFIK_ROUTE",
+          "label": "Traefik route"
         }
       ]
     },
@@ -45,6 +49,10 @@
         {
           "name": "DOMAIN",
           "label": "Local domain"
+        },
+        {
+          "name": "TRAEFIK_ROUTE",
+          "label": "Traefik route"
         }
       ]
     }
