@@ -4,7 +4,7 @@
     {
       "type": 3,
       "title": "App Nginx",
-      "description": "AArtIntelligent app nginx",
+      "description": "AArtIntelligent stack nginx",
       "categories": [
         "server",
         "proxying",
@@ -27,7 +27,7 @@
     {
       "type": 3,
       "title": "App PHP",
-      "description": "AArtIntelligent app php",
+      "description": "AArtIntelligent stack PHP",
       "categories": [
         "php"
       ],
@@ -47,7 +47,7 @@
     {
       "type": 3,
       "title": "App Magento",
-      "description": "AArtIntelligent app magento",
+      "description": "AArtIntelligent stack magento",
       "categories": [
         "php",
         "ecommerce",
@@ -70,7 +70,7 @@
     {
       "type": 3,
       "title": "App Symfony",
-      "description": "AArtIntelligent app symfony",
+      "description": "AArtIntelligent stack symfony",
       "categories": [
         "php",
         "framework",
