@@ -51,6 +51,7 @@ ENV \
 MAGE_MODE="production" \
 MAGE_RUN_TYPE="website" \
 MAGE_RUN_CODE="base" \
+CRYPT_KEY="030bf837c0fd8baa0b1d20d7ea96f1a9" \
 MYSQL_HOST="mysql" \
 MYSQL_PORT="3306" \
 MYSQL_DATABASE="magento" \
