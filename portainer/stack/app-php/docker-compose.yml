@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+
+  php:
+    image: aartintelligent/app-php:${PHP_VERSION:-8.2}
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.php-http.rule=Host(`php.${DOMAIN:-local}`)
+      - traefik.http.routers.php-http.entrypoints=http
+      - traefik.http.routers.php-http.middlewares=https-redirect
+      - traefik.http.routers.php-https.rule=Host(`php.${DOMAIN:-local}`)
+      - traefik.http.routers.php-https.entrypoints=https
+      - traefik.http.routers.php-https.tls=true
+      - traefik.http.routers.php-https.tls.certresolver=le
+      - traefik.http.services.php.loadbalancer.server.port=8080
+    networks:
+      - traefik-public
+
+networks:
+  traefik-public:
+    external: true

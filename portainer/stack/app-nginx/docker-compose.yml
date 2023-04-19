@@ -3,7 +3,7 @@ version: "3.8"
 services:
 
   nginx:
-    image: aartintelligent/app-symfony:${SYMFONY_VERSION:-6.2}
+    image: aartintelligent/app-nginx:${NGINX_VERSION:-latest}
     labels:
       - traefik.enable=true
       - traefik.http.routers.nginx-http.rule=Host(`nginx.${DOMAIN:-local}`)
