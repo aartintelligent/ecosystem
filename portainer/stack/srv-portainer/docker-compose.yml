@@ -4,6 +4,7 @@ services:
 
   portainer:
     image: portainer/portainer-ce:${PORTAINER_VERSION:-latest}
+    restart: unless-stopped
     labels:
       - traefik.enable=true
       - traefik.http.routers.portainer-http.rule=Host(`portainer.${DOMAIN:-local}`)
