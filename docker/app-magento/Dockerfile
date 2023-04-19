@@ -51,7 +51,6 @@ ENV \
 MAGE_MODE="production" \
 MAGE_RUN_TYPE="website" \
 MAGE_RUN_CODE="base" \
-CRYPT_KEY="030bf837c0fd8baa0b1d20d7ea96f1a9" \
 MYSQL_HOST="mysql" \
 MYSQL_PORT="3306" \
 MYSQL_DATABASE="magento" \
@@ -72,12 +71,7 @@ PHP_MEMORY_LIMIT="4G" \
 PHP_OPCACHE__ENABLE="1" \
 PHP_OPCACHE__ENABLE_CLI="1" \
 PHP_OPCACHE__PRELOAD="/var/www/app/preload.php" \
-PHP_OPCACHE__JIT="function" \
-FPM_PM__TYPE="static" \
-FPM_PM__MAX_CHILDREN="5" \
-FPM_PM__MAX_REQUESTS="2048" \
-NGINX_WORKER_PROCESSES="5" \
-NGINX_WORKER_CONNECTIONS="2048"
+PHP_OPCACHE__JIT="function"
 
 RUN set -eux; \
 rm -rf /var/www/*
