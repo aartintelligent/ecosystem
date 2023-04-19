@@ -3,6 +3,30 @@
   "templates": [
     {
       "type": 3,
+      "title": "Nginx",
+      "description": "Open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more. It started out as a web server designed for maximum performance and stability",
+      "note": "It started out as a web server designed for maximum performance and stability. In addition to its HTTP server capabilities, NGINX can also function as a proxy server for email (IMAP, POP3, and SMTP) and a reverse proxy and load balancer for HTTP, TCP, and UDP servers.",
+      "categories": [
+        "php",
+        "ecommerce",
+        "adobe",
+        "magento"
+      ],
+      "platform": "linux",
+      "logo": "https://raw.githubusercontent.com/aartintelligent/ecosystem/master/portainer/stack/app-nginx/icon.svg",
+      "repository": {
+        "url": "https://github.com/aartintelligent/ecosystem",
+        "stackfile": "portainer/stack/app-nginx/docker-compose.yml"
+      },
+      "env": [
+        {
+          "name": "DOMAIN",
+          "label": "Local domain"
+        }
+      ]
+    },
+    {
+      "type": 3,
       "title": "Magento",
       "description": "Diversify your customer base. We’ll tailor their commerce experience.",
       "note": "Adobe Commerce uses AI and advanced data sharing capabilities to create end-to-end personalized B2C and B2B commerce experiences from a single platform that is flexible, extensible, and scalable.",

@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+
+  nginx:
+    image: aartintelligent/app-symfony:${SYMFONY_VERSION:-6.2}
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.nginx-http.rule=Host(`nginx.${DOMAIN:-local}`)
+      - traefik.http.routers.nginx-http.entrypoints=http
+      - traefik.http.routers.nginx-http.middlewares=https-redirect
+      - traefik.http.routers.nginx-https.rule=Host(`nginx.${DOMAIN:-local}`)
+      - traefik.http.routers.nginx-https.entrypoints=https
+      - traefik.http.routers.nginx-https.tls=true
+      - traefik.http.routers.nginx-https.tls.certresolver=le
+      - traefik.http.services.nginx.loadbalancer.server.port=8080
+    networks:
+      - traefik-public
+
+networks:
+  traefik-public:
+    external: true
