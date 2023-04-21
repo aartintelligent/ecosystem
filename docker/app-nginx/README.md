@@ -1,4 +1,4 @@
-# AArtIntelligent : Docker App Nginx
+# App Nginx
 
 @todo description
 
