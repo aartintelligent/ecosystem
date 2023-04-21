@@ -135,7 +135,7 @@ services:
   magento:
     image: aartintelligent/app-magento:${MAGENTO_VERSION:-2.4}
     env_file:
-      - ./src/.env
+      - .env
     labels:
       - traefik.enable=true
       - traefik.http.routers.magento-http.rule=Host(`magento.${DOMAIN:-local}`)

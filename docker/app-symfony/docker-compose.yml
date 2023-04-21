@@ -102,7 +102,7 @@ services:
   symfony:
     image: aartintelligent/app-symfony:${SYMFONY_VERSION:-6.2}
     env_file:
-      - ./src/.env
+      - .env
     labels:
       - traefik.enable=true
       - traefik.http.routers.symfony-http.rule=Host(`symfony.${DOMAIN:-local}`)
