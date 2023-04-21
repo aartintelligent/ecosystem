@@ -122,5 +122,6 @@ services:
       - rabbitmq
 
 volumes:
+  traefik-data:
   mysql-data:
   rabbitmq-data:

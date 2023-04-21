@@ -17,4 +17,4 @@ if [ -n "$(ls -A /var/www/migrations/*.php 2>/dev/null)" ]; then
 
 fi
 
-(>&2 echo "[*] Bootstrap DOCTRINE MIGRATION")
+(>&2 echo "[*] Bootstrap SYMFONY : DOCTRINE MIGRATION")

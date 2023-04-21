@@ -37,14 +37,17 @@ nginx
 RUN set -eux; \
 mkdir -p \
 /etc/nginx \
+/var/cache/nginx \
 /var/log/nginx \
 /var/lib/nginx; \
 chmod 777 -R \
 /etc/nginx \
+/var/cache/nginx \
 /var/log/nginx \
 /var/lib/nginx; \
 chown rootless:rootless \
 /etc/nginx \
+/var/cache/nginx \
 /var/log/nginx \
 /var/lib/nginx; \
 rm -rf \
