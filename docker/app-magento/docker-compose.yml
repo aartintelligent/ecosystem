@@ -35,7 +35,7 @@ services:
       - '443:443'
 
   mailhog:
-    image: mailhog/mailhog:latest
+    image: mailhog/mailhog:${MAILHOG_VERSION:-latest}
     labels:
       - traefik.enable=true
       - traefik.http.routers.mailhog-http.rule=Host(`mailhog.${DOMAIN:-local}`)
@@ -61,7 +61,7 @@ services:
       - '3306:3306'
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
+    image: phpmyadmin/phpmyadmin:${PHPMYADMIN_VERSION:-latest}
     environment:
       PMA_HOST: ${MYSQL_HOST:-mysql}
       PMA_PORT: ${MYSQL_PORT:-3306}
@@ -106,7 +106,7 @@ services:
       - '9200:9200'
 
   rabbitmq:
-    image: rabbitmq:${RABBITMQ_VERSION:-3.11}-management
+    image: rabbitmq:${RABBITMQ_VERSION:-3.11-management}
     environment:
       RABBITMQ_DEFAULT_USER: ${RABBITMQ_USERNAME:-rootless}
       RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:-nopassword}
