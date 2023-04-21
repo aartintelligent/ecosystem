@@ -7,9 +7,14 @@
 /Dockerfile
 /icon.svg
 /README.md
+/srv/.env.*
 /src/phpunit.xml.dist
+/src/package.json
+/src/webpack.config.js
+/src/yarn.lock
 /src/public/bundles
 /src/public/build
 /src/node_modules
+/src/tests
 /src/var
 /src/vendor
