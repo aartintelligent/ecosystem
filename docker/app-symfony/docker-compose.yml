@@ -51,8 +51,10 @@ services:
     image: mysql:${MYSQL_VERSION:-8.0}
     command: --default-authentication-plugin=mysql_native_password
     environment:
-      MYSQL_ROOT_PASSWORD: ${DATABASE_PASSWORD:-nopassword}
-      MYSQL_DATABASE: ${DATABASE_NAME:-symfony}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-nopassword}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-symfony}
+      MYSQL_USERNAME: ${MYSQL_USERNAME:-rootless}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-nopassword}
     volumes:
       - mysql-data:/var/lib/mysql:rw,delegated
 
@@ -79,7 +81,7 @@ services:
   rabbitmq:
     image: rabbitmq:${RABBITMQ_VERSION:-3.11}-management
     environment:
-      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USERNAME:-root}
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USERNAME:-rootless}
       RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:-nopassword}
     labels:
       - traefik.enable=true
