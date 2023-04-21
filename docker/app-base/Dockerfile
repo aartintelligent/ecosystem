@@ -37,6 +37,7 @@ systemd \
 patch \
 unzip \
 git \
+vim \
 gnupg \
 gnupg1 \
 gnupg2 \

@@ -8,6 +8,7 @@
 /Dockerfile
 /icon.svg
 /README.md
+/src/app/etc/env.php
 /src/generated
 /src/phpserver
 /src/node_modules
