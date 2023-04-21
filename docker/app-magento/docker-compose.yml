@@ -120,6 +120,8 @@ services:
       - traefik.http.routers.rabbitmq-https.tls=true
       - traefik.http.routers.rabbitmq-https.tls.certresolver=le
       - traefik.http.services.rabbitmq.loadbalancer.server.port=15672
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq:rw,delegated
     ports:
       - '5672:5672'
 
@@ -160,3 +162,4 @@ volumes:
   redis-cache-data:
   redis-session-data:
   elasticsearch-data:
+  rabbitmq-data:
