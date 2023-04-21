@@ -3,8 +3,9 @@
 /.git
 /.github
 /.gitignore
-/Dockerfile
+/.env
 /docker-compose.yml
+/Dockerfile
 /icon.svg
 /README.md
 /src/generated
