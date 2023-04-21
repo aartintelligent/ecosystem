@@ -4,7 +4,7 @@
 
 ---
 
-### Usage
+### Docker Usage
 
 ```shell
 docker build . -t aartintelligent/app-magento:latest
