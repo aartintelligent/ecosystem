@@ -101,6 +101,8 @@ services:
 
   symfony:
     image: aartintelligent/app-symfony:${SYMFONY_VERSION:-6.2}
+    env_file:
+      - ./src/.env
     labels:
       - traefik.enable=true
       - traefik.http.routers.symfony-http.rule=Host(`symfony.${DOMAIN:-local}`)
@@ -111,6 +113,8 @@ services:
       - traefik.http.routers.symfony-https.tls=true
       - traefik.http.routers.symfony-https.tls.certresolver=le
       - traefik.http.services.symfony.loadbalancer.server.port=8080
+    volumes:
+      - ./src:/var/www:rw,delegated
     links:
       - mailhog
       - mysql
