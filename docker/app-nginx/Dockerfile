@@ -20,6 +20,16 @@ NGINX_PORT_UNSECURE="${NGINX_PORT_UNSECURE}" \
 NGINX_PORT_SECURE="${NGINX_PORT_SECURE}"
 
 RUN set -eux; \
+mkdir -p /usr/share/keyrings; \
+curl -fsSL https://nginx.org/keys/nginx_signing.key \
+| gpg --dearmor -o /usr/share/keyrings/nginx.gpg; \
+echo \
+"deb [arch=$(dpkg --print-architecture) \
+signed-by=/usr/share/keyrings/nginx.gpg] \
+http://nginx.org/packages/mainline/debian `lsb_release -cs` nginx" \
+| tee /etc/apt/sources.list.d/nginx.list > /dev/null
+
+RUN set -eux; \
 apt-get update; \
 apt-get install -y --no-install-recommends \
 nginx

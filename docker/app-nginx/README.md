@@ -11,7 +11,15 @@ docker build . -t aartintelligent/app-nginx:latest
 ```
 
 ```shell
+docker build . -t aartintelligent/app-nginx:1.23
+```
+
+```shell
 docker run -d --net host --name app-nginx aartintelligent/app-nginx:latest
+```
+
+```shell
+docker run -d --net host --name app-nginx aartintelligent/app-nginx:1.23
 ```
 
 ```shell
@@ -44,6 +52,10 @@ docker stop app-nginx
 
 ```shell
 docker rm app-nginx
+```
+
+```shell
+docker push aartintelligent/app-nginx:1.23
 ```
 
 ```shell
