@@ -46,6 +46,8 @@ services:
       - traefik.http.routers.mailhog-https.tls=true
       - traefik.http.routers.mailhog-https.tls.certresolver=le
       - traefik.http.services.mailhog.loadbalancer.server.port=8025
+    depends_on:
+      - traefik
 
   mysql:
     image: mysql:${MYSQL_VERSION:-8.0}
@@ -76,6 +78,7 @@ services:
     links:
       - mysql
     depends_on:
+      - traefik
       - mysql
 
   rabbitmq:
@@ -93,6 +96,8 @@ services:
       - traefik.http.routers.rabbitmq-https.tls=true
       - traefik.http.routers.rabbitmq-https.tls.certresolver=le
       - traefik.http.services.rabbitmq.loadbalancer.server.port=15672
+    depends_on:
+      - traefik
 
   symfony:
     image: aartintelligent/app-symfony:${SYMFONY_VERSION:-6.2}
@@ -111,6 +116,7 @@ services:
       - mysql
       - rabbitmq
     depends_on:
+      - traefik
       - mailhog
       - mysql
       - rabbitmq

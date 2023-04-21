@@ -46,6 +46,8 @@ services:
       - traefik.http.routers.mailhog-https.tls=true
       - traefik.http.routers.mailhog-https.tls.certresolver=le
       - traefik.http.services.mailhog.loadbalancer.server.port=8025
+    depends_on:
+      - traefik
 
   mysql:
     image: mysql:${MYSQL_VERSION:-8.0}
@@ -78,6 +80,7 @@ services:
     links:
       - mysql
     depends_on:
+      - traefik
       - mysql
 
   redis-cache:
@@ -104,6 +107,8 @@ services:
       - elasticsearch-data:/usr/share/elasticsearch/data:rw,delegated
     ports:
       - '9200:9200'
+    depends_on:
+      - traefik
 
   rabbitmq:
     image: rabbitmq:${RABBITMQ_VERSION:-3.11-management}
@@ -124,6 +129,8 @@ services:
       - rabbitmq-data:/var/lib/rabbitmq:rw,delegated
     ports:
       - '5672:5672'
+    depends_on:
+      - traefik
 
   magento:
     image: aartintelligent/app-magento:${MAGENTO_VERSION:-2.4}
@@ -149,6 +156,7 @@ services:
       - elasticsearch
       - rabbitmq
     depends_on:
+      - traefik
       - mailhog
       - mysql
       - redis-cache
