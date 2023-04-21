@@ -55,7 +55,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-nopassword}
       MYSQL_DATABASE: ${MYSQL_DATABASE:-magento}
-      MYSQL_USERNAME: ${MYSQL_USERNAME:-rootless}
+      MYSQL_USER: ${MYSQL_USER:-rootless}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:-nopassword}
     volumes:
       - mysql-data:/var/lib/mysql:rw,delegated

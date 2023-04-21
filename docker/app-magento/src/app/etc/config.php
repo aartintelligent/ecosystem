@@ -386,7 +386,7 @@ return [
                 'name' => 'Default Store View',
                 'sort_order' => '0',
                 'is_active' => '1'
-            ],
+            ]
         ]
     ],
     'themes' => [
