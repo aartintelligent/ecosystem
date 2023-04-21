@@ -1,10 +1,10 @@
-# AArtIntelligent : Docker App Symfony
+# App Symfony
 
 @todo description
 
 ---
 
-### Usage
+### Docker Usage
 
 ```shell
 docker build . -t aartintelligent/app-symfony:latest
