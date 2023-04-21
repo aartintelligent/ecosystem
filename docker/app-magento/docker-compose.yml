@@ -177,6 +177,8 @@ services:
     depends_on:
       - traefik
       - magento
+    ports:
+      - '8443:8443'
 
 volumes:
   traefik-data:
