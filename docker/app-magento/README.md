@@ -1,4 +1,4 @@
-# AArtIntelligent : App Magento
+# App Magento
 
 @todo description
 
