@@ -4,6 +4,7 @@
 /.github
 /.gitignore
 /Dockerfile
+/docker-compose.yml
 /README.md
 /src/generated
 /src/phpserver
@@ -12,6 +13,7 @@
 /src/var
 /src/vendor
 /src/.editorconfig
+/src/.env
 /src/.htaccess.sample
 /src/.php-cs-fixer.dist.php
 /src/.user.ini

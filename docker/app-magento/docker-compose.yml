@@ -1,0 +1,162 @@
+version: "3.8"
+
+services:
+
+  traefik:
+    image: traefik:${TRAEFIK_VERSION:-latest}
+    command:
+      - --providers.docker
+      - --providers.docker.exposedbydefault=false
+      - --entrypoints.http.address=:80
+      - --entrypoints.https.address=:443
+      - --certificatesresolvers.le.acme.email=${EMAIL:-fake@mail.local}
+      - --certificatesresolvers.le.acme.storage=/certificates/acme.json
+      - --certificatesresolvers.le.acme.tlschallenge=true
+      - --log
+      - --api
+    labels:
+      - traefik.enable=true
+      - traefik.http.middlewares.https-redirect.redirectscheme.scheme=https
+      - traefik.http.middlewares.https-redirect.redirectscheme.permanent=true
+      - traefik.http.routers.traefik-public-http.rule=Host(`traefik.${DOMAIN:-local}`)
+      - traefik.http.routers.traefik-public-http.entrypoints=http
+      - traefik.http.routers.traefik-public-http.middlewares=https-redirect
+      - traefik.http.routers.traefik-public-https.rule=Host(`traefik.${DOMAIN:-local}`)
+      - traefik.http.routers.traefik-public-https.entrypoints=https
+      - traefik.http.routers.traefik-public-https.tls=true
+      - traefik.http.routers.traefik-public-https.service=api@internal
+      - traefik.http.routers.traefik-public-https.tls.certresolver=le
+      - traefik.http.services.traefik-public.loadbalancer.server.port=8080
+    volumes:
+      - traefik-data:/certificates
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - '80:80'
+      - '443:443'
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.mailhog-http.rule=Host(`mailhog.${DOMAIN:-local}`)
+      - traefik.http.routers.mailhog-http.entrypoints=http
+      - traefik.http.routers.mailhog-http.middlewares=https-redirect
+      - traefik.http.routers.mailhog-https.rule=Host(`mailhog.${DOMAIN:-local}`)
+      - traefik.http.routers.mailhog-https.entrypoints=https
+      - traefik.http.routers.mailhog-https.tls=true
+      - traefik.http.routers.mailhog-https.tls.certresolver=le
+      - traefik.http.services.mailhog.loadbalancer.server.port=8025
+
+  mysql:
+    image: mysql:${MYSQL_VERSION:-8.0}
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-nopassword}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-magento}
+      MYSQL_USERNAME: ${MYSQL_USERNAME:-rootless}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-nopassword}
+    volumes:
+      - mysql-data:/var/lib/mysql:rw,delegated
+    ports:
+      - '3306:3306'
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: ${MYSQL_HOST:-mysql}
+      PMA_PORT: ${MYSQL_PORT:-3306}
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.phpmyadmin-http.rule=Host(`phpmyadmin.${DOMAIN:-local}`)
+      - traefik.http.routers.phpmyadmin-http.entrypoints=http
+      - traefik.http.routers.phpmyadmin-http.middlewares=https-redirect
+      - traefik.http.routers.phpmyadmin-https.rule=Host(`phpmyadmin.${DOMAIN:-local}`)
+      - traefik.http.routers.phpmyadmin-https.entrypoints=https
+      - traefik.http.routers.phpmyadmin-https.tls=true
+      - traefik.http.routers.phpmyadmin-https.tls.certresolver=le
+      - traefik.http.services.phpmyadmin.loadbalancer.server.port=80
+    links:
+      - mysql
+    depends_on:
+      - mysql
+
+  redis-cache:
+    image: redis:${REDIS_VERSION:-7.0}
+    volumes:
+      - redis-cache-data:/data:rw,delegated
+
+  redis-session:
+    image: redis:${REDIS_VERSION:-7.0}
+    volumes:
+      - redis-session-data:/data:rw,delegated
+
+  elasticsearch:
+    image: elasticsearch:${ELASTICSEARCH_VERSION:-7.17.9}
+    command: >
+      bash -c '
+        bin/elasticsearch-plugin install analysis-phonetic;
+        bin/elasticsearch-plugin install analysis-icu;
+        exec /usr/local/bin/docker-entrypoint.sh elasticsearch;
+      '
+    environment:
+      - discovery.type=single-node
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data:rw,delegated
+    ports:
+      - '9200:9200'
+
+  rabbitmq:
+    image: rabbitmq:${RABBITMQ_VERSION:-3.11}-management
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USERNAME:-rootless}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:-nopassword}
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.rabbitmq-http.rule=Host(`rabbitmq.${DOMAIN:-local}`)
+      - traefik.http.routers.rabbitmq-http.entrypoints=http
+      - traefik.http.routers.rabbitmq-http.middlewares=https-redirect
+      - traefik.http.routers.rabbitmq-https.rule=Host(`rabbitmq.${DOMAIN:-local}`)
+      - traefik.http.routers.rabbitmq-https.entrypoints=https
+      - traefik.http.routers.rabbitmq-https.tls=true
+      - traefik.http.routers.rabbitmq-https.tls.certresolver=le
+      - traefik.http.services.rabbitmq.loadbalancer.server.port=15672
+    ports:
+      - '5672:5672'
+
+  magento:
+    image: aartintelligent/app-magento:${MAGENTO_VERSION:-2.4}
+    env_file:
+      - ./src/.env
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.magento-http.rule=Host(`magento.${DOMAIN:-local}`)
+      - traefik.http.routers.magento-http.entrypoints=http
+      - traefik.http.routers.magento-http.middlewares=https-redirect
+      - traefik.http.routers.magento-https.rule=Host(`magento.${DOMAIN:-local}`)
+      - traefik.http.routers.magento-https.entrypoints=https
+      - traefik.http.routers.magento-https.tls=true
+      - traefik.http.routers.magento-https.tls.certresolver=le
+      - traefik.http.services.magento.loadbalancer.server.port=8080
+    volumes:
+      - ./src:/var/www:rw,delegated
+    links:
+      - mailhog
+      - mysql
+      - redis-cache
+      - redis-session
+      - elasticsearch
+      - rabbitmq
+    depends_on:
+      - mailhog
+      - mysql
+      - redis-cache
+      - redis-session
+      - elasticsearch
+      - rabbitmq
+
+volumes:
+  traefik-data:
+  mysql-data:
+  redis-cache-data:
+  redis-session-data:
+  elasticsearch-data:
