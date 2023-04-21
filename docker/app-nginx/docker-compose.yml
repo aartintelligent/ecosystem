@@ -38,14 +38,14 @@ services:
     image: aartintelligent/app-nginx:${NGINX_VERSION:-latest}
     labels:
       - traefik.enable=true
-      - traefik.http.routers.magento-http.rule=Host(`magento.${DOMAIN:-local}`)
-      - traefik.http.routers.magento-http.entrypoints=http
-      - traefik.http.routers.magento-http.middlewares=https-redirect
-      - traefik.http.routers.magento-https.rule=Host(`magento.${DOMAIN:-local}`)
-      - traefik.http.routers.magento-https.entrypoints=https
-      - traefik.http.routers.magento-https.tls=true
-      - traefik.http.routers.magento-https.tls.certresolver=le
-      - traefik.http.services.magento.loadbalancer.server.port=8080
+      - traefik.http.routers.nginx-http.rule=Host(`nginx.${DOMAIN:-local}`)
+      - traefik.http.routers.nginx-http.entrypoints=http
+      - traefik.http.routers.nginx-http.middlewares=https-redirect
+      - traefik.http.routers.nginx-https.rule=Host(`nginx.${DOMAIN:-local}`)
+      - traefik.http.routers.nginx-https.entrypoints=https
+      - traefik.http.routers.nginx-https.tls=true
+      - traefik.http.routers.nginx-https.tls.certresolver=le
+      - traefik.http.services.nginx.loadbalancer.server.port=8080
     volumes:
       - ./src:/var/www:rw,delegated
     depends_on:
