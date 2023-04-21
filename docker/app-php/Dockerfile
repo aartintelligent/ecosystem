@@ -143,6 +143,4 @@ chmod +x \
 /docker/d-bootstrap-php.sh \
 /docker/d-bootstrap-fpm.sh
 
-COPY --chown=rootless:rootless src /var/www/
-
 USER rootless

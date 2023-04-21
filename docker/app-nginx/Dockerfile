@@ -48,8 +48,6 @@ RUN set -eux; \
 echo "/docker/d-bootstrap-nginx.sh" >> /docker/d-bootstrap.list; \
 chmod +x /docker/d-bootstrap-nginx.sh
 
-COPY --chown=rootless:rootless src /var/www/
-
 EXPOSE ${NGINX_PORT_UNSECURE} ${NGINX_PORT_SECURE}
 
 USER rootless
