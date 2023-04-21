@@ -9,6 +9,7 @@
 /README.md
 /srv/.env.*
 /src/phpunit.xml.dist
+/srv/bin/phpunit
 /src/public/bundles
 /src/public/build
 /src/node_modules
