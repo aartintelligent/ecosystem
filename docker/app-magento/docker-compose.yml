@@ -136,16 +136,6 @@ services:
     image: aartintelligent/app-magento:${MAGENTO_VERSION:-2.4}
     env_file:
       - .env
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.magento-http.rule=Host(`magento.${DOMAIN:-local}`)
-      - traefik.http.routers.magento-http.entrypoints=http
-      - traefik.http.routers.magento-http.middlewares=https-redirect
-      - traefik.http.routers.magento-https.rule=Host(`magento.${DOMAIN:-local}`)
-      - traefik.http.routers.magento-https.entrypoints=https
-      - traefik.http.routers.magento-https.tls=true
-      - traefik.http.routers.magento-https.tls.certresolver=le
-      - traefik.http.services.magento.loadbalancer.server.port=8080
     volumes:
       - ./src:/var/www:rw,delegated
     links:
@@ -156,13 +146,37 @@ services:
       - elasticsearch
       - rabbitmq
     depends_on:
-      - traefik
       - mailhog
       - mysql
       - redis-cache
       - redis-session
       - elasticsearch
       - rabbitmq
+    ports:
+      - '8080:8080'
+
+  varnish:
+    image: varnish:${VARNISH_VERSION:-7.3}
+    environment:
+      VARNISH_SIZE: ${VARNISH_SIZE:-2G}
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.varnish-http.rule=Host(`magento.${DOMAIN:-local}`)
+      - traefik.http.routers.varnish-http.entrypoints=http
+      - traefik.http.routers.varnish-http.middlewares=https-redirect
+      - traefik.http.routers.varnish-https.rule=Host(`magento.${DOMAIN:-local}`)
+      - traefik.http.routers.varnish-https.entrypoints=https
+      - traefik.http.routers.varnish-https.tls=true
+      - traefik.http.routers.varnish-https.tls.certresolver=le
+      - traefik.http.services.varnish.loadbalancer.server.port=80
+    volumes:
+      - varnish-data:/var/lib/varnish:rw,delegated
+      - ./src/default.vcl:/etc/varnish/default.vcl:ro
+    links:
+      - magento
+    depends_on:
+      - traefik
+      - magento
 
 volumes:
   traefik-data:
@@ -171,3 +185,4 @@ volumes:
   redis-session-data:
   elasticsearch-data:
   rabbitmq-data:
+  varnish-data:
