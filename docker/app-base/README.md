@@ -1,4 +1,4 @@
-# AArtIntelligent : Docker App Base
+# App Base
 
 @todo description
 
