@@ -23,6 +23,7 @@
 /src/auth.json.sample
 /src/CHANGELOG.md
 /src/COPYING.txt
+/src/default.vcl
 /src/grunt-config.json.sample
 /src/Gruntfile.js.sample
 /src/LICENSE.txt
