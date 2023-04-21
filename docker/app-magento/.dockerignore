@@ -5,6 +5,7 @@
 /.gitignore
 /Dockerfile
 /docker-compose.yml
+/icon.svg
 /README.md
 /src/generated
 /src/phpserver

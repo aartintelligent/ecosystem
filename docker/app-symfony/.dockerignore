@@ -3,6 +3,8 @@
 /.github
 /.gitignore
 /Dockerfile
+/docker-compose.yml
+/icon.svg
 /README.md
 /src/phpunit.xml.dist
 /src/public/bundles
