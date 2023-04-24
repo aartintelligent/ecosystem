@@ -7,8 +7,6 @@
 /Dockerfile
 /icon.svg
 /README.md
-/src/.env
-/src/.env.*
 /src/phpunit.xml.dist
 /srv/bin/phpunit
 /src/public/bundles
