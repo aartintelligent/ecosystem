@@ -114,8 +114,12 @@ chmod +x \
 /docker/d-notify.sh \
 /docker/d-start.sh \
 /docker/d-stop.sh; \
+touch /etc/cron.allow; \
+echo "rootless"  > /etc/cron.allow; \
+chmod u+s /usr/sbin/cron; \
 echo "/docker/d-bootstrap-supervisor.sh" >> /docker/d-bootstrap.list; \
 echo "/docker/d-bootstrap-sstmp.sh" >> /docker/d-bootstrap.list; \
+echo "/docker/d-bootstrap-cron.sh" >> /docker/d-bootstrap.list; \
 echo "/docker/d-bootstrap.sh" >> /docker/d-entrypoint.list; \
 echo "/docker/d-cleanup.sh" >> /docker/d-entrypoint.list; \
 echo "/docker/d-start.sh" >> /docker/d-entrypoint.list; \
