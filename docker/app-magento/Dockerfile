@@ -74,9 +74,6 @@ PHP_OPCACHE__ENABLE_CLI="1" \
 PHP_OPCACHE__PRELOAD="/var/www/app/preload.php" \
 PHP_OPCACHE__JIT="function"
 
-RUN set -eux; \
-rm -rf /var/www/*
-
 COPY --chown=rootless:rootless src /var/www
 
 COPY --chown=rootless:rootless --from=magento-ops-composer /src/vendor /var/www/vendor
