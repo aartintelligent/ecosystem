@@ -1,4 +1,4 @@
-# AArtIntelligent : Docker Ops Symfony
+# Ops Symfony
 
 @todo description
 

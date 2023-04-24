@@ -1,4 +1,4 @@
-# AArtIntelligent : Docker Ops Yarn
+# Ops Yarn
 
 @todo description
 

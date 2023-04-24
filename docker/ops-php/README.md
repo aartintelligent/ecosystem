@@ -1,4 +1,4 @@
-# AArtIntelligent : Docker Ops PHP
+# Ops PHP
 
 @todo description
 

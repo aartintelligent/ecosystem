@@ -1,4 +1,4 @@
-# AArtIntelligent : Docker Ops Composer
+# Ops Composer
 
 @todo description
 

@@ -1,4 +1,4 @@
-# AArtIntelligent : Docker Ops Grunt
+# Ops Grunt
 
 @todo description
 
