@@ -78,9 +78,5 @@
             "type": "composer",
             "url": "https://repo.magento.com/"
         }
-    ],
-    "extra": {
-        "magento-force": "override",
-        "magento-deploystrategy": "none"
-    }
+    ]
 }
