@@ -39,8 +39,6 @@ services:
     command: rootless:nopassword:::upload
     volumes:
       - sftp-data:/home/rootless/upload:rw,delegated
-    ports:
-      - '22:22'
 
   mailhog:
     image: mailhog/mailhog:${MAILHOG_VERSION:-latest}
@@ -113,10 +111,10 @@ services:
       - discovery.type=single-node
     volumes:
       - elasticsearch-data:/usr/share/elasticsearch/data:rw,delegated
-    ports:
-      - '9200:9200'
     depends_on:
       - traefik
+    ports:
+      - '9200:9200'
 
   rabbitmq:
     image: rabbitmq:${RABBITMQ_VERSION:-3.11-management}
@@ -135,8 +133,6 @@ services:
       - traefik.http.services.rabbitmq.loadbalancer.server.port=15672
     volumes:
       - rabbitmq-data:/var/lib/rabbitmq:rw,delegated
-    ports:
-      - '5672:5672'
     depends_on:
       - traefik
 
@@ -160,8 +156,6 @@ services:
       - redis-session
       - elasticsearch
       - rabbitmq
-    ports:
-      - '8080:8080'
 
   varnish:
     image: varnish:${VARNISH_VERSION:-7.3}
@@ -185,8 +179,6 @@ services:
     depends_on:
       - traefik
       - magento
-    ports:
-      - '8443:8443'
 
 volumes:
   traefik-data:
