@@ -34,6 +34,14 @@ services:
       - '80:80'
       - '443:443'
 
+  atmoz-sftp:
+    image: atmoz/sftp:${ATMOZ_SFTP_VERSION:-latest}
+    command: rootless:nopassword:::upload
+    volumes:
+      - atmoz-sftp-data:/home/rootless/upload:rw,delegated
+    ports:
+      - '22:22'
+
   mailhog:
     image: mailhog/mailhog:${MAILHOG_VERSION:-latest}
     labels:
@@ -183,6 +191,7 @@ services:
 
 volumes:
   traefik-data:
+  atmoz-sftp-data:
   mysql-data:
   redis-cache-data:
   redis-session-data:
