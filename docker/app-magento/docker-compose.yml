@@ -39,6 +39,8 @@ services:
     command: rootless:nopassword:::upload
     volumes:
       - sftp-data:/home/rootless/upload:rw,delegated
+    ports:
+      - '22:22'
 
   mailhog:
     image: mailhog/mailhog:${MAILHOG_VERSION:-latest}
