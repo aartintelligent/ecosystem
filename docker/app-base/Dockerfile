@@ -32,6 +32,7 @@ ca-certificates \
 lsb-release \
 supervisor \
 ssmtp \
+cron \
 systemd \
 patch \
 unzip \
@@ -55,6 +56,11 @@ COPY --chown=rootless:rootless system /
 RUN set -eux; \
 mkdir -p \
 /etc/supervisor \
+/etc/cron.d \
+/etc/cron.daily \
+/etc/cron.hourly \
+/etc/cron.monthly \
+/etc/cron.weekly \
 /var/pid \
 /var/run \
 /var/lock \
@@ -64,6 +70,12 @@ mkdir -p \
 /var/www; \
 chmod 777 -R \
 /etc/supervisor \
+/etc/crontab \
+/etc/cron.d \
+/etc/cron.daily \
+/etc/cron.hourly \
+/etc/cron.monthly \
+/etc/cron.weekly \
 /var/pid \
 /var/run \
 /var/lock \
@@ -73,6 +85,12 @@ chmod 777 -R \
 /var/www; \
 chown rootless:rootless \
 /etc/supervisor \
+/etc/crontab \
+/etc/cron.d \
+/etc/cron.daily \
+/etc/cron.hourly \
+/etc/cron.monthly \
+/etc/cron.weekly \
 /var/pid \
 /var/run \
 /var/lock \
@@ -80,18 +98,28 @@ chown rootless:rootless \
 /var/cache \
 /var/lib \
 /var/www; \
+rm -rf \
+/etc/cron.d/* \
+/etc/cron.daily/* \
+/etc/cron.hourly/* \
+/etc/cron.monthly/* \
+/etc/cron.weekly/*; \
 chmod +x \
 /docker/d-bootstrap.sh \
-/docker/d-bootstrap-sstmp.sh \
 /docker/d-bootstrap-supervisor.sh \
+/docker/d-bootstrap-sstmp.sh \
 /docker/d-cleanup.sh \
 /docker/d-entrypoint.sh \
 /docker/d-health.sh \
 /docker/d-notify.sh \
 /docker/d-start.sh \
 /docker/d-stop.sh; \
+touch /etc/cron.allow; \
+echo "rootless"  > /etc/cron.allow; \
+chmod u+s /usr/sbin/cron; \
 echo "/docker/d-bootstrap-supervisor.sh" >> /docker/d-bootstrap.list; \
 echo "/docker/d-bootstrap-sstmp.sh" >> /docker/d-bootstrap.list; \
+echo "/docker/d-bootstrap-cron.sh" >> /docker/d-bootstrap.list; \
 echo "/docker/d-bootstrap.sh" >> /docker/d-entrypoint.list; \
 echo "/docker/d-cleanup.sh" >> /docker/d-entrypoint.list; \
 echo "/docker/d-start.sh" >> /docker/d-entrypoint.list; \
