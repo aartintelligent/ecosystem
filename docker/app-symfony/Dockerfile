@@ -41,7 +41,7 @@ APP_DEBUG="1" \
 APP_SECRET="8a173d6f3c8bc1a030c4ff378866f834" \
 DATABASE_URL="mysql://rootless:nopassword@mysql:3306/symfony?serverVersion=8&charset=utf8mb4" \
 MESSENGER_TRANSPORT_DSN="amqp://rootless:nopassword@rabbitmq:5672/%2f/messages" \
-PHP_MEMORY_LIMIT="2G" \
+PHP_MEMORY_LIMIT="2048M" \
 PHP_OPCACHE__ENABLE="1" \
 PHP_OPCACHE__ENABLE_CLI="1" \
 PHP_OPCACHE__PRELOAD="/var/www/config/preload.php" \
