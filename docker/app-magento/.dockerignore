@@ -4,6 +4,7 @@
 /.github
 /.gitignore
 /.env
+/default.vcl
 /docker-compose.yml
 /Dockerfile
 /icon.svg
@@ -16,4 +17,3 @@
 /src/var
 /src/vendor
 /src/.editorconfig
-/src/default.vcl
