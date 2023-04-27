@@ -43,7 +43,8 @@ COPY src /src
 COPY --from=magento-ops-composer /src/vendor /src/vendor
 
 RUN set -eux; \
-bin/magento setup:static-content:deploy -f ${LOCALES}
+bin/magento setup:static-content:deploy \
+--force ${LOCALES}
 
 FROM aartintelligent/app-php:${PHP_VERSION}
 
