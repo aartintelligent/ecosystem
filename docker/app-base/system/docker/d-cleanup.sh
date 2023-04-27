@@ -3,11 +3,11 @@ set -e
 
 (>&2 echo "[*] Cleanup")
 
-while IFS= read -r script; do
+while IFS= read -r file; do
 
-  if [ -f "$script" ]; then
+  if [ -f "$file" ]; then
 
-    bash "$script" "$@"
+    rm -rf "$file"
 
   fi
 

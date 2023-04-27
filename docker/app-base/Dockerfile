@@ -8,7 +8,7 @@ ENV \
 GIT_COMMIT="${GIT_COMMIT}" \
 SUPERVISOR_USERNAME="rootless" \
 SUPERVISOR_PASSWORD="nopassword" \
-SUPERVISOR_LOG_LEVEL="warn" \
+SUPERVISOR_LOG_LEVEL="error" \
 SUPERVISOR_LOG_FILE="/dev/stdout" \
 SUPERVISOR_INCLUDE_FILES="/etc/supervisor/conf.d/*.conf" \
 SSTMP_MAIL_HUB="" \
