@@ -10,6 +10,8 @@ COMPOSER_ALLOW_XDEBUG="0" \
 COMPOSER_CACHE_DIR="/var/cache/composer" \
 COMPOSER_AUTH="${COMPOSER_AUTH}"
 
+VOLUME ["/var/cache/composer"]
+
 COPY src /src
 
 RUN set -eux; \
