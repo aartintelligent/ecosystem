@@ -36,7 +36,8 @@ bin/magento setup:di:compile
 
 FROM aartintelligent/ops-php:${PHP_VERSION} AS magento-ops-static-deploy
 
-ARG LOCALES=""
+ARG JOBS="3"
+ARG LANGUAGES=""
 
 COPY src /src
 
@@ -44,7 +45,10 @@ COPY --from=magento-ops-composer /src/vendor /src/vendor
 
 RUN set -eux; \
 bin/magento setup:static-content:deploy \
---force ${LOCALES}
+--force \
+--no-interaction \
+--jobs=${JOBS} \
+${LANGUAGES}
 
 FROM aartintelligent/app-php:${PHP_VERSION}
 
