@@ -8,7 +8,8 @@
 /icon.svg
 /README.md
 /src/phpunit.xml.dist
-/srv/bin/phpunit
+/src/.env.*
+/src/bin/phpunit
 /src/public/bundles
 /src/public/build
 /src/node_modules
