@@ -108,6 +108,7 @@ chmod +x \
 /docker/d-bootstrap.sh \
 /docker/d-bootstrap-supervisor.sh \
 /docker/d-bootstrap-sstmp.sh \
+/docker/d-bootstrap-cron.sh \
 /docker/d-cleanup.sh \
 /docker/d-entrypoint.sh \
 /docker/d-health.sh \
