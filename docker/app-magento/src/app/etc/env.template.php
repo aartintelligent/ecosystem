@@ -113,10 +113,7 @@ return [
         ],
     ],
     'lock' => [
-        'provider' => 'db',
-        'config' => [
-            'prefix' => substr(getenv('GIT_COMMIT') ?? 'a00001', 0, 6) . '_',
-        ]
+        'provider' => 'db'
     ],
     'cache_types' => [
         'config' => 1,
