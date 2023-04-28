@@ -24,7 +24,49 @@ update
 
 ---
 
-### Registry Usage
+### Docker Compose Usage
+
+```shell
+docker build . -t aartintelligent/app-magento:2.4 \
+--build-arg "UID=$(id -u)" \
+--build-arg "GID=$(id -g)"
+```
+
+```shell
+docker compose up
+```
+
+```shell
+docker compose exec magento \
+bin/magento setup:install \
+--base-url=https://magento.local \
+--db-host=mysql \
+--db-name=magento \
+--db-user=rootless \
+--db-password=nopassword \
+--admin-firstname=$(whoami) \
+--admin-lastname=$(whoami) \
+--admin-email=$(whoami)@mail.local \
+--admin-user=$(whoami) \
+--admin-password=$(whoami)123 \
+--language=fr_FR \
+--currency=EUR \
+--timezone=Europe/Paris \
+--use-rewrites=1 \
+--search-engine=elasticsearch7 \
+--elasticsearch-host=elasticsearch \
+--elasticsearch-port=9200 \
+--elasticsearch-index-prefix=magento2 \
+--elasticsearch-timeout=15
+```
+
+```shell
+docker compose down
+```
+
+---
+
+### Docker Registry Usage
 
 ```shell
 docker build . -t aartintelligent/app-magento:latest
