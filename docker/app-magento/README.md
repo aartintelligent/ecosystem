@@ -84,6 +84,8 @@ docker compose exec magento \
 bin/magento cache:clean
 ```
 
+Ready to go
+
 ---
 
 ### Registry Usage
