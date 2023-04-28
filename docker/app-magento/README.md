@@ -4,7 +4,31 @@
 
 ---
 
-### Composer usage
+### Install
+
+Bind domains on your /etc/hosts
+
+```shell
+sudo nano /etc/hosts
+```
+
+```text
+127.0.0.1       traefik.local
+127.0.0.1       mailhog.local
+127.0.0.1       phpmyadmin.local
+127.0.0.1       rabbitmq.local
+127.0.0.1       magento.local
+```
+
+Build your local docker image
+
+```shell
+docker build . -t aartintelligent/app-magento:2.4 \
+--build-arg "UID=$(id -u)" \
+--build-arg "GID=$(id -g)"
+```
+
+Install dependencies composer
 
 ```shell
 docker run -it --rm \
@@ -14,27 +38,13 @@ aartintelligent/ops-composer:8.2 \
 install
 ```
 
-```shell
-docker run -it --rm \
--u $(id -u):$(id -g) \
--v $(pwd)/src:/src \
-aartintelligent/ops-composer:8.2 \
-update
-```
-
----
-
-### Docker Compose Usage
-
-```shell
-docker build . -t aartintelligent/app-magento:2.4 \
---build-arg "UID=$(id -u)" \
---build-arg "GID=$(id -g)"
-```
+Start docker compose
 
 ```shell
 docker compose up
 ```
+
+Install magento project
 
 ```shell
 docker compose exec magento \
@@ -60,13 +70,9 @@ bin/magento setup:install \
 --elasticsearch-timeout=15
 ```
 
-```shell
-docker compose down
-```
-
 ---
 
-### Docker Registry Usage
+### Registry Usage
 
 ```shell
 docker build . -t aartintelligent/app-magento:latest
@@ -74,6 +80,10 @@ docker build . -t aartintelligent/app-magento:latest
 
 ```shell
 docker build . -t aartintelligent/app-magento:2.4
+```
+
+```shell
+docker login
 ```
 
 ```shell
