@@ -1,9 +1,5 @@
 # App Magento
 
-version: 2.4.6
-
----
-
 ### Install
 
 1. Bind domains on your /etc/hosts
