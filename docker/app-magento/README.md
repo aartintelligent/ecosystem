@@ -6,7 +6,7 @@
 
 ### Install
 
-Bind domains on your /etc/hosts
+1. Bind domains on your /etc/hosts
 
 ```shell
 sudo nano /etc/hosts
@@ -20,7 +20,9 @@ sudo nano /etc/hosts
 127.0.0.1       magento.local
 ```
 
-Build your local docker image
+2. Copy your auth.json into /src directory
+
+3. Build your local docker image
 
 ```shell
 docker build . -t aartintelligent/app-magento:2.4 \
@@ -28,7 +30,7 @@ docker build . -t aartintelligent/app-magento:2.4 \
 --build-arg "GID=$(id -g)"
 ```
 
-Install dependencies composer
+4. Install dependencies composer
 
 ```shell
 docker run -it --rm \
@@ -38,13 +40,13 @@ aartintelligent/ops-composer:8.2 \
 install
 ```
 
-Start docker compose
+5. Start docker compose
 
 ```shell
 docker compose up
 ```
 
-Install magento project
+6. Install magento project
 
 ```shell
 docker compose exec magento \
@@ -70,7 +72,7 @@ bin/magento setup:install \
 --elasticsearch-timeout=15
 ```
 
-Apply custom env.php
+7. Apply custom env.php
 
 ```shell
 cp \
@@ -78,7 +80,7 @@ src/app/etc/env.template.php \
 src/app/etc/env.php 
 ```
 
-Cleanup
+8. Cleanup
 
 ```shell
 docker compose exec magento \
