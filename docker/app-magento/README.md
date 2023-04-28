@@ -73,7 +73,8 @@ bin/magento setup:install \
 Apply custom env.php
 
 ```shell
-cp src/app/etc/env.template.php \
+cp \
+src/app/etc/env.template.php \
 src/app/etc/env.php 
 ```
 
