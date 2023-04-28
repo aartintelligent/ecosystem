@@ -1,6 +1,6 @@
 # App Magento
 
-@todo description
+version: 2.4.6
 
 ---
 
