@@ -31,15 +31,18 @@ docker exec -it app-nginx supervisorctl status
 ```
 
 ```shell
-docker exec -it app-nginx supervisorctl stop server-nginx:server-nginx_00
+docker exec -it app-nginx supervisorctl stop server-nginx:server-nginx
 ```
 
 ```shell
-until docker exec -it app-nginx /docker/d-health.sh >/dev/null 2>&1; do (echo >&2 "Waiting..."); sleep 2; done
+until docker exec -it app-php /docker/d-health.sh >/dev/null 2>&1; do \
+  (echo >&2 "Waiting..."); \
+  sleep 2; \
+done
 ```
 
 ```shell
-docker exec -it app-nginx supervisorctl start server-nginx:server-nginx_00
+docker exec -it app-nginx supervisorctl start server-nginx:server-nginx
 ```
 
 ```shell

@@ -31,15 +31,18 @@ docker exec -it app-symfony supervisorctl status
 ```
 
 ```shell
-docker exec -it app-symfony supervisorctl stop server:server-fpm_00
+docker exec -it app-symfony supervisorctl stop server:server-fpm
 ```
 
 ```shell
-until docker exec -it app-symfony /docker/d-health.sh >/dev/null 2>&1; do (echo >&2 "Waiting..."); sleep 2; done
+until docker exec -it app-php /docker/d-health.sh >/dev/null 2>&1; do \
+  (echo >&2 "Waiting..."); \
+  sleep 2; \
+done
 ```
 
 ```shell
-docker exec -it app-symfony supervisorctl start server:server-fpm_00
+docker exec -it app-symfony supervisorctl start server:server-fpm
 ```
 
 ```shell
