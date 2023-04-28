@@ -52,7 +52,7 @@ bin/magento setup:install \
 --base-url=https://magento.local \
 --db-host=mysql \
 --db-name=magento \
---db-user=rootless \
+--db-user=root \
 --db-password=nopassword \
 --admin-firstname=$(whoami) \
 --admin-lastname=$(whoami) \
@@ -68,6 +68,20 @@ bin/magento setup:install \
 --elasticsearch-port=9200 \
 --elasticsearch-index-prefix=magento2 \
 --elasticsearch-timeout=15
+```
+
+Apply custom env.php
+
+```shell
+cp src/app/etc/env.template.php \
+src/app/etc/env.php 
+```
+
+Cleanup
+
+```shell
+docker compose exec magento \
+bin/magento cache:clean
 ```
 
 ---
