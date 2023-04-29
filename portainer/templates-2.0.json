@@ -3,50 +3,6 @@
   "templates": [
     {
       "type": 3,
-      "title": "App Nginx",
-      "description": "AArtIntelligent stack nginx",
-      "categories": [
-        "server",
-        "proxying",
-        "loadbalancer",
-        "nginx"
-      ],
-      "platform": "linux",
-      "logo": "https://raw.githubusercontent.com/aartintelligent/ecosystem/master/portainer/stack/app-nginx/icon.svg",
-      "repository": {
-        "url": "https://github.com/aartintelligent/ecosystem",
-        "stackfile": "portainer/stack/app-nginx/docker-compose.yml"
-      },
-      "env": [
-        {
-          "name": "DOMAIN",
-          "label": "Local domain"
-        }
-      ]
-    },
-    {
-      "type": 3,
-      "title": "App PHP",
-      "description": "AArtIntelligent stack PHP",
-      "categories": [
-        "server",
-        "php"
-      ],
-      "platform": "linux",
-      "logo": "https://raw.githubusercontent.com/aartintelligent/ecosystem/master/portainer/stack/app-php/icon.svg",
-      "repository": {
-        "url": "https://github.com/aartintelligent/ecosystem",
-        "stackfile": "portainer/stack/app-php/docker-compose.yml"
-      },
-      "env": [
-        {
-          "name": "DOMAIN",
-          "label": "Local domain"
-        }
-      ]
-    },
-    {
-      "type": 3,
       "title": "App Magento",
       "description": "AArtIntelligent stack magento",
       "categories": [
