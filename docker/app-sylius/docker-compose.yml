@@ -1,0 +1,131 @@
+version: "3.8"
+
+services:
+
+  traefik:
+    image: traefik:${TRAEFIK_VERSION:-latest}
+    command:
+      - --providers.docker
+      - --providers.docker.exposedbydefault=false
+      - --entrypoints.http.address=:80
+      - --entrypoints.https.address=:443
+      - --certificatesresolvers.le.acme.email=${EMAIL:-fake@mail.local}
+      - --certificatesresolvers.le.acme.storage=/certificates/acme.json
+      - --certificatesresolvers.le.acme.tlschallenge=true
+      - --log
+      - --api
+    labels:
+      - traefik.enable=true
+      - traefik.http.middlewares.https-redirect.redirectscheme.scheme=https
+      - traefik.http.middlewares.https-redirect.redirectscheme.permanent=true
+      - traefik.http.routers.traefik-public-http.rule=Host(`traefik.${DOMAIN:-local}`)
+      - traefik.http.routers.traefik-public-http.entrypoints=http
+      - traefik.http.routers.traefik-public-http.middlewares=https-redirect
+      - traefik.http.routers.traefik-public-https.rule=Host(`traefik.${DOMAIN:-local}`)
+      - traefik.http.routers.traefik-public-https.entrypoints=https
+      - traefik.http.routers.traefik-public-https.tls=true
+      - traefik.http.routers.traefik-public-https.service=api@internal
+      - traefik.http.routers.traefik-public-https.tls.certresolver=le
+      - traefik.http.services.traefik-public.loadbalancer.server.port=8080
+    volumes:
+      - traefik-data:/certificates
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - '80:80'
+      - '443:443'
+
+  mailhog:
+    image: mailhog/mailhog:${MAILHOG_VERSION:-latest}
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.mailhog-http.rule=Host(`mailhog.${DOMAIN:-local}`)
+      - traefik.http.routers.mailhog-http.entrypoints=http
+      - traefik.http.routers.mailhog-http.middlewares=https-redirect
+      - traefik.http.routers.mailhog-https.rule=Host(`mailhog.${DOMAIN:-local}`)
+      - traefik.http.routers.mailhog-https.entrypoints=https
+      - traefik.http.routers.mailhog-https.tls=true
+      - traefik.http.routers.mailhog-https.tls.certresolver=le
+      - traefik.http.services.mailhog.loadbalancer.server.port=8025
+    depends_on:
+      - traefik
+
+  mysql:
+    image: mysql:${MYSQL_VERSION:-8.0}
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-nopassword}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-symfony}
+      MYSQL_USER: ${MYSQL_USER:-rootless}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-nopassword}
+    volumes:
+      - mysql-data:/var/lib/mysql:rw,delegated
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:${MAILHOG_VERSION:-latest}
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.phpmyadmin-http.rule=Host(`phpmyadmin.${DOMAIN:-local}`)
+      - traefik.http.routers.phpmyadmin-http.entrypoints=http
+      - traefik.http.routers.phpmyadmin-http.middlewares=https-redirect
+      - traefik.http.routers.phpmyadmin-https.rule=Host(`phpmyadmin.${DOMAIN:-local}`)
+      - traefik.http.routers.phpmyadmin-https.entrypoints=https
+      - traefik.http.routers.phpmyadmin-https.tls=true
+      - traefik.http.routers.phpmyadmin-https.tls.certresolver=le
+      - traefik.http.services.phpmyadmin.loadbalancer.server.port=80
+    links:
+      - mysql
+    depends_on:
+      - traefik
+      - mysql
+
+  rabbitmq:
+    image: rabbitmq:${RABBITMQ_VERSION:-3.11-management}
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USERNAME:-rootless}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:-nopassword}
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.rabbitmq-http.rule=Host(`rabbitmq.${DOMAIN:-local}`)
+      - traefik.http.routers.rabbitmq-http.entrypoints=http
+      - traefik.http.routers.rabbitmq-http.middlewares=https-redirect
+      - traefik.http.routers.rabbitmq-https.rule=Host(`rabbitmq.${DOMAIN:-local}`)
+      - traefik.http.routers.rabbitmq-https.entrypoints=https
+      - traefik.http.routers.rabbitmq-https.tls=true
+      - traefik.http.routers.rabbitmq-https.tls.certresolver=le
+      - traefik.http.services.rabbitmq.loadbalancer.server.port=15672
+    depends_on:
+      - traefik
+
+  sylius:
+    image: aartintelligent/app-sylius:${SYLIUS_VERSION:-1.12}
+    env_file:
+      - .env
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.sylius-http.rule=Host(`sylius.${DOMAIN:-local}`)
+      - traefik.http.routers.sylius-http.entrypoints=http
+      - traefik.http.routers.sylius-http.middlewares=https-redirect
+      - traefik.http.routers.sylius-https.rule=Host(`sylius.${DOMAIN:-local}`)
+      - traefik.http.routers.sylius-https.entrypoints=https
+      - traefik.http.routers.sylius-https.tls=true
+      - traefik.http.routers.sylius-https.tls.certresolver=le
+      - traefik.http.services.sylius.loadbalancer.server.port=8080
+    volumes:
+      - ./src:/var/www:rw,delegated
+    links:
+      - mailhog
+      - mysql
+      - rabbitmq
+    depends_on:
+      - traefik
+      - mailhog
+      - mysql
+      - rabbitmq
+
+volumes:
+  traefik-data:
+  mysql-data:
+  rabbitmq-data:
