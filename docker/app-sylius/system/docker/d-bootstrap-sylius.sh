@@ -3,7 +3,7 @@ set -e
 
 (>&2 echo "[*] Bootstrap SYLIUS")
 
-if [ -n "$(ls -A /var/www/migrations/*.php 2>/dev/null)" ]; then
+if [ -n "$(ls -A /var/www/src/Migrations/*.php 2>/dev/null)" ]; then
 
   until bin/console doctrine:query:sql "select 1" >/dev/null 2>&1; do
 

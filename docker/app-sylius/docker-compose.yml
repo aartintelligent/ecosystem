@@ -54,7 +54,7 @@ services:
     command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-nopassword}
-      MYSQL_DATABASE: ${MYSQL_DATABASE:-symfony}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-sylius}
       MYSQL_USER: ${MYSQL_USER:-rootless}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:-nopassword}
     volumes:
