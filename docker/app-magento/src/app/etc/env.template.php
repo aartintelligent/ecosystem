@@ -112,9 +112,6 @@ return [
             'virtualhost' => getenv('RABBITMQ_VIRTUALHOST') ?? '/'
         ],
     ],
-    'lock' => [
-        'provider' => 'db'
-    ],
     'cache_types' => [
         'config' => 1,
         'layout' => 1,
