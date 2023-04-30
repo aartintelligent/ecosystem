@@ -36,6 +36,14 @@
 
 ---
 
+### App Sylius
+
+@todo description
+
+[Documentation](app-sylius)
+
+---
+
 ### App Symfony
 
 @todo description
