@@ -3,6 +3,34 @@
 This git repository aims to capitalize and industrialize the different packages necessary to operate the AArtIntelligent
 ecosystem.
 
+### A devops challenge
+
+While DevOps practices can bring many benefits to organizations, there are also some challenges and constraints that
+must be addressed to successfully implement and adopt DevOps. Here are some of the main constraints of DevOps:
+
+Cultural change: DevOps requires a significant cultural shift, with a focus on collaboration, communication, and
+shared responsibility across development, operations, and other teams. This can be challenging for organizations that
+have a siloed or hierarchical culture.
+
+Skill set gaps: DevOps requires a wide range of skills, including automation, testing, cloud computing, and
+continuous integration and delivery. Finding individuals with the necessary skills and experience can be difficult,
+and upskilling existing employees can take time and resources.
+
+Tool integration: DevOps relies on a wide range of tools and technologies, and integrating these tools can be
+complex. Organizations need to ensure that their tools work seamlessly together to avoid compatibility issues and
+data inconsistencies.
+
+Security and compliance: DevOps practices can introduce new security and compliance risks, such as security
+vulnerabilities in code or configuration files. It's essential to ensure that security and compliance requirements
+are integrated into the DevOps process from the outset.
+
+Infrastructure complexity: As organizations move towards cloud-based infrastructures, the complexity of managing
+multiple environments and configurations increases. DevOps requires a robust infrastructure management strategy that
+can handle this complexity and ensure consistency across environments.
+
+By addressing these constraints and challenges, organizations can successfully implement DevOps and reap the benefits of
+faster, more reliable software delivery.
+
 --- 
 
 ### Architecture
