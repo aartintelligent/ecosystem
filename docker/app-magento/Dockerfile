@@ -2,13 +2,12 @@ ARG PHP_VERSION='8.2'
 
 FROM aartintelligent/ops-composer:${PHP_VERSION} AS magento-ops-composer
 
-ARG COMPOSER_CACHE_DIR="/var/cache/composer"
 ARG COMPOSER_AUTH=""
 
 ENV \
 COMPOSER_ALLOW_SUPERUSER="0" \
 COMPOSER_ALLOW_XDEBUG="0" \
-COMPOSER_CACHE_DIR="${COMPOSER_CACHE_DIR}" \
+COMPOSER_CACHE_DIR="/var/cache/composer" \
 COMPOSER_AUTH="${COMPOSER_AUTH}"
 
 COPY src /src
@@ -35,8 +34,8 @@ bin/magento setup:di:compile
 
 FROM aartintelligent/ops-php:${PHP_VERSION} AS magento-ops-static-deploy
 
-ARG JOBS="3"
-ARG LANGUAGES=""
+ARG STATIC_JOBS="3"
+ARG STATIC_LANGUAGES=""
 
 COPY src /src
 
@@ -46,8 +45,8 @@ RUN set -eux; \
 bin/magento setup:static-content:deploy \
 --force \
 --no-interaction \
---jobs=${JOBS} \
-${LANGUAGES}
+--jobs=${STATIC_JOBS} \
+${STATIC_LANGUAGES}
 
 FROM aartintelligent/app-php:${PHP_VERSION}
 
