@@ -2,12 +2,13 @@ ARG PHP_VERSION='8.2'
 
 FROM aartintelligent/ops-composer:${PHP_VERSION} AS sylius-ops-composer
 
+ARG COMPOSER_CACHE_DIR="/var/cache/composer"
 ARG COMPOSER_AUTH=""
 
 ENV \
 COMPOSER_ALLOW_SUPERUSER="0" \
 COMPOSER_ALLOW_XDEBUG="0" \
-COMPOSER_CACHE_DIR="/var/cache/composer" \
+COMPOSER_CACHE_DIR="${COMPOSER_CACHE_DIR}" \
 COMPOSER_AUTH="${COMPOSER_AUTH}"
 
 COPY src /src
