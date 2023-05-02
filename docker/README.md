@@ -2,8 +2,6 @@
 
 ---
 
-<img src="./app-base/icon.svg" alt="drawing" width="150"/>
-
 ### App Base
 
 Debian is a free and open-source operating system based on the Linux kernel. It is known for its stability, security,
@@ -16,8 +14,6 @@ is also the foundation for several other popular Linux distributions, such as Ub
 
 ---
 
-<img src="./app-magento/icon.svg" alt="drawing" width="150"/>
-
 ### App Magento
 
 Magento 2 is a popular open-source e-commerce platform used by many businesses to create customized online stores. It
@@ -28,8 +24,6 @@ flexibility, security, and ability to handle large-scale e-commerce websites.
 [Documentation](app-magento)
 
 ---
-
-<img src="./app-nginx/icon.svg" alt="drawing" width="150"/>
 
 ### App Nginx
 
@@ -42,8 +36,6 @@ providing additional benefits for improving website performance and reliability.
 
 ---
 
-<img src="./app-php/icon.svg" alt="drawing" width="150"/>
-
 ### App PHP
 
 PHP is a popular server-side scripting language used for developing dynamic web applications and websites. It is
@@ -55,8 +47,6 @@ connectivity, XML parsing, and more, making it a versatile language for web deve
 [Documentation](app-php)
 
 ---
-
-<img src="./app-sylius/icon.png" alt="drawing" width="150"/>
 
 ### App Sylius
 
@@ -71,8 +61,6 @@ solutions.
 
 ---
 
-<img src="./app-symfony/icon.svg" alt="drawing" width="150"/>
-
 ### App Symfony
 
 Symfony is a popular open-source web application framework written in PHP. It provides a set of reusable components and
@@ -85,8 +73,6 @@ used for building high-quality web applications of all sizes and complexity leve
 [Documentation](app-symfony)
 
 ---
-
-<img src="./ops-composer/icon.svg" alt="drawing" width="150"/>
 
 ### Ops Composer
 
@@ -103,8 +89,6 @@ the quality and reliability of their code.
 
 ---
 
-<img src="./ops-grunt/icon.png" alt="drawing" width="150"/>
-
 ### Ops Grunt
 
 Grunt is a JavaScript task runner that simplifies the process of automating repetitive tasks in web development
@@ -120,8 +104,6 @@ npm, and Bower.
 
 ---
 
-<img src="./app-php/icon.svg" alt="drawing" width="150"/>
-
 ### Ops PHP
 
 PHP CLI (Command Line Interface) is a version of the PHP programming language that is designed to be executed from the
@@ -136,8 +118,6 @@ range of platforms, including Windows, macOS, and Linux.
 
 ---
 
-<img src="./app-symfony/icon.svg" alt="drawing" width="150"/>
-
 ### Ops Symfony
 
 Symfony CLI is a command-line interface tool for managing Symfony applications and projects. It provides a range of
@@ -151,8 +131,6 @@ range of operating systems, including Windows, macOS, and Linux.
 [Documentation](ops-symfony)
 
 ---
-
-<img src="./ops-yarn/icon.svg" alt="drawing" width="150"/>
 
 ### Ops Yarn
 
