@@ -1,4 +1,4 @@
-# App Base
+# AArtIntelligent : App Base
 
 @todo description
 

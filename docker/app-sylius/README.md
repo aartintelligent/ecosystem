@@ -1,4 +1,4 @@
-# App Sylius
+# AArtIntelligent : App Sylius
 
 @todo description
 
