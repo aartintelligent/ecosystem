@@ -86,6 +86,8 @@ used for building high-quality web applications of all sizes and complexity leve
 
 ---
 
+<img src="./ops-composer/icon.svg" alt="drawing" width="150"/>
+
 ### Ops Composer
 
 Composer is a dependency management tool for PHP that allows developers to manage and install third-party libraries and
