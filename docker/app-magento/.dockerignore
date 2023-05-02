@@ -4,6 +4,7 @@
 /.github
 /.gitignore
 /.env
+/auth.json
 /default.vcl
 /docker-compose.yml
 /Dockerfile
