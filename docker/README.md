@@ -74,7 +74,14 @@ used for building high-quality web applications of all sizes and complexity leve
 
 ### Ops Composer
 
-@todo description
+Composer is a dependency management tool for PHP that allows developers to manage and install third-party libraries and
+packages in their projects. It simplifies the process of managing PHP dependencies by automating the installation,
+updating, and removal of packages, and resolving conflicts between them. Composer uses a centralized repository called
+Packagist to store and distribute packages, and it allows developers to specify package requirements and versions using
+a simple and intuitive syntax. It also provides a range of features for managing autoloading, scripts, and other project
+settings, and it integrates with popular PHP frameworks such as Laravel, Symfony, and Yii. Composer has become an
+essential tool for PHP developers, helping them to streamline their development workflows, reduce errors, and improve
+the quality and reliability of their code.
 
 [Documentation](ops-composer)
 
@@ -82,7 +89,14 @@ used for building high-quality web applications of all sizes and complexity leve
 
 ### Ops Grunt
 
-@todo description
+Grunt is a JavaScript task runner that simplifies the process of automating repetitive tasks in web development
+projects. It allows developers to define and execute custom tasks such as minification, compilation, and testing of
+code, making it easier to manage complex workflows and maintain consistency across projects. Grunt uses a plugin-based
+architecture that enables developers to extend its functionality by incorporating third-party plugins or creating their
+own. It provides a command-line interface for managing tasks, as well as a range of features for configuring and
+customizing tasks, including file globs, options, and callbacks. Grunt is widely used in the web development community,
+particularly in front-end development workflows, and it integrates with popular web development tools such as Node.js,
+npm, and Bower.
 
 [Documentation](ops-grunt)
 
@@ -90,7 +104,13 @@ used for building high-quality web applications of all sizes and complexity leve
 
 ### Ops PHP
 
-@todo description
+PHP CLI (Command Line Interface) is a version of the PHP programming language that is designed to be executed from the
+command line, rather than through a web server. It provides a powerful set of command-line tools and utilities that
+allow developers to write and execute PHP scripts and applications without the need for a web browser or server. PHP CLI
+can be used for a wide range of tasks, including running scripts, testing code, and performing system administration
+tasks. It provides a range of features for managing input and output, working with files, and interacting with the
+operating system. PHP CLI is widely used in web development and system administration, and it is supported on a wide
+range of platforms, including Windows, macOS, and Linux.
 
 [Documentation](ops-php)
 
@@ -98,7 +118,13 @@ used for building high-quality web applications of all sizes and complexity leve
 
 ### Ops Symfony
 
-@todo description
+Symfony CLI is a command-line interface tool for managing Symfony applications and projects. It provides a range of
+commands and tools that simplify the process of building, testing, and deploying Symfony applications, making it easier
+for developers to manage their workflows and increase productivity. Symfony CLI includes features such as project
+creation and configuration, dependency management, code generation, database migration, and testing. It also includes a
+built-in web server that allows developers to run and test their applications locally. Symfony CLI is widely used in the
+Symfony community and is an essential tool for developers building Symfony applications. It is compatible with a wide
+range of operating systems, including Windows, macOS, and Linux.
 
 [Documentation](ops-symfony)
 
@@ -106,6 +132,13 @@ used for building high-quality web applications of all sizes and complexity leve
 
 ### Ops Yarn
 
-@todo description
+Yarn is a package manager for JavaScript that provides a faster, more reliable, and more secure alternative to the npm
+package manager. It allows developers to manage dependencies and packages for their JavaScript projects, including
+Node.js applications, React, and Angular projects. Yarn uses a centralized repository called the Yarn registry to store
+and distribute packages, and it employs a parallel and deterministic algorithm to install packages quickly and
+efficiently. It also provides features such as package caching, offline mode, and workspaces to make it easier for
+developers to manage complex project structures. Yarn has become a popular choice among JavaScript developers,
+particularly in the React and React Native communities, and it is supported on multiple operating systems, including
+Windows, macOS, and Linux.
 
 [Documentation](ops-yarn)
