@@ -1,5 +1,9 @@
 # AArtIntelligent : Docker
 
+---
+
+<img src="./app-base/icon.svg" alt="drawing" width="150"/>
+
 ### App Base
 
 Debian is a free and open-source operating system based on the Linux kernel. It is known for its stability, security,
@@ -12,6 +16,8 @@ is also the foundation for several other popular Linux distributions, such as Ub
 
 ---
 
+<img src="./app-magento/icon.svg" alt="drawing" width="150"/>
+
 ### App Magento
 
 Magento 2 is a popular open-source e-commerce platform used by many businesses to create customized online stores. It
@@ -23,6 +29,8 @@ flexibility, security, and ability to handle large-scale e-commerce websites.
 
 ---
 
+<img src="./app-nginx/icon.svg" alt="drawing" width="150"/>
+
 ### App Nginx
 
 Nginx is a high-performance open-source web server and reverse proxy that is widely used to handle and optimize HTTP and
@@ -33,6 +41,8 @@ providing additional benefits for improving website performance and reliability.
 [Documentation](app-nginx)
 
 ---
+
+<img src="./app-php/icon.svg" alt="drawing" width="150"/>
 
 ### App PHP
 
@@ -46,6 +56,8 @@ connectivity, XML parsing, and more, making it a versatile language for web deve
 
 ---
 
+<img src="./app-sylius/icon.png" alt="drawing" width="150"/>
+
 ### App Sylius
 
 Sylius is an open-source e-commerce platform based on the Symfony PHP framework. It provides a flexible and modular
@@ -58,6 +70,8 @@ solutions.
 [Documentation](app-sylius)
 
 ---
+
+<img src="./app-symfony/icon.svg" alt="drawing" width="150"/>
 
 ### App Symfony
 
@@ -87,6 +101,8 @@ the quality and reliability of their code.
 
 ---
 
+<img src="./ops-grunt/icon.png" alt="drawing" width="150"/>
+
 ### Ops Grunt
 
 Grunt is a JavaScript task runner that simplifies the process of automating repetitive tasks in web development
@@ -102,6 +118,8 @@ npm, and Bower.
 
 ---
 
+<img src="./app-php/icon.svg" alt="drawing" width="150"/>
+
 ### Ops PHP
 
 PHP CLI (Command Line Interface) is a version of the PHP programming language that is designed to be executed from the
@@ -116,6 +134,8 @@ range of platforms, including Windows, macOS, and Linux.
 
 ---
 
+<img src="./app-symfony/icon.svg" alt="drawing" width="150"/>
+
 ### Ops Symfony
 
 Symfony CLI is a command-line interface tool for managing Symfony applications and projects. It provides a range of
@@ -129,6 +149,8 @@ range of operating systems, including Windows, macOS, and Linux.
 [Documentation](ops-symfony)
 
 ---
+
+<img src="./ops-yarn/icon.svg" alt="drawing" width="150"/>
 
 ### Ops Yarn
 
