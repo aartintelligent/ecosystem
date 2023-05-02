@@ -1,15 +1,5 @@
 # AArtIntelligent : Docker
 
-Docker is a popular platform for developing, shipping, and running applications using containerization technology. It
-enables developers to create and manage lightweight, portable containers that encapsulate application code,
-dependencies, and configurations, making it easy to deploy applications across different environments. Docker also
-provides a range of tools for managing containerized applications, including Docker Compose for managing multi-container
-applications, Docker Swarm for orchestration, and Docker Hub for sharing and distributing container images. With its
-flexibility, scalability, and ease of use, Docker has become a widely used tool in the development and deployment of
-modern applications.
-
----
-
 ### App Base
 
 Debian is a free and open-source operating system based on the Linux kernel. It is known for its stability, security,
