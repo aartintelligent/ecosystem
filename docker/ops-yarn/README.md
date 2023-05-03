@@ -11,7 +11,7 @@ docker build . -t aartintelligent/ops-yarn:latest
 ```
 
 ```shell
-docker run -it --rm -u $(id -u):$(id -g) -v $(pwd):/src aartintelligent/ops-yarn:latest -v
+docker run -it --rm -u $(id -u):$(id -g) -v $(pwd)/src:/src aartintelligent/ops-yarn:latest -v
 ```
 
 ```shell
