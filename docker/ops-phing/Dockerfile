@@ -1,4 +1,4 @@
-FROM debian:stable-slim
+FROM aartintelligent/ops-php:8.1
 
 RUN apt-get update \
 &&  apt-get install -y --no-install-recommends \
@@ -13,6 +13,11 @@ gnupg2 \
 tini \
 curl \
 wget
+
+RUN set -eux; \
+wget -q https://www.phing.info/get/phing-latest.phar; \
+mv phing-latest.phar /usr/bin/phing; \
+chmod +x /usr/bin/phing
 
 RUN set -eux; \
 curl -fsSL https://get.docker.com | sh
