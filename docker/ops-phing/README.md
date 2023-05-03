@@ -15,7 +15,10 @@ docker run -it --rm -v $(pwd)/src:/src aartintelligent/ops-phing:latest -v
 ```
 
 ```shell
-docker run -it --rm -v $(pwd)/src:/src -v /var/run/docker.sock:/var/run/docker.sock:ro aartintelligent/ops-phing:latest -v
+docker run -it --rm \
+-v $(pwd)/src:/src \
+-v /var/run/docker.sock:/var/run/docker.sock:ro \
+aartintelligent/ops-phing:latest phing
 ```
 
 ```shell
