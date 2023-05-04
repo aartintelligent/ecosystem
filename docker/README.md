@@ -87,6 +87,17 @@ the quality and reliability of their code.
 
 ---
 
+### Ops Docker
+
+Docker CLI is a command-line interface tool that allows developers to interact with Docker containers and images. It
+provides a set of commands for managing containers, building images, and working with Docker's various components. With
+Docker CLI, developers can quickly create, deploy, and manage containerized applications in a simple and efficient
+manner, making it an essential tool for any Docker-based project.
+
+[Documentation](ops-docker)
+
+---
+
 ### Ops Grunt
 
 Grunt is a JavaScript task runner that simplifies the process of automating repetitive tasks in web development
@@ -99,6 +110,16 @@ particularly in front-end development workflows, and it integrates with popular 
 npm, and Bower.
 
 [Documentation](ops-grunt)
+
+---
+
+### Ops Phing
+
+Phing is a build tool for PHP projects that automates repetitive tasks such as compiling code, running tests, and
+deploying applications. It provides a flexible XML-based build script language and a rich set of built-in tasks, as well
+as the ability to create custom tasks, making it a powerful tool for streamlining development workflows.
+
+[Documentation](ops-phing)
 
 ---
 
