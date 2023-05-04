@@ -15,7 +15,10 @@ docker run -it --rm aartintelligent/ops-docker:latest -v
 ```
 
 ```shell
-docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aartintelligent/ops-docker:latest ps -a
+docker run -it --rm \
+-v $(pwd):/src \
+-v /var/run/docker.sock:/var/run/docker.sock:ro \
+aartintelligent/ops-docker:latest ps -a
 ```
 
 ```shell
