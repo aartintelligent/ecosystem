@@ -126,6 +126,7 @@ chown rootless:rootless \
 /var/lock/opcache \
 /var/cache/opcache; \
 rm -rf \
+/etc/php-z \
 /var/www/*; \
 ln -sf \
 /etc/php/${PHP_VERSION}/90-php.ini \

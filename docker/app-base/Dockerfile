@@ -107,6 +107,7 @@ rm -rf \
 chmod +x \
 /docker/d-bootstrap.sh \
 /docker/d-bootstrap-supervisor.sh \
+/docker/d-bootstrap-environment.sh \
 /docker/d-bootstrap-sstmp.sh \
 /docker/d-bootstrap-cron.sh \
 /docker/d-cleanup.sh \
@@ -118,7 +119,10 @@ chmod +x \
 touch /etc/cron.allow; \
 echo "rootless"  > /etc/cron.allow; \
 chmod u+s /usr/sbin/cron; \
+touch /etc/environment; \
+chown rootless:rootless /etc/environment; \
 echo "/docker/d-bootstrap-supervisor.sh" >> /docker/d-bootstrap.list; \
+echo "/docker/d-bootstrap-environment.sh" >> /docker/d-bootstrap.list; \
 echo "/docker/d-bootstrap-sstmp.sh" >> /docker/d-bootstrap.list; \
 echo "/docker/d-bootstrap-cron.sh" >> /docker/d-bootstrap.list; \
 echo "/docker/d-bootstrap.sh" >> /docker/d-entrypoint.list; \
