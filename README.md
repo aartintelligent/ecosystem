@@ -107,19 +107,6 @@ individuals may choose to use a combination of these modes to achieve their lear
 
 --- 
 
-### Portainer
-
-Portainer is a lightweight management user interface for Docker environments, designed to simplify the deployment and
-management of Docker containers. It provides an intuitive web-based interface for managing containers, images, volumes,
-networks, and other Docker resources. With Portainer, users can easily create and manage Docker containers, monitor
-their status and resource usage, and access logs and statistics. Portainer is also highly extensible, with support for
-multiple Docker hosts and integrations with other popular tools such as Kubernetes and Swarm. Its simplicity and
-user-friendliness make it a popular choice for managing Docker environments for both beginners and advanced users.
-
-[Documentation](portainer)
-
---- 
-
 ### VM
 
 A VM, or Virtual Machine, is a software emulation of a physical computer system that can run an operating system and
