@@ -9,7 +9,7 @@ if [ -n "$(ls -A /var/www/migrations/*.php 2>/dev/null)" ]; then
 
     (echo >&2 "Waiting for MySQL to be ready...")
 
-    sleep 1
+    sleep 2
 
   done
 
