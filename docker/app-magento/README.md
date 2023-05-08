@@ -4,6 +4,18 @@
 
 ---
 
+### Composer Usage
+
+```shell
+docker run -it --rm -u $(id -u):$(id -g) -v $(pwd)/src:/src aartintelligent/ops-composer:8.2 install
+```
+
+```shell
+docker run -it --rm -u $(id -u):$(id -g) -v $(pwd)/src:/src aartintelligent/ops-composer:8.2 update
+```
+
+---
+
 ### Docker Usage
 
 ```shell
