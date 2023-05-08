@@ -7,7 +7,7 @@ if [ -n "$(ls -A /var/www/migrations/*.php 2>/dev/null)" ]; then
 
   until bin/console doctrine:query:sql "select 1" >/dev/null 2>&1; do
 
-    (echo >&2 "Waiting for MySQL to be ready...")
+    (echo >&2 "[!] Waiting for MySQL to be ready...")
 
     sleep 2
 
