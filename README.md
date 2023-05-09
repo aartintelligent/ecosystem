@@ -5,8 +5,6 @@
 This git repository aims to capitalize and industrialize the different packages necessary to operate the AArtIntelligent
 ecosystem.
 
----
-
 ### A devops challenge
 
 While DevOps practices can bring many benefits to organizations, there are also some challenges and constraints that
