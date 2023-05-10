@@ -1,4 +1,4 @@
-# AArtIntelligent : Ops Symfony
+# Ops Symfony
 
 @todo description
 

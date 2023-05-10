@@ -1,4 +1,4 @@
-# AArtIntelligent : Ops Yarn
+# Ops Yarn
 
 @todo description
 

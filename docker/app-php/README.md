@@ -1,4 +1,4 @@
-# AArtIntelligent : App PHP
+# App PHP
 
 @todo description
 

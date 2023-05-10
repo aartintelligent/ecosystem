@@ -1,4 +1,4 @@
-# AArtIntelligent : App Nginx
+# App Nginx
 
 @todo description
 

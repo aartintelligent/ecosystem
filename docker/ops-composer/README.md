@@ -1,4 +1,4 @@
-# AArtIntelligent : Ops Composer
+# Ops Composer
 
 @todo description
 

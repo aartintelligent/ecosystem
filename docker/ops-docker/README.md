@@ -1,4 +1,4 @@
-# AArtIntelligent : Ops Docker
+# Ops Docker
 
 @todo description
 

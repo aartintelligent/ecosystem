@@ -1,3 +1,3 @@
-# AArtIntelligent : VM
+# VM
 
 @todo description

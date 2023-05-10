@@ -1,3 +1,3 @@
-# AArtIntelligent : Helm
+# Helm
 
 @todo description

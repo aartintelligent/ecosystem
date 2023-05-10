@@ -1,4 +1,4 @@
-# AArtIntelligent : Ops Helm
+# Ops Helm
 
 @todo description
 

@@ -1,4 +1,4 @@
-# AArtIntelligent : App Symfony
+# App Symfony
 
 @todo description
 

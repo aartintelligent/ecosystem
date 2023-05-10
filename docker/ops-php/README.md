@@ -1,4 +1,4 @@
-# AArtIntelligent : Ops PHP
+# Ops PHP
 
 @todo description
 

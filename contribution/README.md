@@ -1,3 +1,3 @@
-# AArtIntelligent : Contribution
+# Contribution
 
 @todo description

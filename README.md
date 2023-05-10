@@ -1,4 +1,4 @@
-# AArtIntelligent Ecosystem
+# Ecosystem
 
 ![AArtIntelligent](icon.png)
 

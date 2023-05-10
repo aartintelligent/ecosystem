@@ -1,4 +1,4 @@
-# AArtIntelligent : Docker
+# Docker
 
 ### App Base
 

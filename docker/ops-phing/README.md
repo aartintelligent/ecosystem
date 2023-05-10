@@ -1,4 +1,4 @@
-# AArtIntelligent : Ops Phing
+# Ops Phing
 
 @todo description
 

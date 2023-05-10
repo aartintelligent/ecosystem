@@ -1,3 +1,3 @@
-# AArtIntelligent : Learn
+# Learn
 
 @todo description

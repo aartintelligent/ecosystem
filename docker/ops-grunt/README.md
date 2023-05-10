@@ -1,4 +1,4 @@
-# AArtIntelligent : Ops Grunt
+# Ops Grunt
 
 @todo description
 

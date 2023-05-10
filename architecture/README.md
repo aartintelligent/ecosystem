@@ -1,4 +1,4 @@
-# AArtIntelligent : Architecture
+# Architecture
 
 @todo description
 
