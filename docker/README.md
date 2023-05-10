@@ -1,5 +1,7 @@
 # Docker
 
+![Docker](icon.png)
+
 ### App Base
 
 Debian is a free and open-source operating system based on the Linux kernel. It is known for its stability, security,

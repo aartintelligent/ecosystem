@@ -1,6 +1,6 @@
 # Ecosystem
 
-![AArtIntelligent](icon.png)
+![Ecosystem](icon.png)
 
 This git repository aims to capitalize and industrialize the different packages necessary to operate the AArtIntelligent
 ecosystem.
