@@ -113,7 +113,6 @@ chmod +x \
 /docker/d-cleanup.sh \
 /docker/d-entrypoint.sh \
 /docker/d-health.sh \
-/docker/d-notify.sh \
 /docker/d-start.sh \
 /docker/d-stop.sh; \
 touch /etc/cron.allow; \
@@ -126,9 +125,7 @@ echo "/docker/d-bootstrap-environment.sh" >> /docker/d-bootstrap.list; \
 echo "/docker/d-bootstrap-sstmp.sh" >> /docker/d-bootstrap.list; \
 echo "/docker/d-bootstrap-cron.sh" >> /docker/d-bootstrap.list; \
 echo "/docker/d-bootstrap.sh" >> /docker/d-entrypoint.list; \
-echo "/docker/d-cleanup.sh" >> /docker/d-entrypoint.list; \
-echo "/docker/d-start.sh" >> /docker/d-entrypoint.list; \
-echo "/docker/d-notify.sh" >> /docker/d-entrypoint.list
+echo "/docker/d-cleanup.sh" >> /docker/d-entrypoint.list
 
 ENTRYPOINT ["/docker/d-entrypoint.sh"]
 
