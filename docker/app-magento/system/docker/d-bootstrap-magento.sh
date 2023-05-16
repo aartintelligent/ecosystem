@@ -19,6 +19,6 @@ if [ -f "/var/www/app/etc/env.php" ]; then
 
   done
 
-fi
+  (>&2 echo "[*] Bootstrap UPGRADE")
 
-(>&2 echo "[*] Bootstrap UPGRADE")
+fi
