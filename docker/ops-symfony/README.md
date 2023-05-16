@@ -11,7 +11,10 @@ docker build . -t aartintelligent/ops-symfony:latest
 ```
 
 ```shell
-docker run -it --rm -v $(pwd):/src aartintelligent/ops-symfony:latest -v
+docker run -it --rm \
+-v $(pwd):/src \
+aartintelligent/ops-symfony:latest \
+-v
 ```
 
 ```shell

@@ -11,7 +11,10 @@ docker build . -t aartintelligent/ops-phing:latest
 ```
 
 ```shell
-docker run -it --rm -v $(pwd):/src aartintelligent/ops-phing:latest -v
+docker run -it --rm \
+-v $(pwd):/src \
+aartintelligent/ops-phing:latest \
+-v
 ```
 
 ```shell
