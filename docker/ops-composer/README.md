@@ -7,16 +7,19 @@
 ### Usage
 
 ```shell
-docker build . -t aartintelligent/ops-composer:latest
+docker build . \
+--tag aartintelligent/ops-composer:latest
 ```
 
 ```shell
-docker build . -t aartintelligent/ops-composer:8.2 \
+docker build . \
+--tag aartintelligent/ops-composer:8.2 \
 --build-arg 'PHP_VERSION=8.2'
 ```
 
 ```shell
-docker build . -t aartintelligent/ops-composer:8.1 \
+docker build . \
+--tag aartintelligent/ops-composer:8.1 \
 --build-arg 'PHP_VERSION=8.1'
 ```
 

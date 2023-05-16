@@ -7,7 +7,8 @@
 ### Usage
 
 ```shell
-docker build . -t aartintelligent/ops-phing:latest
+docker build . \
+--tag aartintelligent/ops-phing:latest
 ```
 
 ```shell

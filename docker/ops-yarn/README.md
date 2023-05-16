@@ -7,7 +7,8 @@
 ### Usage
 
 ```shell
-docker build . -t aartintelligent/ops-yarn:latest
+docker build . \
+--tag aartintelligent/ops-yarn:latest
 ```
 
 ```shell

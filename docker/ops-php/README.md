@@ -7,15 +7,20 @@
 ### Usage
 
 ```shell
-docker build . -t aartintelligent/ops-php:latest
+docker build . \
+--tag aartintelligent/ops-php:latest
 ```
 
 ```shell
-docker build . -t aartintelligent/ops-php:8.2 --build-arg PHP_VERSION=8.2
+docker build . \
+--tag aartintelligent/ops-php:8.2 \
+--build-arg PHP_VERSION=8.2
 ```
 
 ```shell
-docker build . -t aartintelligent/ops-php:8.1 --build-arg PHP_VERSION=8.1
+docker build . \
+--tag aartintelligent/ops-php:8.1 \
+--build-arg PHP_VERSION=8.1
 ```
 
 ```shell

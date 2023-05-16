@@ -33,19 +33,27 @@ update
 ### Docker Usage
 
 ```shell
-docker build . -t aartintelligent/app-magento:latest
+docker build . \
+--tag aartintelligent/app-magento:latest
 ```
 
 ```shell
-docker build . -t aartintelligent/app-magento:2.4
+docker build . \
+--tag aartintelligent/app-magento:2.4
 ```
 
 ```shell
-docker run -d --net host --name app-magento aartintelligent/app-magento:latest
+docker run -d \
+--net host \
+--name app-magento \
+aartintelligent/app-magento:latest
 ```
 
 ```shell
-docker run -d --net host --name app-magento aartintelligent/app-magento:2.4
+docker run -d \
+--net host \
+--name app-magento \
+aartintelligent/app-magento:2.4
 ```
 
 ```shell

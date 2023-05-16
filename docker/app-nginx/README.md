@@ -7,19 +7,27 @@
 ### Usage
 
 ```shell
-docker build . -t aartintelligent/app-nginx:latest
+docker build . \
+--tag aartintelligent/app-nginx:latest
 ```
 
 ```shell
-docker build . -t aartintelligent/app-nginx:1.23
+docker build . \
+--tag aartintelligent/app-nginx:1.23
 ```
 
 ```shell
-docker run -d --net host --name app-nginx aartintelligent/app-nginx:latest
+docker run -d \
+--net host \
+--name app-nginx \
+aartintelligent/app-nginx:latest
 ```
 
 ```shell
-docker run -d --net host --name app-nginx aartintelligent/app-nginx:1.23
+docker run -d \
+--net host \
+--name app-nginx \
+aartintelligent/app-nginx:1.23
 ```
 
 ```shell

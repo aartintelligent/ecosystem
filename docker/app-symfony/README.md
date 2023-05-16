@@ -33,19 +33,27 @@ update
 ### Docker Usage
 
 ```shell
-docker build . -t aartintelligent/app-symfony:latest
+docker build . \
+--tag aartintelligent/app-symfony:latest
 ```
 
 ```shell
-docker build . -t aartintelligent/app-symfony:6.2
+docker build . \
+--tag aartintelligent/app-symfony:6.2
 ```
 
 ```shell
-docker run -d --net host --name app-symfony aartintelligent/app-symfony:latest
+docker run -d \
+--net host \
+--name app-symfony \
+aartintelligent/app-symfony:latest
 ```
 
 ```shell
-docker run -d --net host --name app-symfony aartintelligent/app-symfony:6.2
+docker run -d \
+--net host \
+--name app-symfony \
+aartintelligent/app-symfony:6.2
 ```
 
 ```shell

@@ -33,19 +33,27 @@ update
 ### Docker Usage
 
 ```shell
-docker build . -t aartintelligent/app-sylius:latest
+docker build . \
+--tag aartintelligent/app-sylius:latest
 ```
 
 ```shell
-docker build . -t aartintelligent/app-sylius:1.12
+docker build . \
+--tag aartintelligent/app-sylius:1.12
 ```
 
 ```shell
-docker run -d --net host --name app-sylius aartintelligent/app-sylius:latest
+docker run -d \
+--net host \
+--name app-sylius \
+aartintelligent/app-sylius:latest
 ```
 
 ```shell
-docker run -d --net host --name app-sylius aartintelligent/app-sylius:1.12
+docker run -d \
+--net host \
+--name app-sylius \
+aartintelligent/app-sylius:1.12
 ```
 
 ```shell

@@ -7,27 +7,41 @@
 ### Usage
 
 ```shell
-docker build . -t aartintelligent/app-php:latest
+docker build . \
+--tag aartintelligent/app-php:latest
 ```
 
 ```shell
-docker build . -t aartintelligent/app-php:8.2 --build-arg 'PHP_VERSION=8.2'
+docker build . \
+--tag aartintelligent/app-php:8.2 \
+--build-arg 'PHP_VERSION=8.2'
 ```
 
 ```shell
-docker build . -t aartintelligent/app-php:8.1 --build-arg 'PHP_VERSION=8.1'
+docker build . \
+--tag aartintelligent/app-php:8.1 \
+--build-arg 'PHP_VERSION=8.1'
 ```
 
 ```shell
-docker run -d --net host --name app-php aartintelligent/app-php:latest
+docker run -d \
+--net host \
+--name app-php \
+aartintelligent/app-php:latest
 ```
 
 ```shell
-docker run -d --net host --name app-php aartintelligent/app-php:8.2
+docker run -d \
+--net host \
+--name app-php \
+aartintelligent/app-php:8.2
 ```
 
 ```shell
-docker run -d --net host --name app-php aartintelligent/app-php:8.1
+docker run -d \
+--net host \
+--name app-php \
+aartintelligent/app-php:8.1
 ```
 
 ```shell

@@ -7,7 +7,8 @@
 ### Usage
 
 ```shell
-docker build . -t aartintelligent/ops-symfony:latest
+docker build . \
+--tag aartintelligent/ops-symfony:latest
 ```
 
 ```shell

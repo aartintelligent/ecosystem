@@ -7,11 +7,14 @@
 ### Usage
 
 ```shell
-docker build . -t aartintelligent/app-base:latest
+docker build . \
+--tag aartintelligent/app-base:latest
 ```
 
 ```shell
-docker run -d --name app-base aartintelligent/app-base:latest
+docker run -d \
+--name app-base \
+aartintelligent/app-base:latest
 ```
 
 ```shell
