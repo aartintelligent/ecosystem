@@ -7,10 +7,6 @@
 ### Composer Usage
 
 ```shell
-mkdir -p $(pwd)/.composer
-```
-
-```shell
 docker run -it --rm \
 -u $(id -u):$(id -g) \
 -v $(pwd)/src:/src \
