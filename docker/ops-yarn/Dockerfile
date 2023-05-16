@@ -36,7 +36,9 @@ RUN set -eux; \
 mkdir -p \
 /var/cache/yarn \
 /src; \
+touch /.yarnrc; \
 chmod 777 -R \
+/.yarnrc \
 /var/cache \
 /src; \
 chmod +x \
