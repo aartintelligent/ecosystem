@@ -2,6 +2,7 @@
 /.git
 /.composer
 /.github
+/.yarn
 /.gitignore
 /.env
 /docker-compose.yml
