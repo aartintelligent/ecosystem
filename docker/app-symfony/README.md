@@ -6,16 +6,15 @@
 
 ### Composer Usage
 
-
 ```shell
-sudo mkdir -p /var/cache/composer && sudo chmod 777 -R /var/cache/composer
+mkdir -p $(pwd)/.composer
 ```
 
 ```shell
 docker run -it --rm \
 -u $(id -u):$(id -g) \
 -v $(pwd)/src:/src \
--v /var/cache/composer:/var/cache/composer \
+-v $(pwd)/.composer:/var/cache/composer \
 aartintelligent/ops-composer:8.2 \
 install
 ```
@@ -24,7 +23,7 @@ install
 docker run -it --rm \
 -u $(id -u):$(id -g) \
 -v $(pwd)/src:/src \
--v /var/cache/composer:/var/cache/composer \
+-v $(pwd)/.composer:/var/cache/composer \
 aartintelligent/ops-composer:8.2 \
 update
 ```
