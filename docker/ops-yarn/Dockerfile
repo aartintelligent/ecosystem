@@ -34,10 +34,13 @@ COPY d-entrypoint.sh /d-entrypoint.sh
 
 RUN set -eux; \
 mkdir -p \
+/.yarn \
 /var/cache/yarn \
+/usr/local \
 /src; \
 touch /.yarnrc; \
 chmod 777 -R \
+/.yarn \
 /.yarnrc \
 /var/cache \
 /src; \
