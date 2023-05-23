@@ -2594,16 +2594,16 @@
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "1.5.2",
+            "version": "1.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "b94b2807d85443f9719887892882d0329d1e2598"
+                "reference": "67ab6e18aaa14d753cc148911d273f6e6cb6721e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/b94b2807d85443f9719887892882d0329d1e2598",
-                "reference": "b94b2807d85443f9719887892882d0329d1e2598",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/67ab6e18aaa14d753cc148911d273f6e6cb6721e",
+                "reference": "67ab6e18aaa14d753cc148911d273f6e6cb6721e",
                 "shasum": ""
             },
             "require": {
@@ -2613,11 +2613,6 @@
                 "symfony/phpunit-bridge": "^4.4 || ^5.1"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.5-dev"
-                }
-            },
             "autoload": {
                 "files": [
                     "src/functions_include.php"
@@ -2658,7 +2653,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/promises/issues",
-                "source": "https://github.com/guzzle/promises/tree/1.5.2"
+                "source": "https://github.com/guzzle/promises/tree/1.5.3"
             },
             "funding": [
                 {
@@ -2674,7 +2669,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-08-28T14:55:35+00:00"
+            "time": "2023-05-21T12:31:43+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -16628,16 +16623,16 @@
         },
         {
             "name": "sylius-labs/coding-standard",
-            "version": "v4.3.0",
+            "version": "v4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SyliusLabs/CodingStandard.git",
-                "reference": "95a4df6ececf02ce6a1eb5f4bf116afe63a4c7ca"
+                "reference": "7e4feb4a51a800995e298c0fe4f9409fb487e163"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SyliusLabs/CodingStandard/zipball/95a4df6ececf02ce6a1eb5f4bf116afe63a4c7ca",
-                "reference": "95a4df6ececf02ce6a1eb5f4bf116afe63a4c7ca",
+                "url": "https://api.github.com/repos/SyliusLabs/CodingStandard/zipball/7e4feb4a51a800995e298c0fe4f9409fb487e163",
+                "reference": "7e4feb4a51a800995e298c0fe4f9409fb487e163",
                 "shasum": ""
             },
             "require": {
@@ -16668,9 +16663,9 @@
             "description": "Battle-tested coding standard configuration used in Sylius.",
             "support": {
                 "issues": "https://github.com/SyliusLabs/CodingStandard/issues",
-                "source": "https://github.com/SyliusLabs/CodingStandard/tree/v4.3.0"
+                "source": "https://github.com/SyliusLabs/CodingStandard/tree/v4.3.1"
             },
-            "time": "2022-11-04T13:37:14+00:00"
+            "time": "2023-05-19T12:21:48+00:00"
         },
         {
             "name": "sylius/sylius-rector",
