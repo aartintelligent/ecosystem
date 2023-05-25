@@ -35,7 +35,7 @@ services:
       - '443:443'
 
   php:
-    image: aartintelligent/app-php:${NGINX_VERSION:-latest}
+    image: aartintelligent/app-php:${PHP_VERSION:-latest}
     labels:
       - traefik.enable=true
       - traefik.http.routers.php-http.rule=Host(`php.${DOMAIN:-local}`)
