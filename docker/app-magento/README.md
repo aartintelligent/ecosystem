@@ -15,6 +15,7 @@ docker run -it --rm \
 -u $(id -u):$(id -g) \
 -v $(pwd)/src:/src \
 -v $(pwd)/.composer:/var/cache/composer \
+-e COMPOSER_AUTH="$(cat auth.json)" \
 aartintelligent/ops-composer:8.2 \
 install
 ```
@@ -24,6 +25,7 @@ docker run -it --rm \
 -u $(id -u):$(id -g) \
 -v $(pwd)/src:/src \
 -v $(pwd)/.composer:/var/cache/composer \
+-e COMPOSER_AUTH="$(cat auth.json)" \
 aartintelligent/ops-composer:8.2 \
 update
 ```
@@ -34,12 +36,18 @@ update
 
 ```shell
 docker build . \
---tag aartintelligent/app-magento:latest
+--tag aartintelligent/app-magento:latest \
+--build-arg "COMPOSER_AUTH=$(cat auth.json)" \
+--build-arg "STATIC_LANGUAGES=en_US fr_FR" \
+--build-arg "STATIC_JOBS=6"
 ```
 
 ```shell
 docker build . \
---tag aartintelligent/app-magento:2.4
+--tag aartintelligent/app-magento:2.4 \
+--build-arg "COMPOSER_AUTH=$(cat auth.json)" \
+--build-arg "STATIC_LANGUAGES=en_US fr_FR" \
+--build-arg "STATIC_JOBS=6"
 ```
 
 ```shell
