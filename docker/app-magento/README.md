@@ -37,6 +37,9 @@ update
 ```shell
 docker build . \
 --tag aartintelligent/app-magento:latest \
+--build-arg "UID=$(id -u)" \
+--build-arg "GID=$(id -g)" \
+--build-arg "GIT_COMMIT=$(git rev-parse HEAD)" \
 --build-arg "COMPOSER_AUTH=$(cat auth.json)" \
 --build-arg "STATIC_LANGUAGES=en_US fr_FR" \
 --build-arg "STATIC_JOBS=6"
@@ -45,6 +48,9 @@ docker build . \
 ```shell
 docker build . \
 --tag aartintelligent/app-magento:2.4 \
+--build-arg "UID=$(id -u)" \
+--build-arg "GID=$(id -g)" \
+--build-arg "GIT_COMMIT=$(git rev-parse HEAD)" \
 --build-arg "COMPOSER_AUTH=$(cat auth.json)" \
 --build-arg "STATIC_LANGUAGES=en_US fr_FR" \
 --build-arg "STATIC_JOBS=6"

@@ -69,12 +69,18 @@ watch
 
 ```shell
 docker build . \
---tag aartintelligent/app-sylius:latest
+--tag aartintelligent/app-sylius:latest \
+--build-arg "UID=$(id -u)" \
+--build-arg "GID=$(id -g)" \
+--build-arg "GIT_COMMIT=$(git rev-parse HEAD)"
 ```
 
 ```shell
 docker build . \
---tag aartintelligent/app-sylius:1.12
+--tag aartintelligent/app-sylius:1.12 \
+--build-arg "UID=$(id -u)" \
+--build-arg "GID=$(id -g)" \
+--build-arg "GIT_COMMIT=$(git rev-parse HEAD)"
 ```
 
 ```shell

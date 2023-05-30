@@ -8,7 +8,10 @@
 
 ```shell
 docker build . \
---tag aartintelligent/app-base:latest
+--tag aartintelligent/app-base:latest \
+--build-arg "UID=$(id -u)" \
+--build-arg "GID=$(id -g)" \
+--build-arg "GIT_COMMIT=$(git rev-parse HEAD)"
 ```
 
 ```shell

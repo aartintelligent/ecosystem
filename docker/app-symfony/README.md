@@ -69,12 +69,18 @@ watch
 
 ```shell
 docker build . \
---tag aartintelligent/app-symfony:latest
+--tag aartintelligent/app-symfony:latest \
+--build-arg "UID=$(id -u)" \
+--build-arg "GID=$(id -g)" \
+--build-arg "GIT_COMMIT=$(git rev-parse HEAD)"
 ```
 
 ```shell
 docker build . \
---tag aartintelligent/app-symfony:6.2
+--tag aartintelligent/app-symfony:6.2 \
+--build-arg "UID=$(id -u)" \
+--build-arg "GID=$(id -g)" \
+--build-arg "GIT_COMMIT=$(git rev-parse HEAD)"
 ```
 
 ```shell
