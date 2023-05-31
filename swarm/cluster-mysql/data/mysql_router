@@ -9,4 +9,4 @@ router_mode = read-write
 cache_ttl = 5000
 
 [logger]
-level = INFO
+level = DEBUG
