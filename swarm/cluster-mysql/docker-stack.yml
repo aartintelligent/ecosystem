@@ -1,0 +1,139 @@
+version: '3.8'
+
+services:
+  
+  mysql_db1:
+    image: mysql:8.0
+    deploy:
+      restart_policy:
+        condition: any
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 7189M
+        reservations:
+          cpus: '1.5'
+          memory: 6144M
+      placement:
+        constraints:
+          - node.role == worker
+          - node.labels.mysql_db == mysql_db1
+    secrets:
+      - source: mysql_config
+        target: /etc/mysql/my.cnf
+        mode: 0444
+      - source: mysql_root_password
+        target: /run/secrets/mysql_root_password
+        mode: 0444
+    environment:
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root_password
+    volumes:
+      - mysql_db1_data:/var/lib/mysql
+    networks:
+      - mysql_cluster
+
+  mysql_db2:
+    image: mysql:8.0
+    deploy:
+      restart_policy:
+        condition: any
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 7189M
+        reservations:
+          cpus: '1.5'
+          memory: 6144M
+      placement:
+        constraints:
+          - node.role == worker
+          - node.labels.mysql_db == mysql_db2
+    secrets:
+      - source: mysql_config
+        target: /etc/mysql/my.cnf
+        mode: 0444
+      - source: mysql_root_password
+        target: /run/secrets/mysql_root_password
+        mode: 0444
+    environment:
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root_password
+    volumes:
+      - mysql_db2_data:/var/lib/mysql
+    networks:
+      - mysql_cluster
+
+  mysql_db3:
+    image: mysql:8.0
+    deploy:
+      restart_policy:
+        condition: any
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 7189M
+        reservations:
+          cpus: '1.5'
+          memory: 6144M
+      placement:
+        constraints:
+          - node.role == worker
+          - node.labels.mysql_db == mysql_db3
+    secrets:
+      - source: mysql_config
+        target: /etc/mysql/my.cnf
+        mode: 0444
+      - source: mysql_root_password
+        target: /run/secrets/mysql_root_password
+        mode: 0444
+    environment:
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root_password
+    volumes:
+      - mysql_db3_data:/var/lib/mysql
+    networks:
+      - mysql_cluster
+
+  mysql_router:
+    image: mysql/mysql-router:8.0
+    deploy:
+      restart_policy:
+        condition: any
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 3072M
+        reservations:
+          cpus: '1.5'
+          memory: 2560M
+      placement:
+        constraints:
+          - node.role == worker
+          - node.labels.mysql_db == mysql_router
+    environment:
+      MYSQL_ROUTER_STATIC_CONFIG: |
+        [Routers]
+        router1.hostname = mysql_db1
+        router1.port = 3306
+        router2.hostname = mysql_db2
+        router2.port = 3306
+        router3.hostname = mysql_db3
+        router3.port = 3306
+        [Groups]
+        group1.router = router1,router2,router3
+    ports:
+      - '3306:3306'
+    networks:
+      - mysql_cluster
+
+volumes:
+  mysql_db1_data:
+  mysql_db2_data:
+  mysql_db3_data:
+
+networks:
+  mysql_cluster:
+
+secrets:
+  mysql_config:
+      external: true
+  mysql_root_password:
+    external: true
