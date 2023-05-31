@@ -19,9 +19,6 @@ services:
           - node.role == worker
           - node.labels.mysql_type == mysql_db1
     secrets:
-      - source: mysql_config
-        target: /etc/mysql/my.cnf
-        mode: 0444
       - source: mysql_root_password
         target: /run/secrets/mysql_root_password
         mode: 0444
@@ -49,9 +46,6 @@ services:
           - node.role == worker
           - node.labels.mysql_type == mysql_db2
     secrets:
-      - source: mysql_config
-        target: /etc/mysql/my.cnf
-        mode: 0444
       - source: mysql_root_password
         target: /run/secrets/mysql_root_password
         mode: 0444
@@ -79,9 +73,6 @@ services:
           - node.role == worker
           - node.labels.mysql_type == mysql_db3
     secrets:
-      - source: mysql_config
-        target: /etc/mysql/my.cnf
-        mode: 0444
       - source: mysql_root_password
         target: /run/secrets/mysql_root_password
         mode: 0444
@@ -108,17 +99,17 @@ services:
         constraints:
           - node.role == worker
           - node.labels.mysql_type == mysql_router
+    secrets:
+      - source: mysql_router
+        target: /run/secrets/mysql_router.conf
+        mode: 0444
+      - source: mysql_root_password
+        target: /run/secrets/mysql_root_password
+        mode: 0444
     environment:
-      MYSQL_ROUTER_STATIC_CONFIG: |
-        [Routers]
-        router1.hostname = mysql_db1
-        router1.port = 3306
-        router2.hostname = mysql_db2
-        router2.port = 3306
-        router3.hostname = mysql_db3
-        router3.port = 3306
-        [Groups]
-        group1.router = router1,router2,router3
+      MYSQL_ROUTER_CONFIG: /run/secrets/mysql_router.conf
+      MYSQL_PASSWORD: /run/secrets/mysql_root_password
+      MYSQL_USER: root
     ports:
       - '3306:3306'
     networks:
@@ -134,6 +125,8 @@ networks:
 
 secrets:
   mysql_config:
-      external: true
+    external: true
   mysql_root_password:
+    external: true
+  mysql_router:
     external: true
