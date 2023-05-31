@@ -55,6 +55,7 @@ services:
       MYSQL_ROOT_PASSWORD: /run/secrets/mysql_root_password
     volumes:
       - mysql_db2_data:/var/lib/mysql
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     networks:
       - mysql_cluster
 
@@ -83,40 +84,7 @@ services:
       MYSQL_ROOT_PASSWORD: /run/secrets/mysql_root_password
     volumes:
       - mysql_db3_data:/var/lib/mysql
-    networks:
-      - mysql_cluster
-
-  mysql_router:
-    image: mysql/mysql-router:8.0
-    deploy:
-      restart_policy:
-        condition: any
-      resources:
-        limits:
-          cpus: '1.0'
-          memory: 3072M
-        reservations:
-          cpus: '1.5'
-          memory: 2560M
-      placement:
-        constraints:
-          - node.role == worker
-          - node.labels.mysql_type == mysql_router
-    secrets:
-      - source: mysql_root_password
-        target: /run/secrets/mysql_root_password
-        mode: 0444
-      - source: mysql_router
-        target: /run/secrets/mysql_router.conf
-        mode: 0777
-    environment:
-      MYSQL_HOST: mysql_router
-      MYSQL_PORT: 3306
-      MYSQL_USER: root
-      MYSQL_PASSWORD: /run/secrets/mysql_root_password
-      MYSQL_INNODB_NUM_MEMBERS: 3
-    ports:
-      - '6446:6446'
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     networks:
       - mysql_cluster
 
@@ -133,6 +101,4 @@ networks:
 
 secrets:
   mysql_root_password:
-    external: true
-  mysql_router:
     external: true
