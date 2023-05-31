@@ -122,6 +122,10 @@ services:
         target: /run/secrets/mysql_root_password
         mode: 0444
     environment:
+      MYSQL_HOST: mysql_router
+      MYSQL_PORT: 3306
+      MYSQL_USER: root
+      MYSQL_PASSWORD: /run/secrets/mysql_root_password
       MYSQL_INNODB_CLUSTER_MEMBERS: mysql_db1:3306,mysql_db2:3306,mysql_db3:3306
       MYSQL_CREATE_ROUTER_USER: 1
     ports:
