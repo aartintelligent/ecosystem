@@ -126,7 +126,8 @@ services:
       MYSQL_PORT: 3306
       MYSQL_USER: rootless
       MYSQL_PASSWORD: /run/secrets/mysql_root_password
-      MYSQL_ROUTER_CONFIG: /run/secrets/mysql_router.conf
+      MYSQL_INNODB_CLUSTER_MEMBERS: mysql_db1:3306,mysql_db2:3306,mysql_db3:3306
+      MYSQL_CREATE_ROUTER_USER: 1
     ports:
       - '6446:6446'
     networks:
