@@ -17,7 +17,7 @@ services:
       placement:
         constraints:
           - node.role == worker
-          - node.labels.mysql_db == mysql_db1
+          - node.labels.mysql_type == mysql_db1
     secrets:
       - source: mysql_config
         target: /etc/mysql/my.cnf
@@ -47,7 +47,7 @@ services:
       placement:
         constraints:
           - node.role == worker
-          - node.labels.mysql_db == mysql_db2
+          - node.labels.mysql_type == mysql_db2
     secrets:
       - source: mysql_config
         target: /etc/mysql/my.cnf
@@ -77,7 +77,7 @@ services:
       placement:
         constraints:
           - node.role == worker
-          - node.labels.mysql_db == mysql_db3
+          - node.labels.mysql_type == mysql_db3
     secrets:
       - source: mysql_config
         target: /etc/mysql/my.cnf
@@ -107,7 +107,7 @@ services:
       placement:
         constraints:
           - node.role == worker
-          - node.labels.mysql_db == mysql_router
+          - node.labels.mysql_type == mysql_router
     environment:
       MYSQL_ROUTER_STATIC_CONFIG: |
         [Routers]
