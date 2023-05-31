@@ -4,7 +4,7 @@ services:
   
   mysql_db1:
     image: mysql:8.0
-    command: --default-authentication-plugin=mysql_native_password
+    command: [ "--server-id=mysql_db1", "--log-bin=mysql-bin" ]
     deploy:
       restart_policy:
         condition: any
@@ -24,7 +24,10 @@ services:
         target: /run/secrets/mysql_root_password
         mode: 0444
     environment:
-      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root_password
+      MYSQL_HOST: mysql_db1
+      MYSQL_PORT: 3306
+      MYSQL_USER: rootless
+      MYSQL_PASSWORD: /run/secrets/mysql_root_password
     volumes:
       - mysql_db1_data:/var/lib/mysql
     networks:
@@ -32,7 +35,7 @@ services:
 
   mysql_db2:
     image: mysql:8.0
-    command: --default-authentication-plugin=mysql_native_password
+    command: [ "--server-id=mysql_db2", "--log-bin=mysql-bin" ]
     deploy:
       restart_policy:
         condition: any
@@ -52,7 +55,10 @@ services:
         target: /run/secrets/mysql_root_password
         mode: 0444
     environment:
-      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root_password
+      MYSQL_HOST: mysql_db1
+      MYSQL_PORT: 3306
+      MYSQL_USER: rootless
+      MYSQL_PASSWORD: /run/secrets/mysql_root_password
     volumes:
       - mysql_db2_data:/var/lib/mysql
     networks:
@@ -60,7 +66,7 @@ services:
 
   mysql_db3:
     image: mysql:8.0
-    command: --default-authentication-plugin=mysql_native_password
+    command: [ "--server-id=mysql_db3", "--log-bin=mysql-bin" ]
     deploy:
       restart_policy:
         condition: any
@@ -80,7 +86,10 @@ services:
         target: /run/secrets/mysql_root_password
         mode: 0444
     environment:
-      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root_password
+      MYSQL_HOST: mysql_db1
+      MYSQL_PORT: 3306
+      MYSQL_USER: rootless
+      MYSQL_PASSWORD: /run/secrets/mysql_root_password
     volumes:
       - mysql_db3_data:/var/lib/mysql
     networks:
@@ -110,11 +119,14 @@ services:
         target: /run/secrets/mysql_root_password
         mode: 0444
     environment:
-      MYSQL_ROUTER_CONFIG: /run/secrets/mysql_router.conf
+      MYSQL_HOST: mysql_router
+      MYSQL_PORT: 3306
+      MYSQL_USER: rootless
       MYSQL_PASSWORD: /run/secrets/mysql_root_password
-      MYSQL_USER: root
+      MYSQL_INNODB_CLUSTER_MEMBERS: mysql_db1:3306,mysql_db2:3306,mysql_db3:3306
+      MYSQL_CREATE_ROUTER_USER: 1
     ports:
-      - '3306:3306'
+      - '6446:6446'
     networks:
       - mysql_cluster
 
