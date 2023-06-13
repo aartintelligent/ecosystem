@@ -78,10 +78,8 @@ cat << EOF > "/etc/wireguard/$INTERFACE.conf"
 PrivateKey = $(cat $WIREGUARD_DIR/private.key)
 Address = $CLIENTS_SUBNET
 ListenPort = $SERVER_PORT
-PostUp = iptables -A FORWARD -i $INTERFACE -j ACCEPT; \\
-         iptables -t nat -A POSTROUTING -o $EXTERNAL_INTERFACE -j MASQUERADE
-PostDown = iptables -D FORWARD -i $INTERFACE -j ACCEPT; \\
-           iptables -t nat -D POSTROUTING -o $EXTERNAL_INTERFACE -j MASQUERADE
+PostUp = iptables -A FORWARD -i $INTERFACE -j ACCEPT; iptables -t nat -A POSTROUTING -o $EXTERNAL_INTERFACE -j MASQUERADE
+PostDown = iptables -D FORWARD -i $INTERFACE -j ACCEPT; iptables -t nat -D POSTROUTING -o $EXTERNAL_INTERFACE -j MASQUERADE
 SaveConfig = true
 
 EOF
