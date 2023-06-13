@@ -73,7 +73,7 @@ echo "$PRIVATE_KEY" > $WIREGUARD_DIR/private.key
 PUBLIC_KEY=$(echo "$PRIVATE_KEY" | wg pubkey)
 echo "$PUBLIC_KEY" > $WIREGUARD_DIR/public.key
 
-cat << EOF > "/etc/wireguard/$INTERFACE.conf"
+cat << EOF > /etc/wireguard/"$INTERFACE".conf
 [Interface]
 PrivateKey = $(cat $WIREGUARD_DIR/private.key)
 Address = $CLIENTS_SUBNET
