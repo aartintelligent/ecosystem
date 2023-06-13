@@ -1,8 +1,8 @@
 #!/bin/bash
 
+CLIENT_ADDRESS=""
 SERVER_IP=""
 SERVER_PORT="51820"
-CLIENT_ADDRESS="10.0.0.2/24"
 INTERFACE="wg0"
 WIREGUARD_DIR="/opt/wireguard"
 
@@ -47,7 +47,7 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-if [ -z "$SERVER_IP" ]; then
+if [ -z "$CLIENT_ADDRESS" ] || [ -z "$SERVER_IP" ]; then
   helper
   exit 1
 fi
@@ -67,7 +67,6 @@ if [ ! -f "$WIREGUARD_DIR/public.key" ]; then
   wg pubkey < $WIREGUARD_DIR/private.key > $WIREGUARD_DIR/public.key
 fi
 
-# Configuration du client WireGuard
 cat << EOF > "/etc/wireguard/$INTERFACE.conf"
 [Interface]
 PrivateKey = $(cat $WIREGUARD_DIR/private.key)
@@ -77,6 +76,7 @@ Address = $CLIENT_ADDRESS
 PublicKey = $(cat /opt/wireguard/public.key)
 Endpoint = $SERVER_IP:$SERVER_PORT
 AllowedIPs = 0.0.0.0/0
+
 EOF
 
 systemctl enable --now "wg-quick@$INTERFACE.service"
