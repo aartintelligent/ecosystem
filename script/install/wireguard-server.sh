@@ -83,7 +83,7 @@ echo "$PUBLIC_KEY" > $WIREGUARD_DIR/public.key
 cat << EOF > /etc/wireguard/"$INTERFACE".conf
 [Interface]
 PrivateKey = $(cat $WIREGUARD_DIR/private.key)
-Address = $CLIENTS_SUBNET
+Address = $SERVER_IP
 ListenPort = $SERVER_PORT
 MTU = $MTU
 PostUp = $WIREGUARD_DIR/post-up.sh
