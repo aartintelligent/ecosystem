@@ -94,9 +94,7 @@ EOF
 
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.d/10-wireguard.conf
 
-sysctl --system
-
-systemctl enable --now "wg-quick@$INTERFACE.service"
+sysctl --system > /dev/null
 
 cat << EOF > $WIREGUARD_DIR/post-up.sh
 #!/bin/bash
@@ -117,5 +115,7 @@ iptables -t nat -D POSTROUTING -o $EXTERNAL_INTERFACE -j MASQUERADE
 EOF
 
 chmod +x $WIREGUARD_DIR/post-down.sh
+
+systemctl enable --now "wg-quick@$INTERFACE.service"
 
 echo "The WireGuard server has been successfully installed and configured."
