@@ -81,7 +81,7 @@ docker exec -it app-magento supervisorctl stop server:server-fpm
 ```
 
 ```shell
-until docker exec -it app-php /docker/d-health.sh >/dev/null 2>&1; do \
+until docker exec -it app-magento /docker/d-health.sh >/dev/null 2>&1; do \
   (echo >&2 "Waiting..."); \
   sleep 2; \
 done

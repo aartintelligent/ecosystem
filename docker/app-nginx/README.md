@@ -49,7 +49,7 @@ docker exec -it app-nginx supervisorctl stop server-nginx:server-nginx
 ```
 
 ```shell
-until docker exec -it app-php /docker/d-health.sh >/dev/null 2>&1; do \
+until docker exec -it app-nginx /docker/d-health.sh >/dev/null 2>&1; do \
   (echo >&2 "Waiting..."); \
   sleep 2; \
 done
