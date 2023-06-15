@@ -25,7 +25,6 @@ docker build . \
 
 ```shell
 docker run -it --rm \
--u $(id -u):$(id -g) \
 -v $(pwd):/src \
 aartintelligent/ops-yarn:latest \
 -v
