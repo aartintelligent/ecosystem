@@ -2,12 +2,12 @@ ARG PHP_VERSION='8.2'
 
 FROM aartintelligent/ops-composer:${PHP_VERSION}
 
-COPY d-entrypoint.sh /d-entrypoint.sh
-
 RUN set -eux; \
 curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | bash; \
-apt-get install \
+apt install \
 symfony-cli
+
+COPY d-entrypoint.sh /d-entrypoint.sh
 
 RUN set -eux; \
 mkdir -p \
