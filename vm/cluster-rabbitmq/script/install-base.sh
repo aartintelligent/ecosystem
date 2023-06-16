@@ -11,8 +11,13 @@ systemd \
 gnupg \
 gnupg1 \
 gnupg2 \
+jq \
 wget \
 curl \
+wireguard \
+net-tools \
+nfs-kernel-server \
+nfs-common \
 openssl \
 git; \
 sudo mkdir -p /etc/apt/keyrings; \
