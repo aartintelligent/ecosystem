@@ -1,4 +1,3 @@
 # Architecture
 
-@todo description
-
+![Ecosystem](SI-iceberg.drawio.png)
