@@ -33,7 +33,7 @@ COPY --chown=rootless:rootless --from=sylius-ops-composer /src/vendor /src/vendo
 
 RUN set -eux; \
 yarn install; \
-yarn build
+yarn run encore production
 
 FROM aartintelligent/app-php:${PHP_VERSION}
 

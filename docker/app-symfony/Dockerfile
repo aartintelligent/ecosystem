@@ -31,7 +31,7 @@ COPY src /src
 
 RUN set -eux; \
 yarn install; \
-yarn build
+yarn run encore production
 
 FROM aartintelligent/app-php:${PHP_VERSION}
 
