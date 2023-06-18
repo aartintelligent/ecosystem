@@ -108,12 +108,13 @@ chmod +x \
 /docker/d-bootstrap.sh \
 /docker/d-bootstrap-supervisor.sh \
 /docker/d-bootstrap-environment.sh \
-/docker/d-bootstrap-sstmp.sh \
-/docker/d-bootstrap-cron.sh \
+/docker/d-bootstrap-ssmtp.sh \
 /docker/d-cleanup.sh \
 /docker/d-entrypoint.sh \
 /docker/d-health.sh \
 /docker/d-start.sh \
+/docker/d-health-cron.sh \
+/docker/d-health-supervisor.sh \
 /docker/d-stop.sh; \
 touch /etc/cron.allow; \
 echo "rootless"  > /etc/cron.allow; \
@@ -122,8 +123,7 @@ touch /etc/environment; \
 chown rootless:rootless /etc/environment; \
 echo "/docker/d-bootstrap-supervisor.sh" >> /docker/d-bootstrap.list; \
 echo "/docker/d-bootstrap-environment.sh" >> /docker/d-bootstrap.list; \
-echo "/docker/d-bootstrap-sstmp.sh" >> /docker/d-bootstrap.list; \
-echo "/docker/d-bootstrap-cron.sh" >> /docker/d-bootstrap.list; \
+echo "/docker/d-bootstrap-ssmtp.sh" >> /docker/d-bootstrap.list; \
 echo "/docker/d-bootstrap.sh" >> /docker/d-entrypoint.list; \
 echo "/docker/d-cleanup.sh" >> /docker/d-entrypoint.list
 
@@ -133,6 +133,6 @@ WORKDIR /var/www
 
 STOPSIGNAL SIGQUIT
 
-CMD ["supervisord"]
+CMD ["supervisor"]
 
 USER rootless

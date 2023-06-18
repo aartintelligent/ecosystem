@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-if [ "$1" = 'supervisord' ]; then
+if [ "$1" = 'supervisor' ] || [ "$1" = 'cron' ]; then
 
   (>&2 echo "Run docker entrypoint")
 
@@ -15,7 +15,25 @@ if [ "$1" = 'supervisord' ]; then
 
   done < <(grep -v '^ *#' < '/docker/d-entrypoint.list')
 
-  exec supervisord
+  if [ "$1" = 'supervisor' ]; then
+
+    (>&2 echo "Run supervisor")
+
+    echo "/docker/d-health-supervisor.sh" >> /docker/d-health.list
+
+    exec supervisord -c /etc/supervisor/supervisord.conf
+
+  fi
+
+  if [ "$1" = 'cron' ]; then
+
+    (>&2 echo "Run cron")
+
+    echo "/docker/d-health-cron.sh" >> /docker/d-health.list
+
+    exec cron -f
+
+  fi
 
 else
 

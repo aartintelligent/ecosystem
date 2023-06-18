@@ -33,4 +33,4 @@ mv /etc/ssmtp/ssmtp.conf.tmp /etc/ssmtp/ssmtp.conf
 
 rm -f /etc/ssmtp/ssmtp.conf.tmp
 
-(>&2 echo "[*] Bootstrap SSTMP")
+(>&2 echo "[*] Bootstrap SSMTP")

@@ -1,68 +1,40 @@
 #!/bin/bash
 set -e
 
-exit=0
+counter=1
 
-file='/var/pid/supervisord.pid'
+while [ $counter -le 3 ]; do
 
-if [ ! -f "$file" ]; then
+  exit=0
 
-  exit=1
+  while IFS= read -r script; do
 
-else
+    if [ -f "$script" ]; then
 
-  programs=$(supervisorctl pid all)
+      echo "$script"
 
-  for pid in $programs; do
+      exit=$(bash "$script")
 
-    if [ "$pid" = "0" ]; then
+      if [ "$exit" != "0" ]; then
 
-      exit=1
-
-      break
-
-    fi
-
-  done
-
-fi
-
-if [ "$exit" = "0" ]; then
-
-  counter=1
-
-  while [ $counter -le 3 ]; do
-
-    exit=0
-
-    while IFS= read -r script; do
-
-      if [ -f "$script" ]; then
-
-        exit=$(bash "$script" "$@")
-
-        if [ "$exit" != "0" ]; then
-
-          break
-
-        fi
+        break
 
       fi
 
-    done < <(grep -v '^ *#' < '/docker/d-health.list')
-
-    counter=$((counter+1))
-
-    if [ "$exit" == "0" ]; then
-
-      break
-
     fi
 
-    sleep 0.2
+  done < <(grep -v '^ *#' < '/docker/d-health.list')
 
-  done
+  counter=$((counter+1))
 
-fi
+  if [ "$exit" == "0" ]; then
+
+    break
+
+  fi
+
+  sleep 0.2
+
+done
 
 exit "$exit"

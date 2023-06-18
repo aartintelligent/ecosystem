@@ -17,7 +17,15 @@ docker build . \
 ```shell
 docker run -d \
 --name app-base \
-aartintelligent/app-base:latest
+aartintelligent/app-base:latest \
+supervisor
+```
+
+```shell
+docker run -d \
+--name app-base \
+aartintelligent/app-base:latest \
+cron
 ```
 
 ```shell
@@ -26,6 +34,13 @@ docker container logs app-base
 
 ```shell
 docker exec -it app-base supervisorctl status
+```
+
+```shell
+until docker exec -it app-base /docker/d-health.sh >/dev/null 2>&1; do \
+  (echo >&2 "Waiting..."); \
+  sleep 2; \
+done
 ```
 
 ```shell
