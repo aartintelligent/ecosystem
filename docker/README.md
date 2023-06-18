@@ -87,42 +87,6 @@ the quality and reliability of their code.
 
 ---
 
-### Ops Docker
-
-Docker CLI is a command-line interface tool that allows developers to interact with Docker containers and images. It
-provides a set of commands for managing containers, building images, and working with Docker's various components. With
-Docker CLI, developers can quickly create, deploy, and manage containerized applications in a simple and efficient
-manner, making it an essential tool for any Docker-based project.
-
-[Documentation](ops-docker)
-
----
-
-### Ops Grunt
-
-Grunt is a JavaScript task runner that simplifies the process of automating repetitive tasks in web development
-projects. It allows developers to define and execute custom tasks such as minification, compilation, and testing of
-code, making it easier to manage complex workflows and maintain consistency across projects. Grunt uses a plugin-based
-architecture that enables developers to extend its functionality by incorporating third-party plugins or creating their
-own. It provides a command-line interface for managing tasks, as well as a range of features for configuring and
-customizing tasks, including file globs, options, and callbacks. Grunt is widely used in the web development community,
-particularly in front-end development workflows, and it integrates with popular web development tools such as Node.js,
-npm, and Bower.
-
-[Documentation](ops-grunt)
-
----
-
-### Ops Phing
-
-Phing is a build tool for PHP projects that automates repetitive tasks such as compiling code, running tests, and
-deploying applications. It provides a flexible XML-based build script language and a rich set of built-in tasks, as well
-as the ability to create custom tasks, making it a powerful tool for streamlining development workflows.
-
-[Documentation](ops-phing)
-
----
-
 ### Ops PHP
 
 PHP CLI (Command Line Interface) is a version of the PHP programming language that is designed to be executed from the
@@ -134,20 +98,6 @@ operating system. PHP CLI is widely used in web development and system administr
 range of platforms, including Windows, macOS, and Linux.
 
 [Documentation](ops-php)
-
----
-
-### Ops Symfony
-
-Symfony CLI is a command-line interface tool for managing Symfony applications and projects. It provides a range of
-commands and tools that simplify the process of building, testing, and deploying Symfony applications, making it easier
-for developers to manage their workflows and increase productivity. Symfony CLI includes features such as project
-creation and configuration, dependency management, code generation, database migration, and testing. It also includes a
-built-in web server that allows developers to run and test their applications locally. Symfony CLI is widely used in the
-Symfony community and is an essential tool for developers building Symfony applications. It is compatible with a wide
-range of operating systems, including Windows, macOS, and Linux.
-
-[Documentation](ops-symfony)
 
 ---
 
