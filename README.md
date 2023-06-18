@@ -48,8 +48,6 @@ efficient, reliable, and secure operation of computer systems in a wide range of
 
 --- 
 
---- 
-
 ### Docker
 
 Docker is a popular platform for developing, shipping, and running applications using containerization technology. It
@@ -74,8 +72,6 @@ such as templates, values files, and hooks. Helm also has a large and active com
 available for popular applications and services.
 
 [Documentation](helm)
-
---- 
 
 --- 
 
