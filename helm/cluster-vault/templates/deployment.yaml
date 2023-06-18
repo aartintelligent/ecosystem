@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "cluster-vault.fullname" . }}
+  name: {{ include "k3s-standalone.fullname" . }}
   labels:
-    {{- include "cluster-vault.labels" . | nindent 4 }}
+    {{- include "k3s-standalone.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "cluster-vault.selectorLabels" . | nindent 6 }}
+      {{- include "k3s-standalone.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,13 +18,13 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "cluster-vault.selectorLabels" . | nindent 8 }}
+        {{- include "k3s-standalone.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "cluster-vault.serviceAccountName" . }}
+      serviceAccountName: {{ include "k3s-standalone.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:

@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "cluster-vault.fullname" . }}
+  name: {{ include "k3s-standalone.fullname" . }}
   labels:
-    {{- include "cluster-vault.labels" . | nindent 4 }}
+    {{- include "k3s-standalone.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -12,4 +12,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "cluster-vault.selectorLabels" . | nindent 4 }}
+    {{- include "k3s-standalone.selectorLabels" . | nindent 4 }}
