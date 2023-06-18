@@ -12,6 +12,7 @@ mkdir -p $(pwd)/.composer
 
 ```shell
 docker run -it --rm \
+-u $(id -u):$(id -g) \
 -v $(pwd)/src:/src \
 -v $(pwd)/.composer:/var/cache/composer \
 -e COMPOSER_AUTH="$(cat auth.json)" \
@@ -21,6 +22,7 @@ install
 
 ```shell
 docker run -it --rm \
+-u $(id -u):$(id -g) \
 -v $(pwd)/src:/src \
 -v $(pwd)/.composer:/var/cache/composer \
 -e COMPOSER_AUTH="$(cat auth.json)" \

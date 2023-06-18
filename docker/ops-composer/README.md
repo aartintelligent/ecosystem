@@ -25,6 +25,7 @@ docker build . \
 
 ```shell
 docker run -it --rm \
+-u $(id -u):$(id -g) \
 -v $(pwd):/src \
 aartintelligent/ops-composer:latest \
 -v
@@ -32,6 +33,7 @@ aartintelligent/ops-composer:latest \
 
 ```shell
 docker run -it --rm \
+-u $(id -u):$(id -g) \
 -v $(pwd):/src \
 aartintelligent/ops-composer:8.2 \
 -v
@@ -39,6 +41,7 @@ aartintelligent/ops-composer:8.2 \
 
 ```shell
 docker run -it --rm \
+-u $(id -u):$(id -g) \
 -v $(pwd):/src \
 aartintelligent/ops-composer:8.1 \
 -v
