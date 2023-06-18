@@ -48,19 +48,6 @@ efficient, reliable, and secure operation of computer systems in a wide range of
 
 --- 
 
-### Contribution
-
-A software contribution refers to the act of contributing code, documentation, or other resources to a software project
-or community. It involves actively participating in the development, improvement, and maintenance of software, typically
-through collaboration with other contributors and the project maintainers. Contributions can take many forms, such as
-fixing bugs, adding new features, improving documentation, or testing software. Contributions to open-source software
-projects are often publicly visible and may be recognized through credits, badges, or other forms of acknowledgement.
-Contributing to software projects can provide valuable learning opportunities, networking, and professional development,
-while also helping to advance the state of technology and improve the quality and accessibility of software for users
-worldwide.
-
-[Documentation](contribution)
-
 --- 
 
 ### Docker
@@ -90,20 +77,6 @@ available for popular applications and services.
 
 --- 
 
-### Learn
-
-A mode of learning in computer science refers to the method or approach used to acquire knowledge and skills in the
-field of computing. There are several modes of learning in computer science, including classroom-based learning, online
-learning, self-paced learning, and experiential learning. Classroom-based learning involves attending lectures,
-participating in discussions, and completing assignments under the guidance of an instructor. Online learning involves
-accessing educational materials and completing coursework via the internet, often with asynchronous or self-paced
-learning options. Self-paced learning involves studying and practicing independently using textbooks, online resources,
-or other materials. Experiential learning involves gaining practical experience through internships, cooperative
-education programs, or other forms of work-based learning. Each mode of learning has its benefits and drawbacks, and
-individuals may choose to use a combination of these modes to achieve their learning goals in computer science.
-
-[Documentation](learn)
-
 --- 
 
 ### VM
@@ -117,4 +90,3 @@ greater flexibility, scalability, and resource utilization. VMs are commonly use
 centers, and testing and development scenarios.
 
 [Documentation](vm)
-
