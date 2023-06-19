@@ -2,3 +2,4 @@
 /.DS_Store
 /.composer
 /auth.json
+/src/auth.json

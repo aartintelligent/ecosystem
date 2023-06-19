@@ -165,16 +165,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.273.0",
+            "version": "3.273.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "86078abfba43fce3f71a2714bb10a6b1baec1b78"
+                "reference": "10631467bdf9869a45197a25b490948af2ef7acd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/86078abfba43fce3f71a2714bb10a6b1baec1b78",
-                "reference": "86078abfba43fce3f71a2714bb10a6b1baec1b78",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/10631467bdf9869a45197a25b490948af2ef7acd",
+                "reference": "10631467bdf9869a45197a25b490948af2ef7acd",
                 "shasum": ""
             },
             "require": {
@@ -254,9 +254,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.273.0"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.273.2"
             },
-            "time": "2023-06-13T18:22:02+00:00"
+            "time": "2023-06-16T18:53:48+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",
@@ -22756,16 +22756,16 @@
         },
         {
             "name": "webonyx/graphql-php",
-            "version": "v15.5.0",
+            "version": "v15.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webonyx/graphql-php.git",
-                "reference": "0dd4dd8ebe1bc8f3d61b4daedcf66987f39772e7"
+                "reference": "b305633164a48947e22d53b6b15fcb98613c6592"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/0dd4dd8ebe1bc8f3d61b4daedcf66987f39772e7",
-                "reference": "0dd4dd8ebe1bc8f3d61b4daedcf66987f39772e7",
+                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/b305633164a48947e22d53b6b15fcb98613c6592",
+                "reference": "b305633164a48947e22d53b6b15fcb98613c6592",
                 "shasum": ""
             },
             "require": {
@@ -22776,20 +22776,20 @@
             "require-dev": {
                 "amphp/amp": "^2.6",
                 "amphp/http-server": "^2.1",
-                "dms/phpunit-arraysubset-asserts": "^0.4",
+                "dms/phpunit-arraysubset-asserts": "dev-master",
                 "ergebnis/composer-normalize": "^2.28",
-                "mll-lab/php-cs-fixer-config": "^5.0",
+                "mll-lab/php-cs-fixer-config": "^5",
                 "nyholm/psr7": "^1.5",
                 "phpbench/phpbench": "^1.2",
                 "phpstan/extension-installer": "^1.1",
-                "phpstan/phpstan": "1.10.15",
+                "phpstan/phpstan": "1.10.19",
                 "phpstan/phpstan-phpunit": "1.3.13",
                 "phpstan/phpstan-strict-rules": "1.5.1",
-                "phpunit/phpunit": "^9.5",
+                "phpunit/phpunit": "^9.5 || ^10",
                 "psr/http-message": "^1 || ^2",
                 "react/http": "^1.6",
                 "react/promise": "^2.9",
-                "rector/rector": "^0.16.0",
+                "rector/rector": "^0.17.0",
                 "symfony/polyfill-php81": "^1.23",
                 "symfony/var-exporter": "^5 || ^6",
                 "thecodingmachine/safe": "^1.3 || ^2"
@@ -22817,7 +22817,7 @@
             ],
             "support": {
                 "issues": "https://github.com/webonyx/graphql-php/issues",
-                "source": "https://github.com/webonyx/graphql-php/tree/v15.5.0"
+                "source": "https://github.com/webonyx/graphql-php/tree/v15.5.1"
             },
             "funding": [
                 {
@@ -22825,7 +22825,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2023-05-30T13:10:49+00:00"
+            "time": "2023-06-16T12:19:23+00:00"
         },
         {
             "name": "wikimedia/less.php",

@@ -11,6 +11,7 @@
 /Dockerfile
 /icon.svg
 /README.md
+/src/auht.json
 /src/app/etc/env.php
 /src/dev
 /src/generated

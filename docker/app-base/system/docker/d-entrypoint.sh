@@ -19,21 +19,21 @@ if [ "$1" = 'supervisor' ] || [ "$1" = 'cron' ]; then
 
   if [ "$1" = 'supervisor' ]; then
 
-    (>&2 echo "[*] Start SUPERVISOR")
-
     echo "/docker/d-health-supervisor.sh" >> /docker/d-health.list
 
     supervisord > /dev/null 2>&1 || true
+
+    (>&2 echo "[*] Start SUPERVISOR")
 
   fi
 
   if [ "$1" = 'cron' ]; then
 
-    (>&2 echo "[*] Start CRON")
-
     echo "/docker/d-health-cron.sh" >> /docker/d-health.list
 
     cron > /dev/null 2>&1 || true
+
+    (>&2 echo "[*] Start CRON")
 
   fi
 
