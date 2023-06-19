@@ -39,7 +39,7 @@ if [ "$1" = 'supervisor' ] || [ "$1" = 'cron' ]; then
 
   until bash /docker/d-health.sh >/dev/null 2>&1; do
 
-    (echo >&2 "[!] Waiting service $1 to be started...")
+    (echo >&2 "[!] Waiting $1 to be started...")
 
     sleep 2
 
