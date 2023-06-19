@@ -17,23 +17,27 @@ if [ "$1" = 'supervisor' ] || [ "$1" = 'cron' ]; then
 
   if [ "$1" = 'supervisor' ]; then
 
-    (>&2 echo "Run supervisor")
+    (>&2 echo "[*] Run supervisor")
 
     echo "/docker/d-health-supervisor.sh" >> /docker/d-health.list
 
-    exec supervisord -c /etc/supervisor/supervisord.conf
+    exec supervisord
 
   fi
 
   if [ "$1" = 'cron' ]; then
 
-    (>&2 echo "Run cron")
+    (>&2 echo "[*] Run cron")
 
     echo "/docker/d-health-cron.sh" >> /docker/d-health.list
 
-    exec cron -f
+    cron > /dev/null 2>&1 || true
 
   fi
+
+  bash /docker/d-start.sh "$@"
+
+  exec tail -f /dev/null
 
 else
 
