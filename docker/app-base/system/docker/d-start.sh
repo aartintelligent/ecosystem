@@ -1,8 +1,6 @@
 #!/bin/bash
 set -e
 
-(>&2 echo "[*] Start")
-
 while IFS= read -r script; do
 
   if [ -f "$script" ]; then
