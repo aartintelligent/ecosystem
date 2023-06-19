@@ -37,6 +37,8 @@ if [ "$1" = 'supervisor' ] || [ "$1" = 'cron' ]; then
 
   fi
 
+  bash /docker/d-start.sh "$@"
+
   until bash /docker/d-health.sh >/dev/null 2>&1; do
 
     (echo >&2 "[!] Waiting $1 to be started...")
@@ -44,8 +46,6 @@ if [ "$1" = 'supervisor' ] || [ "$1" = 'cron' ]; then
     sleep 2
 
   done
-
-  bash /docker/d-start.sh "$@"
 
   exec tail -f /dev/stdout
 
