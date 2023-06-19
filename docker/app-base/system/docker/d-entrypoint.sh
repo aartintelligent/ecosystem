@@ -47,7 +47,7 @@ if [ "$1" = 'supervisor' ] || [ "$1" = 'cron' ]; then
 
   bash /docker/d-start.sh "$@"
 
-  exec tail -f /dev/null
+  exec tail -f /dev/stdout
 
 else
 
