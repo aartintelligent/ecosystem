@@ -26,7 +26,7 @@ return [
         'table_prefix' => '',
         'connection' => [
             'default' => [
-                'host' => getenv('MYSQL_HOST'),
+                'host' => getenv('MYSQL_SERVICE_HOST'),
                 'dbname' => getenv('MYSQL_DATABASE'),
                 'username' => getenv('MYSQL_USER'),
                 'password' => getenv('MYSQL_PASSWORD'),
@@ -43,8 +43,8 @@ return [
     'session' => [
         'save' => 'redis',
         'redis' => [
-            'host' => getenv('REDIS_SESSION_HOST'),
-            'port' => getenv('REDIS_SESSION_PORT'),
+            'host' => getenv('REDIS_SESSION_SERVICE_HOST'),
+            'port' => getenv('REDIS_SESSION_SERVICE_PORT'),
             'password' => getenv('REDIS_SESSION_PASSWORD'),
             'database' => '2',
             'timeout' => '2.5',
@@ -73,8 +73,8 @@ return [
                 'id_prefix' => substr(getenv('GIT_COMMIT') ?? 'a00001', 0, 6) . '_',
                 'backend' => 'Magento\\Framework\\Cache\\Backend\\Redis',
                 'backend_options' => [
-                    'server' => getenv('REDIS_CACHE_HOST'),
-                    'port' => getenv('REDIS_CACHE_PORT'),
+                    'server' => getenv('REDIS_CACHE_SERVICE_HOST'),
+                    'port' => getenv('REDIS_CACHE_SERVICE_PORT'),
                     'password' => getenv('REDIS_CACHE_PASSWORD'),
                     'database' => '0',
                     'compress_data' => '1',
@@ -91,8 +91,8 @@ return [
                 'id_prefix' => substr(getenv('GIT_COMMIT') ?? 'a00001', 0, 6) . '_',
                 'backend' => 'Magento\\Framework\\Cache\\Backend\\Redis',
                 'backend_options' => [
-                    'server' => getenv('REDIS_CACHE_HOST'),
-                    'port' => getenv('REDIS_CACHE_PORT'),
+                    'server' => getenv('REDIS_CACHE_SERVICE_HOST'),
+                    'port' => getenv('REDIS_CACHE_SERVICE_PORT'),
                     'password' => getenv('REDIS_CACHE_PASSWORD'),
                     'database' => '1',
                     'compress_data' => '0',
@@ -105,8 +105,8 @@ return [
     'queue' => [
         'consumers_wait_for_messages' => 1,
         'amqp' => [
-            'host' => getenv('RABBITMQ_HOST'),
-            'port' => getenv('RABBITMQ_PORT'),
+            'host' => getenv('RABBITMQ_SERVICE_HOST'),
+            'port' => getenv('RABBITMQ_SERVICE_PORT'),
             'user' => getenv('RABBITMQ_USER'),
             'password' => getenv('RABBITMQ_PASSWORD'),
             'virtualhost' => getenv('RABBITMQ_VIRTUALHOST') ?? '/'

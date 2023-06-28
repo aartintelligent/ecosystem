@@ -112,6 +112,7 @@ COPY --chown=rootless:rootless system /
 RUN set -eux; \
 mkdir -p \
 /etc/php \
+/var/lib/php/sessions \
 /var/log/opcache \
 /var/lock/opcache \
 /var/cache/opcache; \
@@ -120,11 +121,13 @@ cp -r \
 /etc/php/${PHP_VERSION}; \
 chmod 777 -R \
 /etc/php \
+/var/lib/php/sessions \
 /var/log/opcache \
 /var/lock/opcache \
 /var/cache/opcache; \
 chown rootless:rootless \
 /etc/php \
+/var/lib/php/sessions \
 /var/log/opcache \
 /var/lock/opcache \
 /var/cache/opcache; \

@@ -18,10 +18,10 @@ services:
       - traefik.enable=true
       - traefik.http.middlewares.https-redirect.redirectscheme.scheme=https
       - traefik.http.middlewares.https-redirect.redirectscheme.permanent=true
-      - traefik.http.routers.traefik-public-http.rule=Host(`traefik.${DOMAIN:-local}`)
+      - traefik.http.routers.traefik-public-http.rule=Host(`${TRAEFIK_DOMAIN:-traefik.local}`)
       - traefik.http.routers.traefik-public-http.entrypoints=http
       - traefik.http.routers.traefik-public-http.middlewares=https-redirect
-      - traefik.http.routers.traefik-public-https.rule=Host(`traefik.${DOMAIN:-local}`)
+      - traefik.http.routers.traefik-public-https.rule=Host(`${TRAEFIK_DOMAIN:-traefik.local}`)
       - traefik.http.routers.traefik-public-https.entrypoints=https
       - traefik.http.routers.traefik-public-https.tls=true
       - traefik.http.routers.traefik-public-https.service=api@internal
@@ -38,10 +38,10 @@ services:
     image: mailhog/mailhog:${MAILHOG_VERSION:-latest}
     labels:
       - traefik.enable=true
-      - traefik.http.routers.mailhog-http.rule=Host(`mailhog.${DOMAIN:-local}`)
+      - traefik.http.routers.mailhog-http.rule=Host(`${MAILHOG_DOMAIN:-mailhog.local}`)
       - traefik.http.routers.mailhog-http.entrypoints=http
       - traefik.http.routers.mailhog-http.middlewares=https-redirect
-      - traefik.http.routers.mailhog-https.rule=Host(`mailhog.${DOMAIN:-local}`)
+      - traefik.http.routers.mailhog-https.rule=Host(`${MAILHOG_DOMAIN:-mailhog.local}`)
       - traefik.http.routers.mailhog-https.entrypoints=https
       - traefik.http.routers.mailhog-https.tls=true
       - traefik.http.routers.mailhog-https.tls.certresolver=le
@@ -69,10 +69,10 @@ services:
       PMA_PORT: ${MYSQL_PORT:-3306}
     labels:
       - traefik.enable=true
-      - traefik.http.routers.phpmyadmin-http.rule=Host(`phpmyadmin.${DOMAIN:-local}`)
+      - traefik.http.routers.phpmyadmin-http.rule=Host(`${PHPMYADMIN_DOMAIN:-phpmyadmin.local}`)
       - traefik.http.routers.phpmyadmin-http.entrypoints=http
       - traefik.http.routers.phpmyadmin-http.middlewares=https-redirect
-      - traefik.http.routers.phpmyadmin-https.rule=Host(`phpmyadmin.${DOMAIN:-local}`)
+      - traefik.http.routers.phpmyadmin-https.rule=Host(`${PHPMYADMIN_DOMAIN:-phpmyadmin.local}`)
       - traefik.http.routers.phpmyadmin-https.entrypoints=https
       - traefik.http.routers.phpmyadmin-https.tls=true
       - traefik.http.routers.phpmyadmin-https.tls.certresolver=le
@@ -117,10 +117,10 @@ services:
       RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:-nopassword}
     labels:
       - traefik.enable=true
-      - traefik.http.routers.rabbitmq-http.rule=Host(`rabbitmq.${DOMAIN:-local}`)
+      - traefik.http.routers.rabbitmq-http.rule=Host(`${RABBITMQ_DOMAIN:-rabbitmq.local}`)
       - traefik.http.routers.rabbitmq-http.entrypoints=http
       - traefik.http.routers.rabbitmq-http.middlewares=https-redirect
-      - traefik.http.routers.rabbitmq-https.rule=Host(`rabbitmq.${DOMAIN:-local}`)
+      - traefik.http.routers.rabbitmq-https.rule=Host(`${RABBITMQ_DOMAIN:-rabbitmq.local}`)
       - traefik.http.routers.rabbitmq-https.entrypoints=https
       - traefik.http.routers.rabbitmq-https.tls=true
       - traefik.http.routers.rabbitmq-https.tls.certresolver=le
@@ -139,10 +139,10 @@ services:
       - .env
     labels:
       - traefik.enable=true
-      - traefik.http.routers.magento-http.rule=Host(`magento-backend.${DOMAIN:-local}`)
+      - traefik.http.routers.magento-http.rule=Host(`${MAGENTO_DOMAIN:-magento-backend.local}`)
       - traefik.http.routers.magento-http.entrypoints=http
       - traefik.http.routers.magento-http.middlewares=https-redirect
-      - traefik.http.routers.magento-https.rule=Host(`magento-backend.${DOMAIN:-local}`)
+      - traefik.http.routers.magento-https.rule=Host(`${MAGENTO_DOMAIN:-magento-backend.local}`)
       - traefik.http.routers.magento-https.entrypoints=https
       - traefik.http.routers.magento-https.tls=true
       - traefik.http.routers.magento-https.tls.certresolver=le
@@ -171,10 +171,10 @@ services:
       VARNISH_SIZE: ${VARNISH_SIZE:-2G}
     labels:
       - traefik.enable=true
-      - traefik.http.routers.varnish-http.rule=Host(`magento-frontend.${DOMAIN:-local}`)
+      - traefik.http.routers.varnish-http.rule=Host(`${VARNISH_DOMAIN:-magento-frontend.local}`)
       - traefik.http.routers.varnish-http.entrypoints=http
       - traefik.http.routers.varnish-http.middlewares=https-redirect
-      - traefik.http.routers.varnish-https.rule=Host(`magento-frontend.${DOMAIN:-local}`)
+      - traefik.http.routers.varnish-https.rule=Host(`${VARNISH_DOMAIN:-magento-frontend.local}`)
       - traefik.http.routers.varnish-https.entrypoints=https
       - traefik.http.routers.varnish-https.tls=true
       - traefik.http.routers.varnish-https.tls.certresolver=le
