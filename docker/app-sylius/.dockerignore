@@ -4,6 +4,8 @@
 /.github
 /.yarn
 /.gitignore
+/build.xml
+/build.properties
 /.env
 /docker-compose.yml
 /Dockerfile

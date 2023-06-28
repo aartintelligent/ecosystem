@@ -3,8 +3,10 @@
 /.composer
 /.github
 /.yarn
-/.gitignore
 /.env
+/.gitignore
+/build.xml
+/build.properties
 /docker-compose.yml
 /Dockerfile
 /icon.svg

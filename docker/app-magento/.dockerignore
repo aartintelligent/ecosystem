@@ -6,6 +6,8 @@
 /.gitignore
 /.env
 /auth.json
+/build.xml
+/build.properties
 /default.vcl
 /docker-compose.yml
 /Dockerfile

@@ -2,5 +2,7 @@
 /.git
 /.github
 /.gitignore
+/build.xml
+/build.properties
 /Dockerfile
 /README.md
