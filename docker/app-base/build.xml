@@ -4,12 +4,12 @@
     <property environment="env"/>
     <target name="build-version">
         <echo message="Build app-base image version"/>
-        <exec command="docker build . -t ${docker.repository.source}/${project.name}:${docker.repository.version}"
+        <exec command="docker build . -t ${docker.repository.source}/app-base:${docker.repository.version}"
               passthru="true"/>
     </target>
     <target name="build-latest">
         <echo message="Build app-base image latest"/>
-        <exec command="docker build . -t ${docker.repository.source}/${project.name}:latest"
+        <exec command="docker build . -t ${docker.repository.source}/app-base:latest"
               passthru="true"/>
     </target>
 </project>
