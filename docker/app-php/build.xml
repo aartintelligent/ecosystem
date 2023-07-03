@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<project name="app-php" default="build-version" basedir=".">
+<project name="app-php" default="build-latest" basedir=".">
     <property file="build.properties"/>
     <property environment="env" override="true"/>
-    <target name="build-version">
+    <target name="build-version-8.1">
         <echo message="Build app-base image version"/>
-        <exec command="docker build . -t ${docker.source}/${docker.name}:${docker.version}"
+        <property name="version" value="8.1"/>
+        <exec command="docker build . -t ${docker.source}/${docker.name}:${version} --build-arg 'PHP_VERSION=${version}'"
+              passthru="true"/>
+    </target>
+    <target name="build-version-8.2">
+        <echo message="Build app-base image version"/>
+        <property name="version" value="8.2"/>
+        <exec command="docker build . -t ${docker.source}/${docker.name}:${version} --build-arg 'PHP_VERSION=${version}'"
               passthru="true"/>
     </target>
     <target name="build-latest">
