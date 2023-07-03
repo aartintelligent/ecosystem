@@ -4,11 +4,17 @@
     <target name="build">
         <echo message="Build app-base image latest"/>
         <exec executable="docker" dir="${project.basedir}" passthru="true">
-            <arg line="build ${project.basedir} -t ${docker.repository.source}${project.name}:latest"/>
+            <arg value="build"/>
+            <arg value="${project.basedir}"/>
+            <arg value="--tag"/>
+            <arg value="${docker.repository.source}${project.name}:latest"/>
         </exec>
         <echo message="Build app-base image version"/>
         <exec executable="docker" dir="${project.basedir}" passthru="true">
-            <arg line="build ${project.basedir} -t ${docker.repository.source}${project.name}:${docker.repository.version}"/>
+            <arg value="build"/>
+            <arg value="${project.basedir}"/>
+            <arg value="--tag"/>
+            <arg value="${docker.repository.source}${project.name}:${docker.repository.version}"/>
         </exec>
     </target>
 </project>
