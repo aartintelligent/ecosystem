@@ -3,10 +3,7 @@
     <target name="build">
         <echo message="Build app-base image latest"/>
         <exec executable="docker" dir="${basedir}" passthru="true">
-            <arg value="build"/>
-            <arg value="${basedir}"/>
-            <arg value="--tag"/>
-            <arg value="${docker.repository.source}${project.name}:latest"/>
+            <arg line="build . -t ${docker.repository.source}${project.name}:latest"/>
         </exec>
     </target>
 </project>
