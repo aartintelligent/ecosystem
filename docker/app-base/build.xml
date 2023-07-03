@@ -5,5 +5,9 @@
         <exec executable="docker" dir="${basedir}" passthru="true">
             <arg line="build . -t ${docker.repository.source}${project.name}:latest"/>
         </exec>
+        <echo message="Build app-base image version"/>
+        <exec executable="docker" dir="${basedir}" passthru="true">
+            <arg line="build . -t ${docker.repository.source}${project.name}:${docker.repository.version}"/>
+        </exec>
     </target>
 </project>
