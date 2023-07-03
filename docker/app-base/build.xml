@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <project name="app-base" default="build-version" basedir=".">
     <property file="build.properties"/>
-    <property environment="env"/>
+    <property environment="env" override="true"/>
+    <property name="project.name" value="app-base" override="true"/>
     <target name="build-version">
         <echo message="Build app-base image version"/>
-        <exec command="docker build . -t ${docker.repository.source}/app-base:${docker.repository.version}"
+        <exec command="docker build . -t ${docker.repository.source}/${project.name}:${docker.repository.version}"
               passthru="true"/>
     </target>
     <target name="build-latest">
         <echo message="Build app-base image latest"/>
-        <exec command="docker build . -t ${docker.repository.source}/app-base:latest"
+        <exec command="docker build . -t ${docker.repository.source}/${project.name}:latest"
               passthru="true"/>
     </target>
 </project>
