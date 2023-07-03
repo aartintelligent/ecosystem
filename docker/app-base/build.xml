@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<project name="app-base" default="build-latest" basedir=".">
+<project name="app-base" default="build" basedir=".">
     <property file="./build.properties"/>
-    <target name="build-latest">
+    <target name="build">
         <echo message="Build app-base image latest"/>
-        <exec executable="docker" dir="${basedir}">
+        <exec executable="docker" dir="${basedir}" passthru="true">
             <arg value="build"/>
             <arg value="${basedir}"/>
             <arg value="--tag"/>
