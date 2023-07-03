@@ -2,12 +2,14 @@
 <project name="app-base" default="build" basedir=".">
     <property file="./build.properties"/>
     <property environment="env"/>
-    <target name="build">
+    <target name="build-latest">
         <echo message="Build app-base image latest"/>
-        <exec command="docker build ${project.basedir} --tag ${docker.repository.source}${project.name}:latest"
+        <exec command="docker build . -t ${docker.repository.source}${project.name}:latest"
               passthru="true"/>
+    </target>
+    <target name="build-version">
         <echo message="Build app-base image version"/>
-        <exec command="docker build ${project.basedir} --tag ${docker.repository.source}${project.name}:${docker.repository.version}"
+        <exec command="docker build . -t ${docker.repository.source}${project.name}:${docker.repository.version}"
               passthru="true"/>
     </target>
 </project>
