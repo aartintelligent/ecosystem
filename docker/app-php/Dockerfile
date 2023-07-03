@@ -75,7 +75,6 @@ apt-get update \
 RUN set -eux; \
 apt-get update \
 && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-php${PHP_VERSION} \
 php${PHP_VERSION}-cli \
 php${PHP_VERSION}-fpm \
 php${PHP_VERSION}-common \
