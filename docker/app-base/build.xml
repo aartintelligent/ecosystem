@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<project name="app-base" default="build-version" basedir=".">
+<project name="app-base" default="build-latest" basedir=".">
     <property file="build.properties"/>
     <property environment="env" override="true"/>
     <target name="build-latest">
