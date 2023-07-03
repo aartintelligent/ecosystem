@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <project name="app-base" default="build" basedir=".">
     <property file="./build.properties"/>
+    <property environment="env"/>
     <target name="build">
         <echo message="Build app-base image latest"/>
-        <exec executable="docker" dir="${project.basedir}" passthru="true">
-            <arg value="build"/>
-            <arg value="${project.basedir}"/>
-            <arg value="--tag"/>
-            <arg value="${docker.repository.source}${project.name}:latest"/>
-        </exec>
+        <exec command="docker build ${project.basedir} --tag ${docker.repository.source}${project.name}:latest"
+              passthru="true"/>
         <echo message="Build app-base image version"/>
-        <exec executable="docker" dir="${project.basedir}" passthru="true">
-            <arg value="build"/>
-            <arg value="${project.basedir}"/>
-            <arg value="--tag"/>
-            <arg value="${docker.repository.source}${project.name}:${docker.repository.version}"/>
-        </exec>
+        <exec command="docker build ${project.basedir} --tag ${docker.repository.source}${project.name}:${docker.repository.version}"
+              passthru="true"/>
     </target>
 </project>
