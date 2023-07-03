@@ -14,7 +14,7 @@
         <exec command="docker build . -t ${docker.source}/${docker.name}:${version} --build-arg 'PHP_VERSION=${version}'"
               passthru="true"/>
     </target>
-    <target name="build-latest">
+    <target name="build-latest" depends="build-version-8.1,build-version-8.2">
         <echo message="Build app-base image latest"/>
         <exec command="docker build . -t ${docker.source}/${docker.name}:latest"
               passthru="true"/>
