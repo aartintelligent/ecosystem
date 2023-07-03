@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <project name="app-base" default="build" basedir=".">
+    <property file="./build.properties"/>
     <target name="build">
-        <echo message="Build app-base image version latest"/>
+        <echo message="Build app-base image latest"/>
         <exec executable="docker" dir="${project.basedir}" passthru="true">
-            <arg line="build . -t ${docker.repository.source}${project.name}:latest"/>
+            <arg line="build ${project.basedir} -t ${docker.repository.source}${project.name}:latest"/>
         </exec>
-        <echo message="Build app-base image version ${docker.repository.version}"/>
+        <echo message="Build app-base image version"/>
         <exec executable="docker" dir="${project.basedir}" passthru="true">
-            <arg line="build . -t ${docker.repository.source}${project.name}:${docker.repository.version}"/>
+            <arg line="build ${project.basedir} -t ${docker.repository.source}${project.name}:${docker.repository.version}"/>
         </exec>
     </target>
 </project>
